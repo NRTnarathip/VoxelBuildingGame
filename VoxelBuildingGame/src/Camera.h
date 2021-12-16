@@ -1,0 +1,49 @@
+//
+// Created by sven on 01.05.19. Class taken and adjusted from learnopengl.com (Joey DeVries)
+//
+
+#pragma once
+#include<glad/glad.h>
+#include<GLFW/glfw3.h>
+#include<glm/glm.hpp>
+#include<glm/gtc/matrix_transform.hpp>
+#include<glm/gtc/type_ptr.hpp>
+#include<glm/gtx/rotate_vector.hpp>
+#include<glm/gtx/vector_angle.hpp>
+
+#include <vector>
+
+class Camera {
+public:
+	//project view use coordinate system left hand
+	// Stores the main vectors of the camera
+	//look at forward axis +z
+	glm::vec3 Orientation = glm::vec3(0.0f, 0.0f, 1.0f); // rotation object
+	glm::vec3 Postition = glm::vec3(0.0f, 0.0f, 0.0f); // should += offset player
+	glm::vec3 Up = glm::vec3(0.0f, 1.0f, 0.0f);
+
+	// Prevents the camera from jumping around when first clicking left click
+	bool firstClick = true;
+
+	// Stores the width and height of the window
+	int width = 1280;
+	int height = 720;
+
+	// Adjust the speed of the camera and it's sensitivity when looking around
+	float speed = 0.1f;
+	float sensitivity = 100.0f;
+
+	float FOVdeg = 60.f;
+	float nearPlane = 0.03f;
+	float farPlane = 500.0f;
+
+	GLFWwindow* window = nullptr;
+
+	// Camera constructor to set up initial values
+	void InitCamera(GLFWwindow* window,int width, int height,
+		float FOVdeg, float nearPlane, float farPlane);
+
+	// Updates and exports the camera matrix to the Vertex Shader
+	void UpdateMatrix() const;
+	
+};

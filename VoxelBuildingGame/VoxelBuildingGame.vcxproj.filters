@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Resource Files\Shader">
+      <UniqueIdentifier>{2f31cb1d-b974-41c5-b986-acb1f68872e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Renderer">
+      <UniqueIdentifier>{89d3f1e9-aca5-4ba1-a1c6-57285b9eb456}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Lib">
+      <UniqueIdentifier>{9b8cf2ac-bcd1-49db-82ae-c30634ddd514}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\Blocks">
+      <UniqueIdentifier>{896d8bdf-273a-49e6-8734-5b10c838f98a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\bin">
+      <UniqueIdentifier>{669aeda9-3f8a-4676-a6d7-ac882c85d238}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\imgui">
+      <UniqueIdentifier>{0fb64324-30d3-4f55-a4d0-365198bd6403}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\World">
+      <UniqueIdentifier>{0d25de4e-b277-4499-b637-49647c318350}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\World\Chunk">
+      <UniqueIdentifier>{928fd87f-1472-4179-9363-01544ffd259a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine">
+      <UniqueIdentifier>{396084ac-ea6c-4068-8080-780eb1dcc84f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Engine\Client">
+      <UniqueIdentifier>{1dd18548-62b1-4683-8310-f6be0c5e84a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Player">
+      <UniqueIdentifier>{462c6066-8144-4129-92bf-48d59d9fdc1b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Graphic">
+      <UniqueIdentifier>{71da6077-d2f9-4e10-bd1b-dac8a32de1eb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Graphic\ImGui">
+      <UniqueIdentifier>{3af42be6-61aa-44fe-8349-3812a93d5dbf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Graphic\GUI">
+      <UniqueIdentifier>{75e1da3e-94d3-4a20-a6b1-d62e116565f3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Game.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Renderer\shaderClass.h">
+      <Filter>Source Files\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Chunk.h">
+      <Filter>Source Files\World\Chunk</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ChunkGroup.h">
+      <Filter>Source Files\World\Chunk</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ChunkManager.h">
+      <Filter>Source Files\World\Chunk</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ChunkHelper.h">
+      <Filter>Source Files\World\Chunk</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGui\imgui_internal.h">
+      <Filter>Source Files\Graphic\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGui\imgui_impl_opengl3.h">
+      <Filter>Source Files\Graphic\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGui\imgui_impl_glfw.h">
+      <Filter>Source Files\Graphic\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGui\imgui.h">
+      <Filter>Source Files\Graphic\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGui\imconfig.h">
+      <Filter>Source Files\Graphic\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="ImGui\imgui_impl_opengl3_loader.h">
+      <Filter>Source Files\Graphic\ImGui</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ClientEngine.h">
+      <Filter>Source Files\Engine\Client</Filter>
+    </ClInclude>
+    <ClInclude Include="src\MyGUI.h">
+      <Filter>Source Files\Graphic\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="src\World.h">
+      <Filter>Source Files\World</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Voxel.h">
+      <Filter>Source Files\World</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ECS.h">
+      <Filter>Source Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Mesh.h">
+      <Filter>Source Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Texture.h">
+      <Filter>Source Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TerrainGen.h">
+      <Filter>Source Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GenerateMeshChunk.h">
+      <Filter>Source Files\World\Chunk</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PlayerController.h">
+      <Filter>Source Files\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Camera.h">
+      <Filter>Source Files\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GraphicSetting.h">
+      <Filter>Source Files\Graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SmartQueue.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SmartChunkPooling.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SmartChunk.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Renderer\shaderClass.cpp">
+      <Filter>Source Files\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\glad.c">
+      <Filter>Source Files\Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Chunk.cpp">
+      <Filter>Source Files\World\Chunk</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ChunkGroup.cpp">
+      <Filter>Source Files\World\Chunk</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ChunkManager.cpp">
+      <Filter>Source Files\World\Chunk</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGui\imgui_widgets.cpp">
+      <Filter>Source Files\Graphic\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGui\imgui_tables.cpp">
+      <Filter>Source Files\Graphic\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGui\imgui_impl_opengl3.cpp">
+      <Filter>Source Files\Graphic\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGui\imgui_impl_glfw.cpp">
+      <Filter>Source Files\Graphic\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGui\imgui_draw.cpp">
+      <Filter>Source Files\Graphic\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGui\imgui_demo.cpp">
+      <Filter>Source Files\Graphic\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="ImGui\imgui.cpp">
+      <Filter>Source Files\Graphic\ImGui</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ClientEngine.cpp">
+      <Filter>Source Files\Engine\Client</Filter>
+    </ClCompile>
+    <ClCompile Include="src\MyGUI.cpp">
+      <Filter>Source Files\Graphic\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="src\World.cpp">
+      <Filter>Source Files\World</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Voxel.cpp">
+      <Filter>Source Files\World</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ECS.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mesh.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Texture.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TerrainGen.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GenerateMeshChunk.cpp">
+      <Filter>Source Files\World\Chunk</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PlayerController.cpp">
+      <Filter>Source Files\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Camera.cpp">
+      <Filter>Source Files\Player</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="src\Shader\defualt.frag">
+      <Filter>Resource Files\Shader</Filter>
+    </None>
+    <None Include="src\Shader\defualt.vert">
+      <Filter>Resource Files\Shader</Filter>
+    </None>
+    <None Include="src\bin\FastNoiseD.dll">
+      <Filter>Resource Files\bin</Filter>
+    </None>
+    <None Include="src\bin\FastNoiseD.pdb">
+      <Filter>Resource Files\bin</Filter>
+    </None>
+    <None Include="src\Shader\sky.frag">
+      <Filter>Resource Files\Shader</Filter>
+    </None>
+    <None Include="src\Shader\sky.vert">
+      <Filter>Resource Files\Shader</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <CopyFileToFolders Include="src\bin\FastNoise.dll">
+      <Filter>Resource Files\bin</Filter>
+    </CopyFileToFolders>
+  </ItemGroup>
+</Project>
