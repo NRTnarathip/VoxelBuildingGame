@@ -177,12 +177,11 @@ void ChunkManager::update(glm::vec3 posPlayer, unsigned char distRender) {
 
 	for (int renderZ = -distRender; renderZ <= distRender; renderZ++) { 
 		for (int renderX = -distRender; renderX <= distRender; renderX++) {
-
 			newChunkGroup(posPlayerToChunk.x + (renderX*Chunk::CHUNK_SIZE), 
 				posPlayerToChunk.z + (renderZ * Chunk::CHUNK_SIZE));
 		}
 	}
-	std::queue<SmartChunkGroup*> queDeleteCG;
+	std::deque<SmartChunkGroup*> queDeleteCG;
 	for (auto it = chunkGroups.begin(); it != chunkGroups.end();)
 	{
 		auto smChunk = it->second;
@@ -194,27 +193,28 @@ void ChunkManager::update(glm::vec3 posPlayer, unsigned char distRender) {
 		else {
 			smChunk->get()->inRangeRender = false;
 			chunkGroups.erase(it++);
-			queDeleteCG.push(smChunk);
+			queDeleteCG.push_back(smChunk);
 		}
 	}
+
 	//clear referance near chunk all
-	std::queue<SmartChunkGroup*> queDelTemp;
 	while (queDeleteCG.size() > 0) {
 		auto sm = queDeleteCG.front();
-		queDeleteCG.pop();
+		queDeleteCG.pop_front();
 
 		sm->lock();
 		sm->get()->clearChunk();
 		sm->unlock();
 
-		queDelTemp.push(sm);
+		queDeleteChunk.push(sm);
 	}
-	queDeleteChunk.TransferData(queDelTemp);
+	//clear
+	std::deque<SmartChunkGroup*>().swap(queDeleteCG);
 
 	//initial cnear chunk all
-	std::queue<SmartChunkGroup*> queChunkGroupTemp;
 	while (queSpawnChunkGroup.size() > 0) {
 		auto smChunk = queSpawnChunkGroup.getFront();
+
 		auto cg = smChunk->get();
 
 		//should init chunk near all
@@ -226,11 +226,8 @@ void ChunkManager::update(glm::vec3 posPlayer, unsigned char distRender) {
 		auto cgNearWest = getChunkGroup(cgPosX - Chunk::CHUNK_SIZE, cgPosZ);
 		//initChunkNear(smChunk, cgNearNorth, cgNearSouth, cgNearEast, cgNearWest);
 
-		//another thread
-		queChunkGroupTemp.push(smChunk);
+		queNeedPopulate.push(smChunk);
 	}
-	queNeedPopulate.TransferData(queChunkGroupTemp);
-
 }
 bool ChunkManager::ChunkInRange(glm::vec3 playerPos, glm::ivec2 chunkPos, int distRender) const
 {

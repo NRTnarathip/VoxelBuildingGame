@@ -17,10 +17,10 @@ void Chunk::generateMeshChunk() {
                     y == 0 or y == CHUNK_SIZE_31 or
                     z == 0 or z == CHUNK_SIZE_31) {
                     genMeshCube(x, y, z, voxTemp, true);
+                    continue;
                 }
-                else {
-                    genMeshCube(x, y, z, voxTemp, false);
-                }
+                //else
+                genMeshCube(x, y, z, voxTemp, false);
 			}
 		}
 	}

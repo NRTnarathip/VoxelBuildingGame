@@ -71,7 +71,6 @@
     <ClCompile Include="src\Renderer\shaderClass.cpp" />
     <ClCompile Include="src\TerrainGen.cpp" />
     <ClCompile Include="src\Texture.cpp" />
-    <ClCompile Include="src\Voxel.cpp" />
     <ClCompile Include="src\World.cpp" />
   </ItemGroup>
   <ItemGroup>

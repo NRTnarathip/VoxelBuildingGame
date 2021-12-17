@@ -191,9 +191,6 @@
     <ClCompile Include="src\World.cpp">
       <Filter>Source Files\World</Filter>
     </ClCompile>
-    <ClCompile Include="src\Voxel.cpp">
-      <Filter>Source Files\World</Filter>
-    </ClCompile>
     <ClCompile Include="src\ECS.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>

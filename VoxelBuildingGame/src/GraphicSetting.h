@@ -11,5 +11,5 @@ public:
 		return true;
 	}
 	int fogMin,fogMax;
-	int renderDistance = 10; 
+	int renderDistance = 4; 
 };

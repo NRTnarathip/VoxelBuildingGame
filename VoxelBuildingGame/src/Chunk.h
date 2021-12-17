@@ -57,5 +57,6 @@ public:
 	static const unsigned char tileCountRow = 16;
 	static const float tileSize;
 private:
-	int vertCount = 0;
+	//for method generate mesh
+	int vertCount = 0;//mesh vertex count
 };

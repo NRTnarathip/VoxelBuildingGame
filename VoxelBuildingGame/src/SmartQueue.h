@@ -3,6 +3,32 @@
 #include <SmartChunk.h>
 
 //for safety cross threading
+
+class SmartDequeChunkGroup {
+private:
+	std::mutex mutex;
+	std::deque<SmartChunkGroup*> listPooling;//emty or has on delete chunkgroup
+public:
+	size_t size() {
+		mutex.lock();
+		int s = listPooling.size();
+		mutex.unlock();
+		return s;
+	}
+	SmartChunkGroup* getFront() {
+		mutex.lock();
+		auto sm = listPooling.front();
+		listPooling.pop_front();
+		mutex.unlock();
+
+		return sm;
+	}
+	void push_back(SmartChunkGroup* sm) {
+		mutex.lock();
+		listPooling.push_back(sm);
+		mutex.unlock();
+	}
+};
 class SmartQueueChunkGroup {
 private:
 	std::mutex mutex;

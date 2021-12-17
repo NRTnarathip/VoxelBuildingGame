@@ -5,6 +5,7 @@
 void useThreadGenMesh(GenMeshChunk* ref) {
 	auto queNeedGen = &ref->chManager->queNeedGenMeshChunkGroup;
 	while (true) {
+
 		if (ref->chManager->queDeleteChunk.size() > 0) continue;
 		//we should wait delete chunk all successfully 
 		//before run this.
@@ -25,7 +26,6 @@ void useThreadGenMesh(GenMeshChunk* ref) {
 		}
 
 		//generate mesh chunk
-		//lock near chunk all
 		for (auto c : cg->chunks) {
 			c->generateMeshChunk();
 		}
