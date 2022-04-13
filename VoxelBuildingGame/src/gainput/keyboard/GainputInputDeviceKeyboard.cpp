@@ -134,7 +134,7 @@ InputDeviceKeyboard::GetButtonName(DeviceButtonId deviceButton, char* buffer, si
 	{
 		return 0;
 	}
-	strncpy_s(buffer, sizeof(buffer),it->second, bufferLength);
+	strncpy(buffer, it->second, bufferLength);
 	buffer[bufferLength-1] = 0;
 	const size_t nameLen = strlen(it->second);
 	return nameLen >= bufferLength ? bufferLength : nameLen+1;

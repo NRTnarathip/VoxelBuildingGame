@@ -32,6 +32,48 @@
     <ClInclude Include="src\ChunkManager.h" />
     <ClInclude Include="src\ClientEngine.h" />
     <ClInclude Include="src\ECS.h" />
+    <ClInclude Include="src\gainput\builtin\GainputInputDeviceBuiltInAndroid.h" />
+    <ClInclude Include="src\gainput\builtin\GainputInputDeviceBuiltInImpl.h" />
+    <ClInclude Include="src\gainput\builtin\GainputInputDeviceBuiltInIos.h" />
+    <ClInclude Include="src\gainput\builtin\GainputInputDeviceBuiltInNull.h" />
+    <ClInclude Include="src\gainput\dev\GainputDev.h" />
+    <ClInclude Include="src\gainput\dev\GainputDevProtocol.h" />
+    <ClInclude Include="src\gainput\dev\GainputMemoryStream.h" />
+    <ClInclude Include="src\gainput\dev\GainputNetAddress.h" />
+    <ClInclude Include="src\gainput\dev\GainputNetConnection.h" />
+    <ClInclude Include="src\gainput\dev\GainputNetListener.h" />
+    <ClInclude Include="src\gainput\dev\GainputStream.h" />
+    <ClInclude Include="src\gainput\GainputHelpersEvdev.h" />
+    <ClInclude Include="src\gainput\GainputWindows.h" />
+    <ClInclude Include="src\gainput\keyboard\GainputInputDeviceKeyboardAndroid.h" />
+    <ClInclude Include="src\gainput\keyboard\GainputInputDeviceKeyboardEvdev.h" />
+    <ClInclude Include="src\gainput\keyboard\GainputInputDeviceKeyboardImpl.h" />
+    <ClInclude Include="src\gainput\keyboard\GainputInputDeviceKeyboardLinux.h" />
+    <ClInclude Include="src\gainput\keyboard\GainputInputDeviceKeyboardMac.h" />
+    <ClInclude Include="src\gainput\keyboard\GainputInputDeviceKeyboardNull.h" />
+    <ClInclude Include="src\gainput\keyboard\GainputInputDeviceKeyboardWin.h" />
+    <ClInclude Include="src\gainput\keyboard\GainputInputDeviceKeyboardWinRaw.h" />
+    <ClInclude Include="src\gainput\keyboard\GainputKeyboardKeyNames.h" />
+    <ClInclude Include="src\gainput\mouse\GainputInputDeviceMouseEvdev.h" />
+    <ClInclude Include="src\gainput\mouse\GainputInputDeviceMouseImpl.h" />
+    <ClInclude Include="src\gainput\mouse\GainputInputDeviceMouseLinux.h" />
+    <ClInclude Include="src\gainput\mouse\GainputInputDeviceMouseMac.h" />
+    <ClInclude Include="src\gainput\mouse\GainputInputDeviceMouseNull.h" />
+    <ClInclude Include="src\gainput\mouse\GainputInputDeviceMouseWin.h" />
+    <ClInclude Include="src\gainput\mouse\GainputInputDeviceMouseWinRaw.h" />
+    <ClInclude Include="src\gainput\mouse\GainputMouseInfo.h" />
+    <ClInclude Include="src\gainput\pad\GainputInputDevicePadAndroid.h" />
+    <ClInclude Include="src\gainput\pad\GainputInputDevicePadImpl.h" />
+    <ClInclude Include="src\gainput\pad\GainputInputDevicePadIos.h" />
+    <ClInclude Include="src\gainput\pad\GainputInputDevicePadLinux.h" />
+    <ClInclude Include="src\gainput\pad\GainputInputDevicePadMac.h" />
+    <ClInclude Include="src\gainput\pad\GainputInputDevicePadNull.h" />
+    <ClInclude Include="src\gainput\pad\GainputInputDevicePadWin.h" />
+    <ClInclude Include="src\gainput\touch\GainputInputDeviceTouchAndroid.h" />
+    <ClInclude Include="src\gainput\touch\GainputInputDeviceTouchImpl.h" />
+    <ClInclude Include="src\gainput\touch\GainputInputDeviceTouchIos.h" />
+    <ClInclude Include="src\gainput\touch\GainputInputDeviceTouchNull.h" />
+    <ClInclude Include="src\gainput\touch\GainputTouchInfo.h" />
     <ClInclude Include="src\Game.h" />
     <ClInclude Include="src\GenerateMeshChunk.h" />
     <ClInclude Include="src\GraphicSetting.h" />
@@ -62,6 +104,36 @@
     <ClCompile Include="src\ChunkManager.cpp" />
     <ClCompile Include="src\ClientEngine.cpp" />
     <ClCompile Include="src\ECS.cpp" />
+    <ClCompile Include="src\gainput\builtin\GainputInputDeviceBuiltIn.cpp" />
+    <ClCompile Include="src\gainput\dev\GainputDev.cpp" />
+    <ClCompile Include="src\gainput\dev\GainputMemoryStream.cpp" />
+    <ClCompile Include="src\gainput\dev\GainputNetAddress.cpp" />
+    <ClCompile Include="src\gainput\dev\GainputNetConnection.cpp" />
+    <ClCompile Include="src\gainput\dev\GainputNetListener.cpp" />
+    <ClCompile Include="src\gainput\gainput.cpp" />
+    <ClCompile Include="src\gainput\GainputAllocator.cpp" />
+    <ClCompile Include="src\gainput\GainputInputDeltaState.cpp" />
+    <ClCompile Include="src\gainput\GainputInputDevice.cpp" />
+    <ClCompile Include="src\gainput\GainputInputManager.cpp" />
+    <ClCompile Include="src\gainput\GainputInputMap.cpp" />
+    <ClCompile Include="src\gainput\GainputInputState.cpp" />
+    <ClCompile Include="src\gainput\GainputMapFilters.cpp" />
+    <ClCompile Include="src\gainput\gestures\GainputButtonStickGesture.cpp" />
+    <ClCompile Include="src\gainput\gestures\GainputDoubleClickGesture.cpp" />
+    <ClCompile Include="src\gainput\gestures\GainputHoldGesture.cpp" />
+    <ClCompile Include="src\gainput\gestures\GainputPinchGesture.cpp" />
+    <ClCompile Include="src\gainput\gestures\GainputRotateGesture.cpp" />
+    <ClCompile Include="src\gainput\gestures\GainputSimultaneouslyDownGesture.cpp" />
+    <ClCompile Include="src\gainput\gestures\GainputTapGesture.cpp" />
+    <ClCompile Include="src\gainput\keyboard\GainputInputDeviceKeyboard.cpp" />
+    <ClCompile Include="src\gainput\keyboard\GainputInputDeviceKeyboardMac.cpp" />
+    <ClCompile Include="src\gainput\mouse\GainputInputDeviceMouse.cpp" />
+    <ClCompile Include="src\gainput\pad\GainputInputDevicePad.cpp" />
+    <ClCompile Include="src\gainput\pad\GainputInputDevicePadMac.cpp" />
+    <ClCompile Include="src\gainput\recorder\GainputInputPlayer.cpp" />
+    <ClCompile Include="src\gainput\recorder\GainputInputRecorder.cpp" />
+    <ClCompile Include="src\gainput\recorder\GainputInputRecording.cpp" />
+    <ClCompile Include="src\gainput\touch\GainputInputDeviceTouch.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\GenerateMeshChunk.cpp" />
     <ClCompile Include="src\glad.c" />
@@ -148,7 +220,7 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(SolutionDir)VoxelBuildingGame\src;$(SolutionDir)Depends\include;$(SolutionDir)VoxelBuildingGame\ImGui;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)Depends\include;$(SolutionDir)VoxelBuildingGame\ImGui;$(IncludePath)</IncludePath>
     <LibraryPath>$(SolutionDir)Depends\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -186,7 +258,7 @@
     <ClCompile>
       <WarningLevel>TurnOffAllWarnings</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(SolutionDir)VoxelBuildingGame\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <LanguageStandard>stdcpp17</LanguageStandard>
@@ -198,7 +270,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)Depends\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>GLFW\glfw3.lib;FastNoise\FastNoise.lib;gainput-d.lib;Xinput9_1_0.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>GLFW\glfw3.lib;FastNoise\FastNoise.lib;Xinput9_1_0.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

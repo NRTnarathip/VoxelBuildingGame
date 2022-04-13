@@ -232,7 +232,7 @@ InputDevicePad::GetButtonName(DeviceButtonId deviceButton, char* buffer, size_t 
 	GAINPUT_ASSERT(IsValidButtonId(deviceButton));
 	GAINPUT_ASSERT(buffer);
 	GAINPUT_ASSERT(bufferLength > 0);
-	strncpy_s(buffer,sizeof(buffer), deviceButtonInfos[deviceButton].name, bufferLength);
+	strncpy(buffer, deviceButtonInfos[deviceButton].name, bufferLength);
 	buffer[bufferLength-1] = 0;
 	const size_t nameLen = strlen(deviceButtonInfos[deviceButton].name);
 	return nameLen >= bufferLength ? bufferLength : nameLen+1;

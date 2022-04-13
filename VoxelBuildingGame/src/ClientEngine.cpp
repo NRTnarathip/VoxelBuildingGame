@@ -3,11 +3,14 @@
 #include <stb/stb_image.h>
 //#include "Input.h"
 #include <gainput/gainput.h>
-#include <windows.h>
 
 enum Keys
 {
     Forward
+};
+enum Button {
+    Left,
+    ButtonConfirm,
 };
 
 ClientEngine* ClientEngine::refThis = NULL;
@@ -91,10 +94,12 @@ void ClientEngine::launch() {
     input.manager.SetDisplaySize(window->width, window->height);
     input.initMap();*/
     gainput::InputManager manager;
-    manager.SetDisplaySize(window->initWidth, window->initHeight);
     const gainput::DeviceId keyboardId = manager.CreateDevice<gainput::InputDeviceKeyboard>();
+    const gainput::DeviceId mouseId = manager.CreateDevice<gainput::InputDeviceMouse>();
     gainput::InputMap map(manager);
     map.MapBool(Keys::Forward, keyboardId, gainput::KeyW);
+    map.MapBool(ButtonConfirm, keyboardId, gainput::KeyReturn);
+    map.MapBool(ButtonConfirm, mouseId, gainput::MouseButtonLeft);
     // Setup Dear ImGui context
     MyGUI myGUI;
     //init game
@@ -110,8 +115,9 @@ void ClientEngine::launch() {
         // Take care of all GLFW events
         glfwPollEvents();
         manager.Update();
-        if (map.GetBoolWasDown(Keys::Forward)) {
-            printf("hello you press key down forward\n");
+        auto isPress = map.GetBoolWasDown(ButtonConfirm);
+        if (isPress) {
+            printf("true");
         }
 
         game->counterTime();

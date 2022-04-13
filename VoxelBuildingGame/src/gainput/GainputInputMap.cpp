@@ -61,7 +61,7 @@ InputMap::InputMap(InputManager& manager, const char* name, Allocator& allocator
 	if (name)
 	{
 		name_ = static_cast<char*>(allocator_.Allocate(strlen(name) + 1));
-		strcpy_s(name_, sizeof(name_), name);
+		strcpy(name_, name);
 	}
 	GAINPUT_DEV_NEW_MAP(this);
 }
