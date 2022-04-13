@@ -5,6 +5,11 @@
 #include <gainput/gainput.h>
 #include <windows.h>
 
+enum Keys
+{
+    Forward
+};
+
 ClientEngine* ClientEngine::refThis = NULL;
 ClientEngine* ClientEngine::GetInstance() {
     return refThis;
@@ -86,9 +91,10 @@ void ClientEngine::launch() {
     input.manager.SetDisplaySize(window->width, window->height);
     input.initMap();*/
     gainput::InputManager manager;
+    manager.SetDisplaySize(window->initWidth, window->initHeight);
     const gainput::DeviceId keyboardId = manager.CreateDevice<gainput::InputDeviceKeyboard>();
     gainput::InputMap map(manager);
-    map.MapBool(gainput::KeyW, keyboardId, gainput::KeyW);
+    map.MapBool(Keys::Forward, keyboardId, gainput::KeyW);
     // Setup Dear ImGui context
     MyGUI myGUI;
     //init game
@@ -104,7 +110,7 @@ void ClientEngine::launch() {
         // Take care of all GLFW events
         glfwPollEvents();
         manager.Update();
-        if (map.GetBool(gainput::KeyW)) {
+        if (map.GetBoolWasDown(Keys::Forward)) {
             printf("hello you press key down forward\n");
         }
 
