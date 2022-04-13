@@ -22,16 +22,12 @@ public:
 	glm::vec3 Postition = glm::vec3(0.0f, 0.0f, 0.0f); // should += offset player
 	glm::vec3 Up = glm::vec3(0.0f, 1.0f, 0.0f);
 
-	// Prevents the camera from jumping around when first clicking left click
-	bool firstClick = true;
-
 	// Stores the width and height of the window
 	int width = 1280;
 	int height = 720;
 
 	// Adjust the speed of the camera and it's sensitivity when looking around
-	float speed = 0.1f;
-	float sensitivity = 100.0f;
+	float sensitivity = 1000.0f;
 
 	float FOVdeg = 60.f;
 	float nearPlane = 0.03f;

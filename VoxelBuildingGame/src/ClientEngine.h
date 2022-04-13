@@ -1,9 +1,6 @@
 #pragma once
-
-
 #include <Game.h>
 #include <GraphicSetting.h>
-
 class ClientEngine {
 private:
 	static ClientEngine* refThis;

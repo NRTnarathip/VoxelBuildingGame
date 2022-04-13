@@ -1,6 +1,9 @@
 #include "MyGUI.h"
 #include "ClientEngine.h"
 #include <stb/stb_image.h>
+//#include "Input.h"
+#include <gainput/gainput.h>
+#include <windows.h>
 
 ClientEngine* ClientEngine::refThis = NULL;
 ClientEngine* ClientEngine::GetInstance() {
@@ -77,6 +80,15 @@ void ClientEngine::launch() {
     //---init opengl
     window = new Window("Voxel Game");
     initialOpenGL();
+
+    //ini core engine
+    /*Input& input = Input::GetInstance();
+    input.manager.SetDisplaySize(window->width, window->height);
+    input.initMap();*/
+    gainput::InputManager manager;
+    const gainput::DeviceId keyboardId = manager.CreateDevice<gainput::InputDeviceKeyboard>();
+    gainput::InputMap map(manager);
+    map.MapBool(gainput::KeyW, keyboardId, gainput::KeyW);
     // Setup Dear ImGui context
     MyGUI myGUI;
     //init game
@@ -87,15 +99,17 @@ void ClientEngine::launch() {
     game->sceneMain = new Scene("inGame");
     game->init();
     game->start();
-    bool show_another_window = true;
-    ImVec4 clear_color = ImVec4(0.45f, 0.55f, 0.60f, 1.00f);
     while (!glfwWindowShouldClose(window->glfwWindow))
     { 
         // Take care of all GLFW events
         glfwPollEvents();
+        manager.Update();
+        if (map.GetBool(gainput::KeyW)) {
+            printf("hello you press key down forward\n");
+        }
 
         game->counterTime();
-        game->processInput(window->glfwWindow);
+        game->processInput();
 
         //impl imgui
         //Start the Dear ImGui frame

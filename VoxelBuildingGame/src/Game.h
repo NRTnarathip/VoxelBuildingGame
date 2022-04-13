@@ -1,4 +1,7 @@
 #pragma once
+#ifndef GAME_H
+#define GAME_H
+
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
@@ -10,7 +13,6 @@
 #include <ChunkManager.h>
 
 class Window;
-class Game;
 class Time;
 
 class ShaderList {
@@ -21,22 +23,20 @@ public:
 };
 class Game {
 private:
-    int tickAmount = 20; //per second, 1000.0 / tickAmount
-    float tickDelayTime = 1000.0f / tickAmount;
     void inputDebug();
+    static Game* ref;
 public:
     Game(Window* win);
-    static Game* ref;
     static World* world;
+    static Game* GetInstance() {
+        return ref;
+    }
     Camera* cameraMain = NULL;
     Window* window = nullptr;
     Scene* sceneMain = nullptr;
     ChunkManager* chManager = 0;
     GenMeshChunk* genMeshChunk = 0;
     void counterTime();
-    double GetTime() {
-        return glfwGetTime();
-    };
     //order of event functions visualised
     void init();
     void start();
@@ -46,7 +46,7 @@ public:
     void checkDestroyEntity();
     //end
     void render();
-    void processInput(GLFWwindow* window);
+    void processInput();
 
     void printCounter();
     ShaderList shaders;
@@ -73,3 +73,5 @@ public:
     static float framesPerSecond;
     static int fps;
 };
+#endif // GAME_H
+

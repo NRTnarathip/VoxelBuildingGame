@@ -28,9 +28,6 @@
     <Filter Include="Resource Files\bin">
       <UniqueIdentifier>{669aeda9-3f8a-4676-a6d7-ac882c85d238}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\imgui">
-      <UniqueIdentifier>{0fb64324-30d3-4f55-a4d0-365198bd6403}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\World">
       <UniqueIdentifier>{0d25de4e-b277-4499-b637-49647c318350}</UniqueIdentifier>
     </Filter>
@@ -39,9 +36,6 @@
     </Filter>
     <Filter Include="Source Files\Engine">
       <UniqueIdentifier>{396084ac-ea6c-4068-8080-780eb1dcc84f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Engine\Client">
-      <UniqueIdentifier>{1dd18548-62b1-4683-8310-f6be0c5e84a9}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Player">
       <UniqueIdentifier>{462c6066-8144-4129-92bf-48d59d9fdc1b}</UniqueIdentifier>
@@ -93,9 +87,6 @@
     <ClInclude Include="ImGui\imgui_impl_opengl3_loader.h">
       <Filter>Source Files\Graphic\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="src\ClientEngine.h">
-      <Filter>Source Files\Engine\Client</Filter>
-    </ClInclude>
     <ClInclude Include="src\MyGUI.h">
       <Filter>Source Files\Graphic\GUI</Filter>
     </ClInclude>
@@ -137,6 +128,12 @@
     </ClInclude>
     <ClInclude Include="src\SmartChunk.h">
       <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Input.h">
+      <Filter>Source Files\Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ClientEngine.h">
+      <Filter>Source Files\Engine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -182,9 +179,6 @@
     <ClCompile Include="ImGui\imgui.cpp">
       <Filter>Source Files\Graphic\ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="src\ClientEngine.cpp">
-      <Filter>Source Files\Engine\Client</Filter>
-    </ClCompile>
     <ClCompile Include="src\MyGUI.cpp">
       <Filter>Source Files\Graphic\GUI</Filter>
     </ClCompile>
@@ -211,6 +205,12 @@
     </ClCompile>
     <ClCompile Include="src\Camera.cpp">
       <Filter>Source Files\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Input.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ClientEngine.cpp">
+      <Filter>Source Files\Engine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

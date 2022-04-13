@@ -11,7 +11,7 @@ private:
 public:
 	size_t size() {
 		mutex.lock();
-		int s = listPooling.size();
+		int s = (int)listPooling.size();
 		mutex.unlock();
 		return s;
 	}

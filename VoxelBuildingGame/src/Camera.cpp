@@ -30,7 +30,7 @@ void Camera::InitCamera(GLFWwindow* window,int width, int height, float FOVdeg, 
 	//change Invert axis X From Left To Right In Matrix Projection;
 	// X-       X+
 	//set up projection one on init
-	Shader* shader = Game::ref->shaders.defaultShader;
+	Shader* shader = Game::GetInstance()->shaders.defaultShader;
 	glm::mat4 projection = glm::mat4(1.0f);
 	projection = glm::perspective(glm::radians(FOVdeg), (float)width / (float)height, nearPlane, farPlane);
 	projection[0][0] *= -1;//invert project axis X
@@ -45,7 +45,7 @@ void Camera::UpdateMatrix() const
 	view = glm::lookAt(Postition, Postition + Orientation, Up);
 	
 	// Exports the camera matrix to the Vertex Shader
-	Shader* shader = Game::ref->shaders.defaultShader;
+	Shader* shader = Game::GetInstance()->shaders.defaultShader;
 	shader->Bind();
 	shader->SetMat4("view",view);
 }

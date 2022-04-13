@@ -1,12 +1,12 @@
 #include <Game.h>
+
 #include <ChunkManager.h>
 #include <Texture.h>
 #include <PlayerController.h>
 #include <Mesh.h>
 #include <stb/stb_image.h>
 #include <ClientEngine.h>
-
-
+#include "Input.h"
 //functin prototype
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 
@@ -44,7 +44,6 @@ void Game::init() {
     auto& player = sceneMain->addGameObject("Player");
     player.transform.position = glm::vec3(0.f, 100.f, 0.f);
     auto& pc = player.addComponent<PlayerController>();
-    pc.world = world;
     chManager->init(player.transform.position);
 
     cameraMain = new Camera();
@@ -68,12 +67,13 @@ void Game::printCounter() {
     printf("FPS %d\n", Time::fps);
     printf("Render Triangle Count %d\n", Mesh::triangleGPU);
 }
-void Game::counterTime() {
+void Game::counterTime() { 
     //update deltatime
     double currentTime = glfwGetTime();
     Time::deltaTime = currentTime - Time::lastTime;
     Time::lastTime = currentTime;
     ++Time::framesPerSecond;
+
     if (currentTime - Time::lastTimeFPS > 1.0f)
     {
         Time::lastTimeFPS = currentTime;
@@ -107,11 +107,13 @@ void Game::lastUpdate() {
 void Game::update() { //update every frame
     //order call function!!!
     //world update
-    //chunk update tick
-    world->update();
+    //
+    //test event input 
+    
+    world->update(Time::lastTime);
 
     //update chunk manager
-    chManager->update(cameraMain->Postition,ClientEngine::GetInstance()->graphicSetting.renderDistance);
+    chManager->update(cameraMain->Postition, ClientEngine::GetInstance()->graphicSetting.renderDistance);
     genMeshChunk->update();
     sceneMain->updateComponentAll();
 }
@@ -119,8 +121,10 @@ void Game::update() { //update every frame
 void Game::checkDestroyEntity() {
     sceneMain->checkDestroyEntity();
 }
-void Game::processInput(GLFWwindow* window)
+
+void Game::processInput()
 {
-    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
-        glfwSetWindowShouldClose(window, true);
+    auto glWindow = window->glfwWindow;
+    if (glfwGetKey(glWindow, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+        glfwSetWindowShouldClose(glWindow, true);
 }

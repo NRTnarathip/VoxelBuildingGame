@@ -39,8 +39,8 @@ bool ChunkGroup::checkIsHaveVoxel(Chunk* c) {
     return false;
 }
 void ChunkGroup::render() {
-    auto defaultShader = Game::ref->shaders.defaultShader;
-    auto mcatlas = Game::ref->shaders.mcatlas;
+    auto defaultShader = Game::GetInstance()->shaders.defaultShader;
+    auto mcatlas = Game::GetInstance()->shaders.mcatlas;
 
     for (auto c : chunks) {
         // Mesh must be on gpu to draw

@@ -11,8 +11,9 @@ class World {
 private:
 	//update 20 tick per 1 second;
 	//1 tick use 1000/20;s, 50 second per tick
-	int tickPerSecond = 20;
-	float tickUseTime = 1000.f / tickPerSecond;
+	int tickRate = 40;
+	// 0.025 second
+	const float tickUseTime = 1.f / tickRate;
 	unsigned int tickCountter = 0;
 	
 	float tickLastTime =0.f;
@@ -23,6 +24,6 @@ public:
 	void init();
 	void start();
 	void tick();
-	void update();//update every frame
+	void update(float timeNow);//update every frame
 	Lighting lighting;
 };

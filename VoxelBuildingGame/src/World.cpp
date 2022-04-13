@@ -7,23 +7,19 @@ void World::init() {
 	ref = this;
 }
 void World::start() {
-
+	tickLastTime = Time::lastTime;
 }
 void World::tick() {
-	printf("tick world\n");
 }
-void World::update() {
+void World::update(float timeNow) {
 	//update sun direction before render chunk
-	Shader* def = Game::ref->shaders.defaultShader;
+	/*Shader* def = Game::ref->shaders.defaultShader;
 	def->Bind();
 	def->SetVec3("sunDirect", lighting.sunDirect);
-	def->SetFloat("sunIntensity", lighting.sunIntensity);
-
-	float now = Game::ref->GetTime();
-	if (now - tickLastTime > tickUseTime) {
-		tickLastTime = now;
+	def->SetFloat("sunIntensity", lighting.sunIntensity);*/
+	if (timeNow - tickLastTime > tickUseTime) {
+		tickLastTime = timeNow;
 		tickCountter++;
-
 		tick();
 	}
 
