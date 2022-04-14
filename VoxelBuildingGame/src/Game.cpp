@@ -48,7 +48,7 @@ void Game::init() {
 
     cameraMain = new Camera();
 
-    float renderDistanceSize = ((ClientEngine::GetInstance()->graphicSetting.renderDistance * 2) + 1) * CHUNK_SIZE;
+    float renderDistanceSize = ((ClientEngine::GetInstance().graphicSetting.renderDistance * 2) + 1) * CHUNK_SIZE;
 
     float farPlaneRender = std::sqrt(std::pow(renderDistanceSize, 2));
     farPlaneRender += 100;
@@ -113,7 +113,7 @@ void Game::update() { //update every frame
     world->update(Time::lastTime);
 
     //update chunk manager
-    chManager->update(cameraMain->Postition, ClientEngine::GetInstance()->graphicSetting.renderDistance);
+    chManager->update(cameraMain->Postition, ClientEngine::GetInstance().graphicSetting.renderDistance);
     genMeshChunk->update();
     sceneMain->updateComponentAll();
 }

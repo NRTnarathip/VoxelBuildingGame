@@ -1,25 +1,10 @@
 #include "MyGUI.h"
 #include "ClientEngine.h"
 #include <stb/stb_image.h>
-//#include "Input.h"
-#include <gainput/gainput.h>
+#include "Input.h"
 
-enum Keys
-{
-    Forward
-};
-enum Button {
-    Left,
-    ButtonConfirm,
-};
+ClientEngine* ClientEngine::instance = nullptr;
 
-ClientEngine* ClientEngine::refThis = NULL;
-ClientEngine* ClientEngine::GetInstance() {
-    return refThis;
-}
-ClientEngine::ClientEngine() {
-    refThis = this;
-}
 void framebuffer_size_callback(GLFWwindow* window, int width, int height)
 {
     glViewport(0, 0, width, height);
@@ -90,16 +75,8 @@ void ClientEngine::launch() {
     initialOpenGL();
 
     //ini core engine
-    /*Input& input = Input::GetInstance();
-    input.manager.SetDisplaySize(window->width, window->height);
-    input.initMap();*/
-    gainput::InputManager manager;
-    const gainput::DeviceId keyboardId = manager.CreateDevice<gainput::InputDeviceKeyboard>();
-    const gainput::DeviceId mouseId = manager.CreateDevice<gainput::InputDeviceMouse>();
-    gainput::InputMap map(manager);
-    map.MapBool(Keys::Forward, keyboardId, gainput::KeyW);
-    map.MapBool(ButtonConfirm, keyboardId, gainput::KeyReturn);
-    map.MapBool(ButtonConfirm, mouseId, gainput::MouseButtonLeft);
+    input = new Input();
+
     // Setup Dear ImGui context
     MyGUI myGUI;
     //init game
@@ -114,15 +91,11 @@ void ClientEngine::launch() {
     { 
         // Take care of all GLFW events
         glfwPollEvents();
-        manager.Update();
-        auto isPress = map.GetBoolWasDown(ButtonConfirm);
-        if (isPress) {
-            printf("true");
-        }
-
         game->counterTime();
         game->processInput();
-
+        if( input->isKeyDown(GLFW_KEY_W) ) {
+            printf("you press key w\n");
+        }
         //impl imgui
         //Start the Dear ImGui frame
         myGUI.NewFrame();
@@ -145,3 +118,4 @@ void ClientEngine::exit() {
     glfwDestroyWindow(window->glfwWindow);
     glfwTerminate();
 }
+

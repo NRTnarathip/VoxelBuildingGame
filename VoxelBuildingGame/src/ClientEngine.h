@@ -1,15 +1,24 @@
 #pragma once
 #include <Game.h>
 #include <GraphicSetting.h>
+class Input;
+
 class ClientEngine {
 private:
-	static ClientEngine* refThis;
+	static ClientEngine* instance;
 public:
-	ClientEngine();
-	static ClientEngine* GetInstance();
+	ClientEngine() {
+		instance = this;
+	}
+	//Singletons should not be cloneable.
+	ClientEngine(ClientEngine& other) = delete;
+	static ClientEngine& GetInstance() { return *instance; }
+
 	GraphicSetting graphicSetting;
 	Game* game = nullptr;
 	Window* window = nullptr;
+	Input* input = nullptr;
+
 	int initialOpenGL();
 	int initialShader();
 
