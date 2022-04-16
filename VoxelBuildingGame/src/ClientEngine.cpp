@@ -75,7 +75,9 @@ void ClientEngine::launch() {
     initialOpenGL();
 
     //ini core engine
-    input = new Input();
+    m_input = new Input();
+    Input& input = *m_input;
+    input.initKeyMapping();
 
     // Setup Dear ImGui context
     MyGUI myGUI;
@@ -91,11 +93,9 @@ void ClientEngine::launch() {
     { 
         // Take care of all GLFW events
         glfwPollEvents();
+        m_input->update();
         game->counterTime();
         game->processInput();
-        if( input->isKeyDown(GLFW_KEY_W) ) {
-            printf("you press key w\n");
-        }
         //impl imgui
         //Start the Dear ImGui frame
         myGUI.NewFrame();

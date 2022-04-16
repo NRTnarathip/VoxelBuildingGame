@@ -19,9 +19,6 @@
     <Filter Include="Source Files\Renderer">
       <UniqueIdentifier>{89d3f1e9-aca5-4ba1-a1c6-57285b9eb456}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Lib">
-      <UniqueIdentifier>{9b8cf2ac-bcd1-49db-82ae-c30634ddd514}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Resource Files\Blocks">
       <UniqueIdentifier>{896d8bdf-273a-49e6-8734-5b10c838f98a}</UniqueIdentifier>
     </Filter>
@@ -135,6 +132,9 @@
     <ClInclude Include="src\ClientEngine.h">
       <Filter>Source Files\Engine</Filter>
     </ClInclude>
+    <ClInclude Include="src\Raycast.h">
+      <Filter>Source Files\Engine</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -145,9 +145,6 @@
     </ClCompile>
     <ClCompile Include="src\Renderer\shaderClass.cpp">
       <Filter>Source Files\Renderer</Filter>
-    </ClCompile>
-    <ClCompile Include="src\glad.c">
-      <Filter>Source Files\Lib</Filter>
     </ClCompile>
     <ClCompile Include="src\Chunk.cpp">
       <Filter>Source Files\World\Chunk</Filter>
@@ -210,6 +207,12 @@
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
     <ClCompile Include="src\ClientEngine.cpp">
+      <Filter>Source Files\Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="src\glad.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Raycast.cpp">
       <Filter>Source Files\Engine</Filter>
     </ClCompile>
   </ItemGroup>

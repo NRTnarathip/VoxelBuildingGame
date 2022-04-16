@@ -27,7 +27,7 @@ public:
 	int height = 720;
 
 	// Adjust the speed of the camera and it's sensitivity when looking around
-	float sensitivity = 1000.0f;
+	float sensitivity = 20.0f;
 
 	float FOVdeg = 60.f;
 	float nearPlane = 0.03f;

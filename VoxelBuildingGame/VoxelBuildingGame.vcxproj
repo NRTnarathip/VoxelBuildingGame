@@ -39,6 +39,7 @@
     <ClInclude Include="src\Mesh.h" />
     <ClInclude Include="src\MyGUI.h" />
     <ClInclude Include="src\PlayerController.h" />
+    <ClInclude Include="src\Raycast.h" />
     <ClInclude Include="src\Renderer\shaderClass.h" />
     <ClInclude Include="src\SmartChunk.h" />
     <ClInclude Include="src\SmartChunkPooling.h" />
@@ -70,6 +71,7 @@
     <ClCompile Include="src\Mesh.cpp" />
     <ClCompile Include="src\MyGUI.cpp" />
     <ClCompile Include="src\PlayerController.cpp" />
+    <ClCompile Include="src\Raycast.cpp" />
     <ClCompile Include="src\Renderer\shaderClass.cpp" />
     <ClCompile Include="src\TerrainGen.cpp" />
     <ClCompile Include="src\Texture.cpp" />

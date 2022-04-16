@@ -17,7 +17,7 @@ public:
 	GraphicSetting graphicSetting;
 	Game* game = nullptr;
 	Window* window = nullptr;
-	Input* input = nullptr;
+	Input* m_input = nullptr;
 
 	int initialOpenGL();
 	int initialShader();

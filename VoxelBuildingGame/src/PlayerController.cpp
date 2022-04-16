@@ -14,6 +14,7 @@ PlayerController* PlayerController::GetInstance() {
 void PlayerController::init() {
 	entity->mesh = new Mesh();
 	refThis = this;
+	Input::GetInstance().setMouseMode(0);
 }
 void PlayerController::start() {
 }
@@ -70,11 +71,10 @@ void PlayerController::UpdateInputs()
 	// Normalizes and shifts the coordinates of the cursor such that they begin in the middle of the screen
 	// and then "transforms" them into degrees 
 	//auto &mouse = Game::GetInstance()->inputManager.mouse;
-	float rotX = 0;
-	float rotY = 0;
-	rotX*= camera->sensitivity * (float)Time::deltaTime;
-	rotY*= camera->sensitivity * (float)Time::deltaTime;
-
+	glm::vec2 mouseAxis = Input::GetInstance().mouseAxis();
+	float sensinitive = 20.0f;
+	float rotX = (mouseAxis.y * sensinitive) * (float)Time::deltaTime;
+	float rotY = (mouseAxis.x * sensinitive) * (float)Time::deltaTime;
 	// Calculates upcoming vertical change in the Orientation
 	glm::vec3 newOrientation = glm::rotate(camera->Orientation, 
 		glm::radians(-rotX), 
@@ -89,4 +89,16 @@ void PlayerController::UpdateInputs()
 	// Rotates the Orientation left and right
 	//test
 	camera->Orientation = glm::rotate(camera->Orientation, glm::radians(rotY), camera->Up);
+
+	auto& input = Input::GetInstance();
+	//Input Mouse Action
+	if (input.onMouseDown(0)) {
+		printf("on mosue click left\n");
+	}
+	else if (input.onMouseUp(0)) {
+		printf("on mouse release left\n");
+	}
+	else if (input.onMouse(0)) {
+		printf("on mouse hold left\n");
+	}
 }
