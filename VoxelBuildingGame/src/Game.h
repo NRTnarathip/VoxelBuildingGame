@@ -38,11 +38,9 @@ public:
     void counterTime();
     //order of event functions visualised
     void init();
-    void start();
     void beforeUpdate();//like fixed update
     void update();
     void lastUpdate();
-    void checkDestroyEntity();
     //end
     void render();
     void processInput();

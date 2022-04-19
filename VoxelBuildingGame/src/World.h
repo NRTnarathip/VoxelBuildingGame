@@ -1,6 +1,7 @@
 #pragma once
 #include <ChunkManager.h>
 #include "entt/entt.hpp"
+#include <Component/GameObject.h>
 
 class Lighting {
 public:
@@ -21,19 +22,20 @@ private:
 
 	//entity system component
 	entt::registry m_registry;
+	std::vector<GameObject*> m_gameObjects;
 public:
 	World() { instance = this; }
 	static World* GetInstance() { return instance; }
+	static entt::registry& GetRegistry() { return instance->m_registry; }
+
 	//base func
 	void init();
-	void start();
 	void tick();
 	void update(float timeNow);//update every frame
 
 	//entity system
 	entt::registry& getRegistry() { return m_registry; }
-	GameObject& spawnGameObject();
-	const entt::entity& addEntity(const char* entityName);
+	GameObject* spawnGameObject();
 	Lighting lighting;
 
 };

@@ -32,6 +32,7 @@
     <ClInclude Include="src\ChunkHelper.h" />
     <ClInclude Include="src\ChunkManager.h" />
     <ClInclude Include="src\ClientEngine.h" />
+    <ClInclude Include="src\ComponentManager.h" />
     <ClInclude Include="src\Component\Component.h" />
     <ClInclude Include="src\Component\GameObject.h" />
     <ClInclude Include="src\Component\Object.h" />
@@ -54,6 +55,7 @@
     <ClInclude Include="src\TerrainGen.h" />
     <ClInclude Include="src\Texture.h" />
     <ClInclude Include="src\Voxel.h" />
+    <ClInclude Include="src\VoxelEngine.h" />
     <ClInclude Include="src\World.h" />
   </ItemGroup>
   <ItemGroup>
@@ -70,6 +72,7 @@
     <ClCompile Include="src\ChunkGroup.cpp" />
     <ClCompile Include="src\ChunkManager.cpp" />
     <ClCompile Include="src\ClientEngine.cpp" />
+    <ClCompile Include="src\ComponentManager.cpp" />
     <ClCompile Include="src\Component\GameObject.cpp" />
     <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\GenerateMeshChunk.cpp" />

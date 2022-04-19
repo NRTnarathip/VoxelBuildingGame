@@ -41,9 +41,6 @@ bool inRange(int x, int min, int max)
 {
 	return (x >= min) and (x <= max);
 }
-void ChunkManager::start() {
-	
-}
 void ChunkManager::init(glm::vec3 posCamera) {
 	lastViewPos = glm::floor(posCamera);
 	std::thread th;

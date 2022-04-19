@@ -156,6 +156,12 @@
     <ClInclude Include="src\Component\Object.h">
       <Filter>Source Files\Component</Filter>
     </ClInclude>
+    <ClInclude Include="src\VoxelEngine.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ComponentManager.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -238,6 +244,9 @@
     </ClCompile>
     <ClCompile Include="src\Component\GameObject.cpp">
       <Filter>Source Files\Component</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ComponentManager.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -19,6 +19,7 @@ void PlayerController::init() {
 	Input::GetInstance().setMouseMode(0);
 }
 void PlayerController::start() {
+
 }
 void PlayerController::update() { //update every frame on ECS
 	UpdateInputs();
@@ -27,7 +28,9 @@ void PlayerController::update() { //update every frame on ECS
 void PlayerController::UpdateInputs()
 {
 	auto window = Game::GetInstance()->window->glfwWindow;
-	Transform& transform = getComponent<Transform>();
+	//auto &transform = getComponent<Transform>();
+	auto& transform = this->transform;
+	printf("pos %f \n", transform.position.x);
 	glm::vec3 &posEntity = transform.position;
 	auto* camera = CameraManager::GetCurrentCamera();
 	float speed = speedMove;

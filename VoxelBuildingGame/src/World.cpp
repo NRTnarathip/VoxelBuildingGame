@@ -6,23 +6,21 @@
 #include <iostream>
 #include <string>
 #include <stdio.h>
+#include <Component/GameObject.h>
+#include "PlayerController.h"
 
 World* World::instance = nullptr;
 void World::init() {
-
-}
-void World::start() {
 	tickLastTime = Time::lastTime;
 
 	Camera* mainCame = CameraManager::GetInstance().newCamera();
 	CameraManager::GetInstance().switchCamera(mainCame);
 
-	auto player = registry.create();
-	
-	//Transform transform;
-	auto gameObject = registry.emplace<GameObject>(player);
-	gameObject.name = "Player";
-	registry.emplace<Camera*>(player, mainCame);
+	auto* player = spawnGameObject();
+	player->addComponent<PlayerController>();
+
+	auto* zombie = spawnGameObject();
+	auto* zombie2 = spawnGameObject();
 }
 void World::tick() {
 
@@ -38,17 +36,23 @@ void World::update(float timeNow) {
 		tickCountter++;
 		tick();
 	}
+
+	//update general component
+	for (auto gameObject : m_gameObjects) {
+		auto entityID = gameObject->getEntity();
+		auto comps = gameObject->getAllComponents();
+		for (auto c : comps) {
+			c->update();
+		}
+	}
 }
 
-const entt::entity& World::addEntity(const char* entityName) {
-	const auto& entity = registry.create();
-	registry.emplace<Transform>(entity);
-	return entity;
-}
-
-GameObject& World::spawnGameObject() {
+GameObject* World::spawnGameObject() {
 	entt::entity newEntity = m_registry.create();
-	auto newGameobject = m_registry.emplace<GameObject>(newEntity);
-	newGameobject.name ="New GameObject(" + std::to_string((uint32_t)newEntity) + ")";
+	auto* newGameobject = &m_registry.emplace<GameObject>(newEntity);
+	newGameobject->setEntityID(newEntity);
+	newGameobject->name ="New GameObject(" + std::to_string((uint32_t)newEntity) + ")";
+
+	m_gameObjects.push_back(newGameobject);
 	return newGameobject;
 }

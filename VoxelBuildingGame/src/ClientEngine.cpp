@@ -73,18 +73,14 @@ void ClientEngine::launch() {
     window = new Window("Voxel Game");
     initialOpenGL();
 
-    //ini core engine
+    //init core engine
     m_input = new Input();
-    Input& input = *m_input;
-    input.initKeyMapping();
+    m_input->initKeyMapping();
 
     //init game
 	game = new Game(window);
-
     initialShader();
-    game->world = new World();
     game->init();
-    game->start();
     while (!glfwWindowShouldClose(window->glfwWindow))
     { 
         // Take care of all GLFW events

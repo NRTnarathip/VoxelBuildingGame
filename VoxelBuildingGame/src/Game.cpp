@@ -36,10 +36,8 @@ void Game::init() {
     //create world
     world = new World();
     world->init();
-    const auto& player = world->addEntity("Player");
     //create system manager
     chManager = new ChunkManager();
-    
     genMeshChunk = new GenMeshChunk();
 }
 void Game::render() {
@@ -65,11 +63,6 @@ void Game::counterTime() {
         printCounter();
     }
 }
-void Game::start() {
-    world->start();
-    chManager->start();
-    genMeshChunk->start(chManager);
-}
 void Game::beforeUpdate() {
     inputDebug();
 }
@@ -94,9 +87,6 @@ void Game::update() { //update every frame
     auto* camera = CameraManager::GetCurrentCamera();
     chManager->update(camera->Postition, ClientEngine::GetInstance().graphicSetting.renderDistance);
     genMeshChunk->update();
-}
-
-void Game::checkDestroyEntity() {
 }
 
 void Game::processInput()
