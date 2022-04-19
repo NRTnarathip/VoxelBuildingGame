@@ -11,8 +11,7 @@
 #include<glm/gtx/rotate_vector.hpp>
 #include<glm/gtx/vector_angle.hpp>
 #include <vector>
-#include "Component/Component.h"
-class Camera : public Component {
+class Camera {
 public:
 	//project view use coordinate system left hand
 	// Stores the main vectors of the camera

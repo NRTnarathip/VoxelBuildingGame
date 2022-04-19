@@ -24,8 +24,8 @@ public:
 	template<typename TypeComponent>
 	TypeComponent* addComponent() {
 		auto &newComponent = g_registry->emplace<TypeComponent>(m_entity);
+		newComponent.setupComponent(this);
 		m_components.push_back(&newComponent);
-		//ComponentManager::GetInstance()->components.push_back(&newComponent);
 		return &newComponent;
 	};
 	template<typename TypeComponent>

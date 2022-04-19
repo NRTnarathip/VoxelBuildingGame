@@ -1,6 +1,6 @@
 #pragma once
 #include <ChunkManager.h>
-#include <Component/Component.h>
+#include <Component.h>
 
 class PlayerController : public Component {
 private:

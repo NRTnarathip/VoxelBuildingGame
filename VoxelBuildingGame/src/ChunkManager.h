@@ -29,9 +29,8 @@ public:
 	std::vector<std::thread> listThread;
 	TerrainGen terrainGen;
 	void init(glm::vec3 posCamera);
-	void start();
 	void render();
-	void update(glm::vec3 posCamera,unsigned char distRender);
+	void update();
 	SmartChunkGroup* newChunkGroup(int x, int z);
 	bool ChunkInRange(glm::vec3 posCamera, glm::ivec2 chunkPos, int distRender) const;
 	bool checkShouldNewChunk(glm::ivec3 posCamera);

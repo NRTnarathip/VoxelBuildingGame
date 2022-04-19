@@ -38,9 +38,12 @@ void Game::init() {
     world->init();
     //create system manager
     chManager = new ChunkManager();
+    chManager->init(glm::vec3(0, 0, 0));
     genMeshChunk = new GenMeshChunk();
+    genMeshChunk->init(chManager);
 }
 void Game::render() {
+    CameraManager::GetInstance().uploadCameraMatrix();
     chManager->render();
 }
 void Game::printCounter() {
@@ -85,7 +88,7 @@ void Game::update() { //update every frame
 
     //update chunk manager
     auto* camera = CameraManager::GetCurrentCamera();
-    chManager->update(camera->Postition, ClientEngine::GetInstance().graphicSetting.renderDistance);
+    chManager->update();
     genMeshChunk->update();
 }
 

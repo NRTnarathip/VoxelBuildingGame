@@ -2,28 +2,45 @@
 #include <Game.h>
 #include "Physics/Transform.h"
 #include <CameraManager.h>
-#include <Component/GameObject.h>
 #include <iostream>
 #include <string>
 #include <stdio.h>
-#include <Component/GameObject.h>
+#include <GameObject.h>
 #include "PlayerController.h"
+#include "Physics/BoxCollision.h"
+
 
 World* World::instance = nullptr;
 void World::init() {
 	tickLastTime = Time::lastTime;
 
 	Camera* mainCame = CameraManager::GetInstance().newCamera();
-	CameraManager::GetInstance().switchCamera(mainCame);
+	CameraManager::SwitchCamera(mainCame);
 
 	auto* player = spawnGameObject();
+	player->transform.position = glm::vec3(0,85,0);
 	player->addComponent<PlayerController>();
+	auto* boxCollision = player->addComponent<BoxCollision>();
 
 	auto* zombie = spawnGameObject();
 	auto* zombie2 = spawnGameObject();
+
+	//update general component
+	for (auto gameObject : m_gameObjects) {
+		auto comps = gameObject->getAllComponents();
+		for (auto c : comps) {
+			c->init();
+		}
+	}
 }
 void World::tick() {
-
+	////update general component
+	//for (auto gameObject : m_gameObjects) {
+	//	auto comps = gameObject->getAllComponents();
+	//	for (auto c : comps) {
+	//		c->tick();
+	//	}
+	//}
 }
 void World::update(float timeNow) {
 	//update sun direction before render chunk
@@ -39,7 +56,6 @@ void World::update(float timeNow) {
 
 	//update general component
 	for (auto gameObject : m_gameObjects) {
-		auto entityID = gameObject->getEntity();
 		auto comps = gameObject->getAllComponents();
 		for (auto c : comps) {
 			c->update();

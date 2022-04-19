@@ -5,7 +5,7 @@
 #include <ClientEngine.h>
 #include "Input.h"
 #include <CameraManager.h>
-#include <Component/GameObject.h>
+#include <GameObject.h>
 
 PlayerController* PlayerController::instance = nullptr;
 
@@ -29,9 +29,8 @@ void PlayerController::UpdateInputs()
 {
 	auto window = Game::GetInstance()->window->glfwWindow;
 	//auto &transform = getComponent<Transform>();
-	auto& transform = this->transform;
-	printf("pos %f \n", transform.position.x);
-	glm::vec3 &posEntity = transform.position;
+	auto me = getGameObject();
+	glm::vec3 &posEntity = me->transform.position;
 	auto* camera = CameraManager::GetCurrentCamera();
 	float speed = speedMove;
 	if (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS)
@@ -89,18 +88,6 @@ void PlayerController::UpdateInputs()
 	}
 
 	// Rotates the Orientation left and right
-	//test
 	camera->Orientation = glm::rotate(camera->Orientation, glm::radians(rotY), camera->Up);
-
-	auto& input = Input::GetInstance();
-	//Input Mouse Action
-	if (input.onMouseDown(0)) {
-		printf("on mosue click left\n");
-	}
-	else if (input.onMouseUp(0)) {
-		printf("on mouse release left\n");
-	}
-	else if (input.onMouse(0)) {
-		printf("on mouse hold left\n");
-	}
+	camera->Postition = posEntity;
 }

@@ -55,7 +55,7 @@ void GenMeshChunk::update() { //update every frame
 		smChunk->unlock();
 	}
 }
-void GenMeshChunk::start(ChunkManager* chunkManager) {
+void GenMeshChunk::init(ChunkManager* chunkManager) {
 	chManager = chunkManager;
 
 	std::thread thGenMesh(useThreadGenMesh, this);

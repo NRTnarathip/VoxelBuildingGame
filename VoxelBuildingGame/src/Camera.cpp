@@ -34,7 +34,6 @@ void Camera::setupCamera(GLFWwindow* window, float FOVdeg, float nearPlane, floa
 	Shader* shader = Game::GetInstance()->shaders.defaultShader;
 	shader->Bind();
 	shader->SetMat4("projection", projection);
-	shader->UnBind();
 };
 void Camera::switchMode(bool isPerspective) {
 	if (isPerspective) {

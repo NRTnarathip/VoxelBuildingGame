@@ -24,5 +24,5 @@ public:
 public:
 	//function global
 	static Camera* GetCurrentCamera() { return instance->m_currentCamera; }
-	static Camera* SwitchCamera(Camera* other) { instance->switchCamera(other); }
+	static void SwitchCamera(Camera* other) { instance->switchCamera(other); }
 };

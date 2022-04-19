@@ -34,11 +34,8 @@
     <ClInclude Include="src\ClientEngine.h" />
     <ClInclude Include="src\ComponentManager.h" />
     <ClInclude Include="src\Component\Component.h" />
-    <ClInclude Include="src\Component\GameObject.h" />
-    <ClInclude Include="src\Component\Object.h" />
-    <ClInclude Include="src\EntityTemplate\Player.h" />
-    <ClInclude Include="src\EntityTemplate\Zombie.h" />
     <ClInclude Include="src\Game.h" />
+    <ClInclude Include="src\GameObject.h" />
     <ClInclude Include="src\GenerateMeshChunk.h" />
     <ClInclude Include="src\GraphicSetting.h" />
     <ClInclude Include="src\Input.h" />
@@ -73,8 +70,8 @@
     <ClCompile Include="src\ChunkManager.cpp" />
     <ClCompile Include="src\ClientEngine.cpp" />
     <ClCompile Include="src\ComponentManager.cpp" />
-    <ClCompile Include="src\Component\GameObject.cpp" />
     <ClCompile Include="src\Game.cpp" />
+    <ClCompile Include="src\GameObject.cpp" />
     <ClCompile Include="src\GenerateMeshChunk.cpp" />
     <ClCompile Include="src\glad.c" />
     <ClCompile Include="src\Input.cpp" />

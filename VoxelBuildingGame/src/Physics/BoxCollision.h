@@ -1,7 +1,7 @@
 #pragma once
 #include <glm/vec3.hpp>
 #include "entt/entt.hpp"
-#include "Component/Component.h"
+#include "Component.h"
 
 class BoxCollision : public Component {
 public:
@@ -16,6 +16,9 @@ public:
 		m_dimensionHalf = m_dimension / glm::vec3(2, 2, 2);
 	}
 	bool isCollider(BoxCollision other);
+	void beforeUpdate();
+	void draw();
+	void update();
 private:
 	glm::vec3 m_dimensionHalf;
 	glm::vec3 m_position;

@@ -1,4 +1,4 @@
-#include <Component/GameObject.h>
+#include <GameObject.h>
 #include <World.h>
 GameObject::GameObject() {
 	g_registry = &World::GetRegistry();

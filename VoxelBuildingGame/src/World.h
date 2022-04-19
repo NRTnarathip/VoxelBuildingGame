@@ -1,7 +1,7 @@
 #pragma once
 #include <ChunkManager.h>
 #include "entt/entt.hpp"
-#include <Component/GameObject.h>
+#include "GameObject.h"
 
 class Lighting {
 public:

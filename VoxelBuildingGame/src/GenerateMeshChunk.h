@@ -10,6 +10,6 @@ public:
 	SmartQueueChunkGroup queTransferGPU;
 	std::vector<std::thread> listThreadGenMesh;
 	ChunkManager* chManager = NULL;
-	void start(ChunkManager* chunkManager);
+	void init(ChunkManager* chunkManager);
 	void update();//update from engine
 };

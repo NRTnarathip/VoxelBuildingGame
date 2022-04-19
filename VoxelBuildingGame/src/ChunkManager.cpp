@@ -3,6 +3,8 @@
 #include "glm/gtx/string_cast.hpp"
 #include <array>
 #include <SmartQueue.h>
+#include "CameraManager.h"
+#include "ClientEngine.h"
 
 void useThreadDelete(ChunkManager* chManager) {
 	auto queDel = &chManager->queDeleteChunk;
@@ -155,9 +157,12 @@ bool ChunkManager::checkShouldNewChunk(glm::ivec3 posCamera) {
 	}
 	return isShouldSpawnNewChunk;
 }
-void ChunkManager::update(glm::vec3 posPlayer, unsigned char distRender) {
+void ChunkManager::update() {
+	auto camera = CameraManager::GetCurrentCamera();
+	auto posCamera = camera->Postition;
+	unsigned char distRender = ClientEngine::GetInstance().graphicSetting.renderDistance;
 	// Create initial chunks
-	auto posPlayerToChunk = ToChunkPosition(posPlayer);
+	auto posPlayerToChunk = ToChunkPosition(posCamera);
 	if (chunkGroups.size() > 0) {
 		if (not checkShouldNewChunk(posPlayerToChunk)) {
 			return;
@@ -241,7 +246,6 @@ void ChunkManager::render() {
 	//per frame
 	glClearColor(0.f,0.f,0.f,1.f);
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
 	for (auto kvp : chunkGroups) {
 		auto smartChunk = kvp.second;
 		smartChunk->get()->render();

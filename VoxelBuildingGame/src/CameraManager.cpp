@@ -16,7 +16,7 @@ Camera* CameraManager::newCamera() {
 	auto& client = ClientEngine::GetInstance();
 	int width, height;
 	glfwGetWindowSize(client.window->glfwWindow, &width, &height);
-	newCamera->setupCamera(client.window->glfwWindow, 90.f, 0.05f, 300.f);
+	newCamera->setupCamera(client.window->glfwWindow, 90.f, 0.005f, 1000.f);
 	return newCamera;
 }
 void CameraManager::uploadCameraMatrix() {
@@ -31,5 +31,4 @@ void CameraManager::uploadCameraMatrix() {
 	Shader* shader = Game::GetInstance()->shaders.defaultShader;
 	shader->Bind();
 	shader->SetMat4("view", view);
-	shader->UnBind();
 }

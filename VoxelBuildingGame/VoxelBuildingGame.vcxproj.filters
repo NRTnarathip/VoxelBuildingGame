@@ -40,12 +40,6 @@
     <Filter Include="Source Files\Physics">
       <UniqueIdentifier>{9a9cc80e-77ad-455f-80ad-1c713261511f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\EntityTemplate">
-      <UniqueIdentifier>{1f73b1ef-c04c-4029-90a6-4dfcb2f34348}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Component">
-      <UniqueIdentifier>{cbc114f4-c202-47ce-bd67-549a871841b8}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Game.h">
@@ -105,12 +99,6 @@
     <ClInclude Include="src\SmartChunk.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\EntityTemplate\Player.h">
-      <Filter>Source Files\EntityTemplate</Filter>
-    </ClInclude>
-    <ClInclude Include="src\EntityTemplate\Zombie.h">
-      <Filter>Source Files\EntityTemplate</Filter>
-    </ClInclude>
     <ClInclude Include="src\Physics\Transform.h">
       <Filter>Source Files\Physics</Filter>
     </ClInclude>
@@ -119,9 +107,6 @@
     </ClInclude>
     <ClInclude Include="src\Physics\BoxCollision.h">
       <Filter>Source Files\Physics</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Component\Component.h">
-      <Filter>Source Files\Component</Filter>
     </ClInclude>
     <ClInclude Include="src\Camera.h">
       <Filter>Source Files</Filter>
@@ -150,16 +135,16 @@
     <ClInclude Include="src\CameraManager.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Component\GameObject.h">
-      <Filter>Source Files\Component</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Component\Object.h">
-      <Filter>Source Files\Component</Filter>
-    </ClInclude>
     <ClInclude Include="src\VoxelEngine.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="src\ComponentManager.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Component\Component.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameObject.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -242,10 +227,10 @@
     <ClCompile Include="src\CameraManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\Component\GameObject.cpp">
-      <Filter>Source Files\Component</Filter>
-    </ClCompile>
     <ClCompile Include="src\ComponentManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

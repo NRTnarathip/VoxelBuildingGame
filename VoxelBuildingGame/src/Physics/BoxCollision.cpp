@@ -1,4 +1,5 @@
 #include "BoxCollision.h"
+#include "ClientEngine.h"
 
 bool isSection(float aMin, float aMax, float bMin, float bMax) {
 	return (aMax >= bMin and bMax >= aMin);
@@ -25,4 +26,15 @@ bool BoxCollision::isCollider(BoxCollision other) {
 	}*/
 
 	return false;
+}
+
+void BoxCollision::beforeUpdate() {
+	auto me = getGameObject();
+	m_position = me->transform.position;
+}
+void BoxCollision::update() {
+
+}
+void BoxCollision::draw() {
+	
 }
