@@ -4,33 +4,32 @@
 #include <GraphicSetting.h>
 #include <ClientEngine.h>
 #include "Input.h"
+#include <CameraManager.h>
+#include <Component/GameObject.h>
 
-PlayerController* PlayerController::refThis = NULL;
+PlayerController* PlayerController::instance = nullptr;
 
 PlayerController* PlayerController::GetInstance() {
-	return refThis;
+	return instance;
 }
-
+PlayerController::PlayerController() {
+	instance = this;
+}
 void PlayerController::init() {
-	entity->mesh = new Mesh();
-	refThis = this;
 	Input::GetInstance().setMouseMode(0);
 }
 void PlayerController::start() {
 }
 void PlayerController::update() { //update every frame on ECS
 	UpdateInputs();
-
-	//update camera pos
-	camera->Postition = entity->transform.position;
-	camera->UpdateMatrix();
 }
 
 void PlayerController::UpdateInputs()
 {
 	auto window = Game::GetInstance()->window->glfwWindow;
-	glm::vec3 &posEntity = entity->transform.position;
-
+	Transform& transform = getComponent<Transform>();
+	glm::vec3 &posEntity = transform.position;
+	auto* camera = CameraManager::GetCurrentCamera();
 	float speed = speedMove;
 	if (glfwGetKey(window, GLFW_KEY_LEFT_SHIFT) == GLFW_PRESS)
 	{

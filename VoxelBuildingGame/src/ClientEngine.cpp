@@ -1,4 +1,3 @@
-#include "MyGUI.h"
 #include "ClientEngine.h"
 #include <stb/stb_image.h>
 #include "Input.h"
@@ -79,14 +78,11 @@ void ClientEngine::launch() {
     Input& input = *m_input;
     input.initKeyMapping();
 
-    // Setup Dear ImGui context
-    MyGUI myGUI;
     //init game
 	game = new Game(window);
-    myGUI.SetupImGui(game);
 
     initialShader();
-    game->sceneMain = new Scene("inGame");
+    game->world = new World();
     game->init();
     game->start();
     while (!glfwWindowShouldClose(window->glfwWindow))
@@ -96,22 +92,14 @@ void ClientEngine::launch() {
         m_input->update();
         game->counterTime();
         game->processInput();
-        //impl imgui
-        //Start the Dear ImGui frame
-        myGUI.NewFrame();
-
         game->beforeUpdate();
         game->update();
         game->lastUpdate();
         game->render();
 
-        myGUI.Update();
-        myGUI.Render();
-
         // Swap the back buffer with the front buffer
         glfwSwapBuffers(window->glfwWindow);
     }
-    myGUI.CleanUp();
     exit();
 }
 void ClientEngine::exit() {

@@ -1,6 +1,6 @@
 #pragma once
 #include <ChunkManager.h>
-#include <ECS.h>
+#include "entt/entt.hpp"
 
 class Lighting {
 public:
@@ -9,6 +9,7 @@ public:
 };
 class World {
 private:
+	static World* instance;
 	//update 20 tick per 1 second;
 	//1 tick use 1000/20;s, 50 second per tick
 	int tickRate = 40;
@@ -17,13 +18,22 @@ private:
 	unsigned int tickCountter = 0;
 	
 	float tickLastTime =0.f;
+
+	//entity system component
+	entt::registry m_registry;
 public:
-	static World* ref;
-	Entity* refClient = nullptr;
+	World() { instance = this; }
+	static World* GetInstance() { return instance; }
 	//base func
 	void init();
 	void start();
 	void tick();
 	void update(float timeNow);//update every frame
+
+	//entity system
+	entt::registry& getRegistry() { return m_registry; }
+	GameObject& spawnGameObject();
+	const entt::entity& addEntity(const char* entityName);
 	Lighting lighting;
+
 };

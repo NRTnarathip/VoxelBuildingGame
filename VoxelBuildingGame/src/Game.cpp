@@ -1,5 +1,4 @@
 #include <Game.h>
-
 #include <ChunkManager.h>
 #include <Texture.h>
 #include <PlayerController.h>
@@ -7,6 +6,8 @@
 #include <stb/stb_image.h>
 #include <ClientEngine.h>
 #include "Input.h"
+#include <entt/entt.hpp>
+#include <CameraManager.h>
 //functin prototype
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 
@@ -24,7 +25,7 @@ int Time::fps = 0;
 double Time::lastTimeFPS = 0;
 float Time::framesPerSecond = 0.f;
 
-Game::Game(Window * win) {
+Game::Game(Window * win) : registry() {
     ref = this;
     window = win;
 }
@@ -35,33 +36,14 @@ void Game::init() {
     //create world
     world = new World();
     world->init();
-
+    const auto& player = world->addEntity("Player");
     //create system manager
     chManager = new ChunkManager();
     
     genMeshChunk = new GenMeshChunk();
-
-    auto& player = sceneMain->addGameObject("Player");
-    player.transform.position = glm::vec3(0.f, 100.f, 0.f);
-    auto& pc = player.addComponent<PlayerController>();
-    chManager->init(player.transform.position);
-
-    cameraMain = new Camera();
-
-    float renderDistanceSize = ((ClientEngine::GetInstance().graphicSetting.renderDistance * 2) + 1) * CHUNK_SIZE;
-
-    float farPlaneRender = std::sqrt(std::pow(renderDistanceSize, 2));
-    farPlaneRender += 100;
-
-    cameraMain->InitCamera(window->glfwWindow, window->initWidth, window->initHeight,
-        window->FOVdeg, window->nearPlane, farPlaneRender);
-    pc.camera = cameraMain;
-
-    sceneMain->initComponentAll();
 }
 void Game::render() {
     chManager->render();
-    sceneMain->renderEntity();
 }
 void Game::printCounter() {
     printf("FPS %d\n", Time::fps);
@@ -87,11 +69,9 @@ void Game::start() {
     world->start();
     chManager->start();
     genMeshChunk->start(chManager);
-    sceneMain->startComponentAll();
 }
 void Game::beforeUpdate() {
     inputDebug();
-    sceneMain->updatePhysicAll();
 }
 void Game::inputDebug() {
     int scancode = glfwGetKeyScancode(GLFW_KEY_X);
@@ -102,24 +82,21 @@ void Game::inputDebug() {
     }
 }
 void Game::lastUpdate() {
-    sceneMain->lastUpdateComponentAll();
 }
 void Game::update() { //update every frame
     //order call function!!!
     //world update
     //
     //test event input 
-    
     world->update(Time::lastTime);
 
     //update chunk manager
-    chManager->update(cameraMain->Postition, ClientEngine::GetInstance().graphicSetting.renderDistance);
+    auto* camera = CameraManager::GetCurrentCamera();
+    chManager->update(camera->Postition, ClientEngine::GetInstance().graphicSetting.renderDistance);
     genMeshChunk->update();
-    sceneMain->updateComponentAll();
 }
 
 void Game::checkDestroyEntity() {
-    sceneMain->checkDestroyEntity();
 }
 
 void Game::processInput()

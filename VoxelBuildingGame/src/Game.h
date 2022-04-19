@@ -6,7 +6,6 @@
 #include <GLFW/glfw3.h>
 
 //my components
-#include <ECS.h>
 #include <World.h>
 #include <Camera.h>
 #include <GenerateMeshChunk.h>
@@ -25,15 +24,15 @@ class Game {
 private:
     void inputDebug();
     static Game* ref;
+    entt::registry registry;
+
 public:
     Game(Window* win);
     static World* world;
     static Game* GetInstance() {
         return ref;
     }
-    Camera* cameraMain = NULL;
     Window* window = nullptr;
-    Scene* sceneMain = nullptr;
     ChunkManager* chManager = 0;
     GenMeshChunk* genMeshChunk = 0;
     void counterTime();

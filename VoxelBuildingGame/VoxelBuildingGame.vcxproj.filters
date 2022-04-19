@@ -31,20 +31,20 @@
     <Filter Include="Source Files\World\Chunk">
       <UniqueIdentifier>{928fd87f-1472-4179-9363-01544ffd259a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Engine">
-      <UniqueIdentifier>{396084ac-ea6c-4068-8080-780eb1dcc84f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Player">
-      <UniqueIdentifier>{462c6066-8144-4129-92bf-48d59d9fdc1b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Graphic">
       <UniqueIdentifier>{71da6077-d2f9-4e10-bd1b-dac8a32de1eb}</UniqueIdentifier>
     </Filter>
     <Filter Include="Source Files\Graphic\ImGui">
       <UniqueIdentifier>{3af42be6-61aa-44fe-8349-3812a93d5dbf}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Graphic\GUI">
-      <UniqueIdentifier>{75e1da3e-94d3-4a20-a6b1-d62e116565f3}</UniqueIdentifier>
+    <Filter Include="Source Files\Physics">
+      <UniqueIdentifier>{9a9cc80e-77ad-455f-80ad-1c713261511f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\EntityTemplate">
+      <UniqueIdentifier>{1f73b1ef-c04c-4029-90a6-4dfcb2f34348}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Component">
+      <UniqueIdentifier>{cbc114f4-c202-47ce-bd67-549a871841b8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -84,35 +84,14 @@
     <ClInclude Include="ImGui\imgui_impl_opengl3_loader.h">
       <Filter>Source Files\Graphic\ImGui</Filter>
     </ClInclude>
-    <ClInclude Include="src\MyGUI.h">
-      <Filter>Source Files\Graphic\GUI</Filter>
-    </ClInclude>
     <ClInclude Include="src\World.h">
       <Filter>Source Files\World</Filter>
     </ClInclude>
     <ClInclude Include="src\Voxel.h">
       <Filter>Source Files\World</Filter>
     </ClInclude>
-    <ClInclude Include="src\ECS.h">
-      <Filter>Source Files\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Mesh.h">
-      <Filter>Source Files\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Texture.h">
-      <Filter>Source Files\Engine</Filter>
-    </ClInclude>
-    <ClInclude Include="src\TerrainGen.h">
-      <Filter>Source Files\Engine</Filter>
-    </ClInclude>
     <ClInclude Include="src\GenerateMeshChunk.h">
       <Filter>Source Files\World\Chunk</Filter>
-    </ClInclude>
-    <ClInclude Include="src\PlayerController.h">
-      <Filter>Source Files\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Camera.h">
-      <Filter>Source Files\Player</Filter>
     </ClInclude>
     <ClInclude Include="src\GraphicSetting.h">
       <Filter>Source Files\Graphic</Filter>
@@ -126,14 +105,56 @@
     <ClInclude Include="src\SmartChunk.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\Input.h">
-      <Filter>Source Files\Engine</Filter>
+    <ClInclude Include="src\EntityTemplate\Player.h">
+      <Filter>Source Files\EntityTemplate</Filter>
+    </ClInclude>
+    <ClInclude Include="src\EntityTemplate\Zombie.h">
+      <Filter>Source Files\EntityTemplate</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Physics\Transform.h">
+      <Filter>Source Files\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Physics\GameObject.h">
+      <Filter>Source Files\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Physics\BoxCollision.h">
+      <Filter>Source Files\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Component\Component.h">
+      <Filter>Source Files\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Camera.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="src\ClientEngine.h">
-      <Filter>Source Files\Engine</Filter>
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Input.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Mesh.h">
+      <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Raycast.h">
-      <Filter>Source Files\Engine</Filter>
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TerrainGen.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Texture.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\PlayerController.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\CameraManager.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Component\GameObject.h">
+      <Filter>Source Files\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Component\Object.h">
+      <Filter>Source Files\Component</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -176,44 +197,47 @@
     <ClCompile Include="ImGui\imgui.cpp">
       <Filter>Source Files\Graphic\ImGui</Filter>
     </ClCompile>
-    <ClCompile Include="src\MyGUI.cpp">
-      <Filter>Source Files\Graphic\GUI</Filter>
-    </ClCompile>
     <ClCompile Include="src\World.cpp">
       <Filter>Source Files\World</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ECS.cpp">
-      <Filter>Source Files\Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Mesh.cpp">
-      <Filter>Source Files\Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Texture.cpp">
-      <Filter>Source Files\Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="src\TerrainGen.cpp">
-      <Filter>Source Files\Engine</Filter>
     </ClCompile>
     <ClCompile Include="src\GenerateMeshChunk.cpp">
       <Filter>Source Files\World\Chunk</Filter>
     </ClCompile>
-    <ClCompile Include="src\PlayerController.cpp">
-      <Filter>Source Files\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Camera.cpp">
-      <Filter>Source Files\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Input.cpp">
-      <Filter>Source Files\Engine</Filter>
-    </ClCompile>
-    <ClCompile Include="src\ClientEngine.cpp">
-      <Filter>Source Files\Engine</Filter>
-    </ClCompile>
     <ClCompile Include="src\glad.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Physics\BoxCollision.cpp">
+      <Filter>Source Files\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Camera.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ClientEngine.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Input.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Mesh.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="src\Raycast.cpp">
-      <Filter>Source Files\Engine</Filter>
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TerrainGen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Texture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\PlayerController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\CameraManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Component\GameObject.cpp">
+      <Filter>Source Files\Component</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

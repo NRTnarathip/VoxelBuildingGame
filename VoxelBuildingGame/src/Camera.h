@@ -10,10 +10,9 @@
 #include<glm/gtc/type_ptr.hpp>
 #include<glm/gtx/rotate_vector.hpp>
 #include<glm/gtx/vector_angle.hpp>
-
 #include <vector>
-
-class Camera {
+#include "Component/Component.h"
+class Camera : public Component {
 public:
 	//project view use coordinate system left hand
 	// Stores the main vectors of the camera
@@ -21,11 +20,7 @@ public:
 	glm::vec3 Orientation = glm::vec3(0.0f, 0.0f, 1.0f); // rotation object
 	glm::vec3 Postition = glm::vec3(0.0f, 0.0f, 0.0f); // should += offset player
 	glm::vec3 Up = glm::vec3(0.0f, 1.0f, 0.0f);
-
-	// Stores the width and height of the window
-	int width = 1280;
-	int height = 720;
-
+	glm::mat4 projection = glm::mat4(1.0f);
 	// Adjust the speed of the camera and it's sensitivity when looking around
 	float sensitivity = 20.0f;
 
@@ -36,10 +31,9 @@ public:
 	GLFWwindow* window = nullptr;
 
 	// Camera constructor to set up initial values
-	void InitCamera(GLFWwindow* window,int width, int height,
-		float FOVdeg, float nearPlane, float farPlane);
+	void setupCamera(GLFWwindow* window, float FOVdeg, float nearPlane, float farPlane);
 
 	// Updates and exports the camera matrix to the Vertex Shader
-	void UpdateMatrix() const;
-	
+	//test feature not avaliable now!!!
+	void switchMode(bool isPerspective);
 };

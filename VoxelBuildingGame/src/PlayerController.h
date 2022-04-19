@@ -1,14 +1,13 @@
 #pragma once
-#include <ECS.h>
-#include <Camera.h>
 #include <ChunkManager.h>
+#include <Component/Component.h>
 
 class PlayerController : public Component {
 private:
-	static PlayerController* refThis;
+	static PlayerController* instance;
 public:
+	PlayerController();
 	static PlayerController* GetInstance();
-	Camera* camera = nullptr;
 	void init();
 	void start();
 	void update();
