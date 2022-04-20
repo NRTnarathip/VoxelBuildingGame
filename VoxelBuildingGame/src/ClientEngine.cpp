@@ -51,23 +51,6 @@ int ClientEngine::initialOpenGL() {
     glfwSetWindowIcon(window->glfwWindow, 1, images);
     return 0;
 }
-int ClientEngine::initialShader() {
-    //init shaders
-    game->shaders.defaultShader = new Shader("src/Shader/defualt.vert", "src/Shader/defualt.frag");
-    game->shaders.mcatlas = new Texture("src/Texture/mcatlas.png", true, true, GL_REPEAT, GL_NEAREST);
-    game->shaders.defaultShader->Bind();
-    game->shaders.defaultShader->SetVar("tex", 0);
-    game->shaders.defaultShader->SetFloat("aoStrength", .45f);
-    game->shaders.defaultShader->UnBind();
-    game->shaders.skyShader = new Shader("src/Shader/sky.vert", "src/Shader/sky.frag");
-
-
-    //init with graphic setting
-    game->shaders.defaultShader->SetFloat("fogMin", graphicSetting.fogMin);
-    game->shaders.defaultShader->SetFloat("fogMax", graphicSetting.fogMax);
-
-    return 0;
-}
 void ClientEngine::launch() {
     //---init opengl
     window = new Window("Voxel Game");
@@ -79,7 +62,6 @@ void ClientEngine::launch() {
 
     //init game
 	game = new Game(window);
-    initialShader();
     game->init();
     while (!glfwWindowShouldClose(window->glfwWindow))
     { 

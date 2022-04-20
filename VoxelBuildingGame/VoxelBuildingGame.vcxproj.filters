@@ -40,6 +40,9 @@
     <Filter Include="Source Files\Physics">
       <UniqueIdentifier>{9a9cc80e-77ad-455f-80ad-1c713261511f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\OpenGL Class">
+      <UniqueIdentifier>{3953a18a-1af9-4ce8-850b-2116ae151b98}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Game.h">
@@ -147,6 +150,21 @@
     <ClInclude Include="src\GameObject.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Renderer\MeshGameObject.h">
+      <Filter>Source Files\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\OpenGL Class\EBO.h">
+      <Filter>Resource Files\OpenGL Class</Filter>
+    </ClInclude>
+    <ClInclude Include="src\OpenGL Class\VAO.h">
+      <Filter>Resource Files\OpenGL Class</Filter>
+    </ClInclude>
+    <ClInclude Include="src\OpenGL Class\VBO.h">
+      <Filter>Resource Files\OpenGL Class</Filter>
+    </ClInclude>
+    <ClInclude Include="src\ResourceManager.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -233,6 +251,12 @@
     <ClCompile Include="src\GameObject.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\Renderer\MeshGameObject.cpp">
+      <Filter>Source Files\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ResourceManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="src\Shader\defualt.frag">
@@ -251,6 +275,12 @@
       <Filter>Resource Files\Shader</Filter>
     </None>
     <None Include="src\Shader\sky.vert">
+      <Filter>Resource Files\Shader</Filter>
+    </None>
+    <None Include="src\Shader\gameobject.frag">
+      <Filter>Resource Files\Shader</Filter>
+    </None>
+    <None Include="src\Shader\gameobject.vert">
       <Filter>Resource Files\Shader</Filter>
     </None>
   </ItemGroup>

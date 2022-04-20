@@ -1,6 +1,8 @@
 #pragma once
 #include <Camera.h>
 #include <list>
+#include "Renderer/shaderClass.h"
+
 class CameraManager {
 private:
 	static CameraManager* instance;
@@ -16,7 +18,7 @@ public:
 
 	static CameraManager& GetInstance() { return *instance; };
 
-	void uploadCameraMatrix();
+	void uploadCameraMatrixToShader(Shader* shader);
 	Camera* getCurrentCamera();
 	void switchCamera(Camera* other);
 	Camera* newCamera();

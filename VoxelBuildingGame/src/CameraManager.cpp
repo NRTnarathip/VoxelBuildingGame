@@ -1,5 +1,6 @@
 #include <CameraManager.h>
 #include <ClientEngine.h>
+
 CameraManager *CameraManager::instance = new CameraManager();
 CameraManager::CameraManager() {
 
@@ -19,7 +20,7 @@ Camera* CameraManager::newCamera() {
 	newCamera->setupCamera(client.window->glfwWindow, 90.f, 0.005f, 1000.f);
 	return newCamera;
 }
-void CameraManager::uploadCameraMatrix() {
+void CameraManager::uploadCameraMatrixToShader(Shader* shader) {
 	auto camPosition = m_currentCamera->Postition;
 	auto camOriention = m_currentCamera->Orientation;
 	auto camUp = m_currentCamera->Up;
@@ -28,7 +29,7 @@ void CameraManager::uploadCameraMatrix() {
 	view = glm::lookAt(camPosition, camPosition + camOriention, camUp);
 
 	// Exports the camera matrix to the Vertex Shader
-	Shader* shader = Game::GetInstance()->shaders.defaultShader;
 	shader->Bind();
 	shader->SetMat4("view", view);
+	shader->UnBind();
 }

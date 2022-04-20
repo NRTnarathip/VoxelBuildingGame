@@ -32,6 +32,7 @@ public:
 	void init();
 	void tick();
 	void update(float timeNow);//update every frame
+	void render(); //render all game object;
 
 	//entity system
 	entt::registry& getRegistry() { return m_registry; }

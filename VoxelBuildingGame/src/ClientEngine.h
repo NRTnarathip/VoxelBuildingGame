@@ -20,8 +20,6 @@ public:
 	Input* m_input = nullptr;
 
 	int initialOpenGL();
-	int initialShader();
-
 	void launch();
 	void exit();
 };

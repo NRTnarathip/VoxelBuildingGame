@@ -10,16 +10,11 @@
 #include <Camera.h>
 #include <GenerateMeshChunk.h>
 #include <ChunkManager.h>
+#include "ResourceManager.h"
 
 class Window;
 class Time;
 
-class ShaderList {
-public:
-    Shader* defaultShader = nullptr;
-    Texture *mcatlas = nullptr;
-    Shader* skyShader = nullptr;
-};
 class Game {
 private:
     void inputDebug();
@@ -33,8 +28,10 @@ public:
         return ref;
     }
     Window* window = nullptr;
-    ChunkManager* chManager = 0;
-    GenMeshChunk* genMeshChunk = 0;
+    ChunkManager* chManager = nullptr;
+    GenMeshChunk* genMeshChunk = nullptr;
+    ResourceManager* resourceManager = nullptr;
+
     void counterTime();
     //order of event functions visualised
     void init();
@@ -44,9 +41,7 @@ public:
     //end
     void render();
     void processInput();
-
     void printCounter();
-    ShaderList shaders;
 };
 
 class Window {

@@ -31,9 +31,11 @@ void Camera::setupCamera(GLFWwindow* window, float FOVdeg, float nearPlane, floa
 	glfwGetWindowSize(window, &width, &height);
 	projection = glm::perspective(glm::radians(FOVdeg), (float)width / (float)height, nearPlane, farPlane);
 	projection[0][0] *= -1;//invert project axis X
-	Shader* shader = Game::GetInstance()->shaders.defaultShader;
-	shader->Bind();
-	shader->SetMat4("projection", projection);
+	for (auto shader : Game::GetInstance()->resourceManager->m_shaders) {
+		shader->Bind();
+		shader->SetMat4("projection", projection);
+		shader->UnBind();
+	}
 };
 void Camera::switchMode(bool isPerspective) {
 	if (isPerspective) {

@@ -6,6 +6,8 @@
 #include <vector>
 #include <entt/entt.hpp>
 #include "ComponentManager.h"
+#include "Renderer/MeshGameObject.h"
+#include "Renderer/shaderClass.h"
 
 class ComponentManager;
 
@@ -14,12 +16,14 @@ private:
 	std::vector<Transform*> childs;
 	Transform* parent;
 	entt::entity m_entity;
-	entt::registry* g_registry;
+	entt::registry* g_registry = nullptr;
 	std::vector<Component*> m_components;
 public:
 	GameObject();
 	std::string name;
 	Transform transform;
+	MeshGameObject* mesh = nullptr;
+	Shader* shader = nullptr;
 public:
 	template<typename TypeComponent>
 	TypeComponent* addComponent() {

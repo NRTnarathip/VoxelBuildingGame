@@ -40,12 +40,17 @@
     <ClInclude Include="src\GraphicSetting.h" />
     <ClInclude Include="src\Input.h" />
     <ClInclude Include="src\Mesh.h" />
+    <ClInclude Include="src\OpenGL Class\EBO.h" />
+    <ClInclude Include="src\OpenGL Class\VAO.h" />
+    <ClInclude Include="src\OpenGL Class\VBO.h" />
     <ClInclude Include="src\Physics\BoxCollision.h" />
     <ClInclude Include="src\Physics\GameObject.h" />
     <ClInclude Include="src\Physics\Transform.h" />
     <ClInclude Include="src\PlayerController.h" />
     <ClInclude Include="src\Raycast.h" />
+    <ClInclude Include="src\Renderer\MeshGameObject.h" />
     <ClInclude Include="src\Renderer\shaderClass.h" />
+    <ClInclude Include="src\ResourceManager.h" />
     <ClInclude Include="src\SmartChunk.h" />
     <ClInclude Include="src\SmartChunkPooling.h" />
     <ClInclude Include="src\SmartQueue.h" />
@@ -80,7 +85,9 @@
     <ClCompile Include="src\Physics\BoxCollision.cpp" />
     <ClCompile Include="src\PlayerController.cpp" />
     <ClCompile Include="src\Raycast.cpp" />
+    <ClCompile Include="src\Renderer\MeshGameObject.cpp" />
     <ClCompile Include="src\Renderer\shaderClass.cpp" />
+    <ClCompile Include="src\ResourceManager.cpp" />
     <ClCompile Include="src\TerrainGen.cpp" />
     <ClCompile Include="src\Texture.cpp" />
     <ClCompile Include="src\World.cpp" />
@@ -95,6 +102,8 @@
     <None Include="src\bin\FastNoiseD.pdb" />
     <None Include="src\Shader\defualt.frag" />
     <None Include="src\Shader\defualt.vert" />
+    <None Include="src\Shader\gameobject.frag" />
+    <None Include="src\Shader\gameobject.vert" />
     <None Include="src\Shader\sky.frag" />
     <None Include="src\Shader\sky.vert" />
   </ItemGroup>

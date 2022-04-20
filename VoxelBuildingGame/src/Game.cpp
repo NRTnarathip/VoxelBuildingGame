@@ -33,18 +33,34 @@ Window::Window(const char* newTitle) {
     titleName = newTitle;
 }
 void Game::init() {
-    //create world
+    //setup core
+    resourceManager = new ResourceManager();
     world = new World();
+    chManager = new ChunkManager();
+    genMeshChunk = new GenMeshChunk();
+    auto defaultShader = resourceManager->addShader("src/Shader/defualt.vert", "src/Shader/defualt.frag");
+    resourceManager->m_textures.push_back(new Texture("src/Texture/mcatlas.png", true, true, GL_REPEAT, GL_NEAREST));
+    auto& graphicSetting = ClientEngine::GetInstance().graphicSetting;
+    defaultShader->Bind();
+    auto mcatlas = resourceManager->m_textures[0];
+    defaultShader->SetVar("tex", 0);
+    defaultShader->SetFloat("aoStrength", 0.45f);
+    defaultShader->SetFloat("fogMin", graphicSetting.fogMin);
+    defaultShader->SetFloat("fogMax", graphicSetting.fogMax);
+    defaultShader->UnBind();
+
+    resourceManager->addShader("src/Shader/gameobject.vert", "src/Shader/gameobject.frag");
+    //create world
     world->init();
     //create system manager
-    chManager = new ChunkManager();
     chManager->init(glm::vec3(0, 0, 0));
-    genMeshChunk = new GenMeshChunk();
     genMeshChunk->init(chManager);
 }
 void Game::render() {
-    CameraManager::GetInstance().uploadCameraMatrix();
+    auto shaders = resourceManager->m_shaders;
+    CameraManager::GetInstance().uploadCameraMatrixToShader(shaders[0]);
     chManager->render();
+    world->render();
 }
 void Game::printCounter() {
     printf("FPS %d\n", Time::fps);

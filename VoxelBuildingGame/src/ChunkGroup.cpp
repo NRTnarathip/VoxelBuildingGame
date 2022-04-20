@@ -39,9 +39,10 @@ bool ChunkGroup::checkIsHaveVoxel(Chunk* c) {
     return false;
 }
 void ChunkGroup::render() {
-    auto defaultShader = Game::GetInstance()->shaders.defaultShader;
-    auto mcatlas = Game::GetInstance()->shaders.mcatlas;
-
+    auto resource = Game::GetInstance()->resourceManager;
+    auto defaultShader = resource->m_shaders[0];
+    auto mcatlas = resource->m_textures[0];
+    defaultShader->Bind();
     for (auto c : chunks) {
         // Mesh must be on gpu to draw
         glm::vec3 pos;
@@ -51,10 +52,8 @@ void ChunkGroup::render() {
 
         glm::mat4 model = glm::mat4(1.f);
         model = glm::translate(model, pos);
-        defaultShader->Bind();
         defaultShader->SetMat4("model", model);
         mcatlas->Activate(GL_TEXTURE0);
-
         c->mesh.draw();
     }
 }
