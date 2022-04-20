@@ -11,13 +11,11 @@ void MeshGameObject::uploadDataMeshToGPU() {
     }
 
     m_vao.bind();
-    //glBindVertexArray(VAO);
-    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    m_vbo.bind();
+    m_vbo.bufferData(vertices.size() * sizeof(Vertex), &vertices[0], GL_STATIC_DRAW);
 
-    glBufferData(GL_ARRAY_BUFFER, vertices.size() * sizeof(Vertex), &vertices[0], GL_STATIC_DRAW);
-
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, indices.size() * sizeof(unsigned int),
+    m_ebo.bind();
+    m_ebo.bufferData(indices.size() * sizeof(unsigned int),
         &indices[0], GL_STATIC_DRAW);
 
     // vertex positions
@@ -37,8 +35,8 @@ void MeshGameObject::setupGL() {
     m_vao.setupGL();
     //glGenVertexArrays(1, &VAO);//Vertex Array Object
 
-    glGenBuffers(1, &VBO);//Vertex Buffer Object
-    glGenBuffers(1, &EBO);//element Buffer Object
+    m_vbo.setupGL();
+    m_ebo.setupGL();
 }
 void MeshGameObject::render() {
     // draw mesh

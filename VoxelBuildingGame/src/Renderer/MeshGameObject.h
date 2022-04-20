@@ -3,12 +3,14 @@
 #include <string>
 #include <vector>
 #include <OpenGL Class/VAO.h>
+#include <OpenGL Class/VBOAndEBO.h>
 
 class MeshGameObject {
 private:
 	//  render data
 	VAO m_vao;
-	unsigned int VBO, EBO;
+	VBO m_vbo;
+	EBO m_ebo;
 public:
 	void setupGL();
 	void uploadDataMeshToGPU();
