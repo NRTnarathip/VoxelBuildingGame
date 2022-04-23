@@ -43,6 +43,15 @@
     <Filter Include="Source Files\OpenGL Class">
       <UniqueIdentifier>{3953a18a-1af9-4ce8-850b-2116ae151b98}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Scene System">
+      <UniqueIdentifier>{26fcb38a-5e44-4d7c-b481-4fa217fd7f34}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Scene">
+      <UniqueIdentifier>{bb5a169f-1c3c-44b6-b14d-657ea74e2fd2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GUI">
+      <UniqueIdentifier>{254d5a43-d146-47a2-922f-ad685d398c1f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Game.h">
@@ -159,6 +168,21 @@
     <ClInclude Include="src\OpenGL Class\VAO.h">
       <Filter>Source Files\OpenGL Class</Filter>
     </ClInclude>
+    <ClInclude Include="src\SceneGame.h">
+      <Filter>Source Files\Scene System</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SceneManager.h">
+      <Filter>Source Files\Scene System</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scenes\SceneMainMenu.h">
+      <Filter>Source Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Scenes\SceneMainGame.h">
+      <Filter>Source Files\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GUI\Sprite.h">
+      <Filter>Source Files\GUI</Filter>
+    </ClInclude>
     <ClInclude Include="src\ResourceManager.h">
       <Filter>Source Files</Filter>
     </ClInclude>
@@ -251,6 +275,18 @@
     <ClCompile Include="src\Renderer\MeshGameObject.cpp">
       <Filter>Source Files\Renderer</Filter>
     </ClCompile>
+    <ClCompile Include="src\SceneGame.cpp">
+      <Filter>Source Files\Scene System</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SceneManager.cpp">
+      <Filter>Source Files\Scene System</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Scenes\SceneMainMenu.cpp">
+      <Filter>Source Files\Scene</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GUI\Sprite.cpp">
+      <Filter>Source Files\GUI</Filter>
+    </ClCompile>
     <ClCompile Include="src\ResourceManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -278,6 +314,12 @@
       <Filter>Resource Files\Shader</Filter>
     </None>
     <None Include="src\Shader\gameobject.vert">
+      <Filter>Resource Files\Shader</Filter>
+    </None>
+    <None Include="src\Shader\render2D.frag">
+      <Filter>Resource Files\Shader</Filter>
+    </None>
+    <None Include="src\Shader\render2D.vert">
       <Filter>Resource Files\Shader</Filter>
     </None>
   </ItemGroup>

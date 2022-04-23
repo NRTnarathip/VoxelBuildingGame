@@ -26,8 +26,9 @@ Texture::Texture(const char* path, bool alphaChannel, bool mipmap, int wrapMode,
 		glTexImage2D(GL_TEXTURE_2D, 0, glAlpha, width_, height_, 0, glAlpha, GL_UNSIGNED_BYTE, data);
 
 		// Generate mipmaps
-		if (mipmap)
+		if (mipmap) {
 			glGenerateMipmap(GL_TEXTURE_2D);
+		}
 	}
 	else
 	{

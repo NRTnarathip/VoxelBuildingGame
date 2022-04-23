@@ -38,6 +38,7 @@
     <ClInclude Include="src\GameObject.h" />
     <ClInclude Include="src\GenerateMeshChunk.h" />
     <ClInclude Include="src\GraphicSetting.h" />
+    <ClInclude Include="src\GUI\Sprite.h" />
     <ClInclude Include="src\Input.h" />
     <ClInclude Include="src\Mesh.h" />
     <ClInclude Include="src\OpenGL Class\VBOAndEBO.h" />
@@ -50,6 +51,10 @@
     <ClInclude Include="src\Renderer\MeshGameObject.h" />
     <ClInclude Include="src\Renderer\shaderClass.h" />
     <ClInclude Include="src\ResourceManager.h" />
+    <ClInclude Include="src\SceneGame.h" />
+    <ClInclude Include="src\SceneManager.h" />
+    <ClInclude Include="src\Scenes\SceneMainGame.h" />
+    <ClInclude Include="src\Scenes\SceneMainMenu.h" />
     <ClInclude Include="src\SmartChunk.h" />
     <ClInclude Include="src\SmartChunkPooling.h" />
     <ClInclude Include="src\SmartQueue.h" />
@@ -78,6 +83,7 @@
     <ClCompile Include="src\GameObject.cpp" />
     <ClCompile Include="src\GenerateMeshChunk.cpp" />
     <ClCompile Include="src\glad.c" />
+    <ClCompile Include="src\GUI\Sprite.cpp" />
     <ClCompile Include="src\Input.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Mesh.cpp" />
@@ -87,6 +93,9 @@
     <ClCompile Include="src\Renderer\MeshGameObject.cpp" />
     <ClCompile Include="src\Renderer\shaderClass.cpp" />
     <ClCompile Include="src\ResourceManager.cpp" />
+    <ClCompile Include="src\SceneGame.cpp" />
+    <ClCompile Include="src\SceneManager.cpp" />
+    <ClCompile Include="src\Scenes\SceneMainMenu.cpp" />
     <ClCompile Include="src\TerrainGen.cpp" />
     <ClCompile Include="src\Texture.cpp" />
     <ClCompile Include="src\World.cpp" />
@@ -103,6 +112,8 @@
     <None Include="src\Shader\defualt.vert" />
     <None Include="src\Shader\gameobject.frag" />
     <None Include="src\Shader\gameobject.vert" />
+    <None Include="src\Shader\render2D.frag" />
+    <None Include="src\Shader\render2D.vert" />
     <None Include="src\Shader\sky.frag" />
     <None Include="src\Shader\sky.vert" />
   </ItemGroup>

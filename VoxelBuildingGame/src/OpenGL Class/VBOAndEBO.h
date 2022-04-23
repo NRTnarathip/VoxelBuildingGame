@@ -3,15 +3,23 @@
 
 class HelperBufferObject {
 public:
+	~HelperBufferObject() {
+		deleteBuffer();
+	}
 	unsigned int m_ID;
+	void deleteBuffer() {
+		glDeleteBuffers(1, &m_ID);
+	}
 	void genBuffer() {
 		glGenBuffers(1, &m_ID);//element Buffer Object
 	}
 };
 class VBO {
-private:
-	HelperBufferObject m_VBO;
 public:
+	~VBO() {
+		m_VBO.deleteBuffer();
+	}
+	HelperBufferObject m_VBO;
 	void setupGL() {
 		m_VBO.genBuffer();
 	}
@@ -24,9 +32,11 @@ public:
 };
 
 class EBO {
-private:
-	HelperBufferObject m_EBO;
 public:
+	~EBO() {
+		m_EBO.deleteBuffer();
+	}
+	HelperBufferObject m_EBO;
 	void setupGL() {
 		m_EBO.genBuffer();
 	}

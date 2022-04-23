@@ -11,6 +11,7 @@
 #include <GenerateMeshChunk.h>
 #include <ChunkManager.h>
 #include "ResourceManager.h"
+#include "SceneManager.h"
 
 class Window;
 class Time;
@@ -18,19 +19,16 @@ class Time;
 class Game {
 private:
     void inputDebug();
-    static Game* ref;
-    entt::registry registry;
-
+    static Game* instance;
 public:
     Game(Window* win);
-    static World* world;
-    static Game* GetInstance() {
-        return ref;
-    }
+    static Game* GetInstance() { return instance; }
+    SceneManager* sceneManager = nullptr;
     Window* window = nullptr;
-    ChunkManager* chManager = nullptr;
-    GenMeshChunk* genMeshChunk = nullptr;
     ResourceManager* resourceManager = nullptr;
+
+   /* ChunkManager* chManager = nullptr;
+    GenMeshChunk* genMeshChunk = nullptr;*/
 
     void counterTime();
     //order of event functions visualised

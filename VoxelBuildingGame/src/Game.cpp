@@ -8,12 +8,15 @@
 #include "Input.h"
 #include <entt/entt.hpp>
 #include <CameraManager.h>
+
+#include "Scenes/SceneMainGame.h"
+#include "Scenes/SceneMainMenu.h"
+
 //functin prototype
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 
 //static variable
-Game* Game::ref = nullptr;
-World* Game::world = nullptr;
+Game* Game::instance = nullptr;
 //cass Window
 unsigned int Window::width = 0;
 unsigned int Window::height = 0;
@@ -25,42 +28,70 @@ int Time::fps = 0;
 double Time::lastTimeFPS = 0;
 float Time::framesPerSecond = 0.f;
 
-Game::Game(Window * win) : registry() {
-    ref = this;
+Game::Game(Window * win) {
+    instance = this;
     window = win;
 }
 Window::Window(const char* newTitle) {
     titleName = newTitle;
 }
 void Game::init() {
-    //setup core
+    //setup core base all
     resourceManager = new ResourceManager();
-    world = new World();
-    chManager = new ChunkManager();
-    genMeshChunk = new GenMeshChunk();
-    auto defaultShader = resourceManager->addShader("src/Shader/defualt.vert", "src/Shader/defualt.frag");
-    resourceManager->m_textures.push_back(new Texture("src/Texture/mcatlas.png", true, true, GL_REPEAT, GL_NEAREST));
+    sceneManager = new SceneManager();
+    auto res = resourceManager;
+    res->loadAllResouces();
+    //setup core addond
+    //setup resouce manager;
+    auto defaultShader = res->addShader("src/Shader/defualt", "default");
+    res->addShader("src/Shader/gameobject", "gameobject");
+    auto shaderRender2D = res->addShader("src/Shader/render2D", "render2D");
     auto& graphicSetting = ClientEngine::GetInstance().graphicSetting;
     defaultShader->Bind();
-    auto mcatlas = resourceManager->m_textures[0];
     defaultShader->SetVar("tex", 0);
     defaultShader->SetFloat("aoStrength", 0.45f);
     defaultShader->SetFloat("fogMin", graphicSetting.fogMin);
     defaultShader->SetFloat("fogMax", graphicSetting.fogMax);
     defaultShader->UnBind();
+    
+    auto book = res->addTexture("assets/textures/gui/book.png", false);
+    auto bgMainMenu = res->addTexture("assets/textures/gui/presets/dirt_background.png", false);
+    res->addTexture("src/Texture/mcatlas.png", true);
+    //add steam sprites;
+    res->addSprite(new Sprite(bgMainMenu), "bgMainMenu");
+    //res->addSprite(new Sprite(book), "book");
 
-    resourceManager->addShader("src/Shader/gameobject.vert", "src/Shader/gameobject.frag");
-    //create world
-    world->init();
-    //create system manager
-    chManager->init(glm::vec3(0, 0, 0));
-    genMeshChunk->init(chManager);
+    //setup scene main menu, game
+    auto mainMenu = new SceneMainMenu("Main Menu");
+    auto mainGame = new SceneMainGame("Main Game");
+    sceneManager->addExistScene(mainMenu);
+    sceneManager->addExistScene(mainGame);
+
+    //implement engine core base
+    sceneManager->init();
+
+    ////create world
+       //world = new World();
+   /* chManager = new ChunkManager();
+    genMeshChunk = new GenMeshChunk();*/
+    //world->init();
+    ////create system manager
+    //chManager->init(glm::vec3(0, 0, 0));
+    //genMeshChunk->init(chManager);
+
 }
 void Game::render() {
-    auto shaders = resourceManager->m_shaders;
-    CameraManager::GetInstance().uploadCameraMatrixToShader(shaders[0]);
-    chManager->render();
-    world->render();
+    glClearColor(0.f, 0.0f, 0.0f, 1.f);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+    sceneManager->render();
+    //auto shaders = resourceManager->m_shaders;
+    //CameraManager::GetInstance().uploadCameraMatrixToShader(shaders[0]);
+    //chManager->render();
+    //world->render();
+
+     // Swap the back buffer with the front buffer
+    glfwSwapBuffers(window->glfwWindow);
 }
 void Game::printCounter() {
     printf("FPS %d\n", Time::fps);
@@ -84,6 +115,8 @@ void Game::counterTime() {
 }
 void Game::beforeUpdate() {
     inputDebug();
+    sceneManager->beforeUpdate();
+
 }
 void Game::inputDebug() {
     int scancode = glfwGetKeyScancode(GLFW_KEY_X);
@@ -94,18 +127,23 @@ void Game::inputDebug() {
     }
 }
 void Game::lastUpdate() {
+    sceneManager->lastUpdate();
 }
 void Game::update() { //update every frame
     //order call function!!!
     //world update
     //
     //test event input 
-    world->update(Time::lastTime);
+   
+    
 
-    //update chunk manager
-    auto* camera = CameraManager::GetCurrentCamera();
-    chManager->update();
-    genMeshChunk->update();
+    sceneManager->update();
+    //world->update(Time::lastTime);
+
+    ////update chunk manager
+    //auto* camera = CameraManager::GetCurrentCamera();
+    //chManager->update();
+    //genMeshChunk->update();
 }
 
 void Game::processInput()

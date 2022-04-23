@@ -2,6 +2,7 @@
 #include <Game.h>
 #include <Renderer/shaderClass.h>
 #include "glm/gtx/string_cast.hpp"
+#include "ClientEngine.h"
 
 void Camera::setupCamera(GLFWwindow* window, float FOVdeg, float nearPlane, float farPlane) {
 	
@@ -31,12 +32,13 @@ void Camera::setupCamera(GLFWwindow* window, float FOVdeg, float nearPlane, floa
 	glfwGetWindowSize(window, &width, &height);
 	projection = glm::perspective(glm::radians(FOVdeg), (float)width / (float)height, nearPlane, farPlane);
 	projection[0][0] *= -1;//invert project axis X
-	for (auto shader : Game::GetInstance()->resourceManager->m_shaders) {
-		shader->Bind();
-		shader->SetMat4("projection", projection);
-		shader->UnBind();
-	}
 };
+void Camera::setupCameraOrtho() {
+	this->window = ClientEngine::GetInstance().window->glfwWindow;
+	int width, height;
+	glfwGetWindowSize(window, &width, &height);
+	projection = glm::ortho(0.0f, (float)width, 0.0f, (float)height,-1.0f, 1.0f);
+}
 void Camera::switchMode(bool isPerspective) {
 	if (isPerspective) {
 		

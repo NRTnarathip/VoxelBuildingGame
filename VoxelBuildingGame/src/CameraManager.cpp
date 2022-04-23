@@ -13,11 +13,14 @@ void CameraManager::switchCamera(Camera* other) {
 }
 Camera* CameraManager::newCamera() {
 	auto* newCamera = new Camera();
+	if (m_cameras.empty()) {
+		switchCamera(newCamera);
+	}
 	m_cameras.push_back(newCamera);
-	auto& client = ClientEngine::GetInstance();
-	int width, height;
+	//auto& client = ClientEngine::GetInstance();
+	/*int width, height;
 	glfwGetWindowSize(client.window->glfwWindow, &width, &height);
-	newCamera->setupCamera(client.window->glfwWindow, 90.f, 0.005f, 1000.f);
+	newCamera->setupCamera(client.window->glfwWindow, 90.f, 0.005f, 1000.f);*/
 	return newCamera;
 }
 void CameraManager::uploadCameraMatrixToShader(Shader* shader) {

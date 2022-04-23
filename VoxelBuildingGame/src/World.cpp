@@ -94,7 +94,7 @@ void World::update(float timeNow) {
 }
 void World::render() {
 	//render mesh game object
-	auto shader = ResourceManager::GetInstance()->m_shaders[1];
+	auto shader = ResourceManager::GetInstance()->m_shaders["gameobject"];
 	CameraManager::GetInstance().uploadCameraMatrixToShader(shader);
 	shader->Bind();
 	for (GameObject* obj : m_gameObjects) {

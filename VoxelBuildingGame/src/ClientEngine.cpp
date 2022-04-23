@@ -65,8 +65,6 @@ void ClientEngine::launch() {
     game->init();
     while (!glfwWindowShouldClose(window->glfwWindow))
     { 
-        // Take care of all GLFW events
-        glfwPollEvents();
         m_input->update();
         game->counterTime();
         game->processInput();
@@ -74,9 +72,6 @@ void ClientEngine::launch() {
         game->update();
         game->lastUpdate();
         game->render();
-
-        // Swap the back buffer with the front buffer
-        glfwSwapBuffers(window->glfwWindow);
     }
     exit();
 }

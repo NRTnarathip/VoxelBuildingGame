@@ -1,6 +1,9 @@
 #pragma once
 #include "Renderer/shaderClass.h"
 #include <vector>
+#include <map>
+#include <string>
+#include "GUI/Sprite.h"
 
 class ResourceManager {
 private:
@@ -10,11 +13,11 @@ public:
         instance = this;
     }
 	static ResourceManager* GetInstance() { return instance; }
-    std::vector<Shader*> m_shaders;
-    std::vector<Texture*> m_textures;
-    Shader* addShader(const char* pathVertexFile, const char* pathFragmentFile) {
-        auto newShader = new Shader(pathVertexFile, pathFragmentFile);
-        m_shaders.push_back(newShader);
-        return newShader;
-    }
+    std::map<std::string, Shader*> m_shaders;
+    std::map<std::string, Sprite*> m_sprites;
+    std::map<std::string, Texture*> m_textures;
+    Texture* addTexture(const char* pathFile, bool isMipmapping);
+    Shader* addShader(std::string pathVertexAndFragment, std::string shaderName);
+    Sprite* addSprite(Sprite* sprite, std::string key);
+    void loadAllResouces();
 };
