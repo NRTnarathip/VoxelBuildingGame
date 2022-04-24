@@ -49,9 +49,6 @@
     <Filter Include="Source Files\Scene">
       <UniqueIdentifier>{bb5a169f-1c3c-44b6-b14d-657ea74e2fd2}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\GUI">
-      <UniqueIdentifier>{254d5a43-d146-47a2-922f-ad685d398c1f}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Game.h">
@@ -180,10 +177,13 @@
     <ClInclude Include="src\Scenes\SceneMainGame.h">
       <Filter>Source Files\Scene</Filter>
     </ClInclude>
-    <ClInclude Include="src\GUI\Sprite.h">
-      <Filter>Source Files\GUI</Filter>
-    </ClInclude>
     <ClInclude Include="src\ResourceManager.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\SpriteRenderer.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sprite.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -284,10 +284,13 @@
     <ClCompile Include="src\Scenes\SceneMainMenu.cpp">
       <Filter>Source Files\Scene</Filter>
     </ClCompile>
-    <ClCompile Include="src\GUI\Sprite.cpp">
-      <Filter>Source Files\GUI</Filter>
-    </ClCompile>
     <ClCompile Include="src\ResourceManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SpriteRenderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Sprite.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -316,10 +319,10 @@
     <None Include="src\Shader\gameobject.vert">
       <Filter>Resource Files\Shader</Filter>
     </None>
-    <None Include="src\Shader\render2D.frag">
+    <None Include="src\Shader\sprite.frag">
       <Filter>Resource Files\Shader</Filter>
     </None>
-    <None Include="src\Shader\render2D.vert">
+    <None Include="src\Shader\sprite.vert">
       <Filter>Resource Files\Shader</Filter>
     </None>
   </ItemGroup>

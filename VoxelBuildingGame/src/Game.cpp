@@ -42,24 +42,6 @@ void Game::init() {
     auto res = resourceManager;
     res->loadAllResouces();
     //setup core addond
-    //setup resouce manager;
-    auto defaultShader = res->addShader("src/Shader/defualt", "default");
-    res->addShader("src/Shader/gameobject", "gameobject");
-    auto shaderRender2D = res->addShader("src/Shader/render2D", "render2D");
-    auto& graphicSetting = ClientEngine::GetInstance().graphicSetting;
-    defaultShader->Bind();
-    defaultShader->SetVar("tex", 0);
-    defaultShader->SetFloat("aoStrength", 0.45f);
-    defaultShader->SetFloat("fogMin", graphicSetting.fogMin);
-    defaultShader->SetFloat("fogMax", graphicSetting.fogMax);
-    defaultShader->UnBind();
-    
-    auto book = res->addTexture("assets/textures/gui/book.png", false);
-    auto bgMainMenu = res->addTexture("assets/textures/gui/presets/dirt_background.png", false);
-    res->addTexture("src/Texture/mcatlas.png", true);
-    //add steam sprites;
-    res->addSprite(new Sprite(bgMainMenu), "bgMainMenu");
-    //res->addSprite(new Sprite(book), "book");
 
     //setup scene main menu, game
     auto mainMenu = new SceneMainMenu("Main Menu");

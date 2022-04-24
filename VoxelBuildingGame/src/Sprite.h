@@ -10,5 +10,4 @@ public:
 	VBO vbo;
 	Texture* refTexture = nullptr;
 	void setupRenderData();
-	void draw();
 };

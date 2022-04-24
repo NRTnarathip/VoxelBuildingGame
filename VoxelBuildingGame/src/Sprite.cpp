@@ -25,10 +25,3 @@ void Sprite::setupRenderData() {
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindVertexArray(0);
 }
-void Sprite::draw() {
-    refTexture->Activate(GL_TEXTURE0);
-    vao.bind();
-    vbo.bind();
-    glDrawArrays(GL_TRIANGLES, 0, 6);
-
-}
