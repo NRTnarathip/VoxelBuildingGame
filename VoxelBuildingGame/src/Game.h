@@ -27,9 +27,9 @@ public:
     Window* window = nullptr;
     ResourceManager* resourceManager = nullptr;
 
+    void UpdateInFrame();
    /* ChunkManager* chManager = nullptr;
     GenMeshChunk* genMeshChunk = nullptr;*/
-
     void counterTime();
     //order of event functions visualised
     void init();

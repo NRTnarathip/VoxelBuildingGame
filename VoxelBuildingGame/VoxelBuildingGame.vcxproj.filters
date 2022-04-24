@@ -46,7 +46,7 @@
     <Filter Include="Source Files\Scene System">
       <UniqueIdentifier>{26fcb38a-5e44-4d7c-b481-4fa217fd7f34}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Scene">
+    <Filter Include="Source Files\Scenes">
       <UniqueIdentifier>{bb5a169f-1c3c-44b6-b14d-657ea74e2fd2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -172,10 +172,10 @@
       <Filter>Source Files\Scene System</Filter>
     </ClInclude>
     <ClInclude Include="src\Scenes\SceneMainMenu.h">
-      <Filter>Source Files\Scene</Filter>
+      <Filter>Source Files\Scenes</Filter>
     </ClInclude>
     <ClInclude Include="src\Scenes\SceneMainGame.h">
-      <Filter>Source Files\Scene</Filter>
+      <Filter>Source Files\Scenes</Filter>
     </ClInclude>
     <ClInclude Include="src\ResourceManager.h">
       <Filter>Source Files</Filter>
@@ -184,6 +184,12 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="src\Sprite.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GUI.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Button.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -282,7 +288,7 @@
       <Filter>Source Files\Scene System</Filter>
     </ClCompile>
     <ClCompile Include="src\Scenes\SceneMainMenu.cpp">
-      <Filter>Source Files\Scene</Filter>
+      <Filter>Source Files\Scenes</Filter>
     </ClCompile>
     <ClCompile Include="src\ResourceManager.cpp">
       <Filter>Source Files</Filter>
@@ -291,6 +297,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Sprite.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GUI.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Button.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

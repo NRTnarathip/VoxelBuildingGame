@@ -35,6 +35,14 @@ Game::Game(Window * win) {
 Window::Window(const char* newTitle) {
     titleName = newTitle;
 }
+void Game::UpdateInFrame() {
+    counterTime();
+    processInput();
+    beforeUpdate();
+    update();
+    lastUpdate();
+    render();
+}
 void Game::init() {
     //setup core base all
     resourceManager = new ResourceManager();

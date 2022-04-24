@@ -3,12 +3,23 @@
 #include "ResourceManager.h"
 #include "CameraManager.h"
 #include "ClientEngine.h";
-
+#include "GUI.h"
+void onClickPlay() {
+	printf("click play\n");
+}
 void SceneMainMenu::init() {
 	cameraCanvas = CameraManager::GetInstance().newCamera();
 	cameraCanvas->setupCameraOrtho();
+
+	setupMainMenu();
+}
+void SceneMainMenu::setupMainMenu() {
+	//setup button main menu
+	auto btnPlay = GUI::NewButton("play", "Play");
+	btnPlay->bindOnClick(onClickPlay);
 }
 void SceneMainMenu::update() {
+	
 }
 void SceneMainMenu::render() {
 	int winWidth, winHeight;

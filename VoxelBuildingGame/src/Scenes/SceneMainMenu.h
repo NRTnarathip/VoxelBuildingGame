@@ -7,8 +7,9 @@ class SceneMainMenu : public SceneGame {
 private:
 	Camera* cameraCanvas = nullptr;
 public:
-
 	SceneMainMenu(std::string name) : SceneGame(name) {}
+	void setupMainMenu();
+
 	void init();
 	void update();
 	void render();

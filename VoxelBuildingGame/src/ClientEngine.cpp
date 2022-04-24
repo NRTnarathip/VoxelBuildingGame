@@ -66,12 +66,7 @@ void ClientEngine::launch() {
     while (!glfwWindowShouldClose(window->glfwWindow))
     { 
         m_input->update();
-        game->counterTime();
-        game->processInput();
-        game->beforeUpdate();
-        game->update();
-        game->lastUpdate();
-        game->render();
+        game->UpdateInFrame();
     }
     exit();
 }
