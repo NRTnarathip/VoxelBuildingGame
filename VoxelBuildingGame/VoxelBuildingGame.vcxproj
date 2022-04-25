@@ -25,6 +25,7 @@
     <ClInclude Include="ImGui\imgui_impl_opengl3.h" />
     <ClInclude Include="ImGui\imgui_impl_opengl3_loader.h" />
     <ClInclude Include="ImGui\imgui_internal.h" />
+    <ClInclude Include="src\AABB.h" />
     <ClInclude Include="src\Button.h" />
     <ClInclude Include="src\Camera.h" />
     <ClInclude Include="src\CameraManager.h" />

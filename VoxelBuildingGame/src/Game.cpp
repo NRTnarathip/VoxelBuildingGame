@@ -11,6 +11,9 @@
 
 #include "Scenes/SceneMainGame.h"
 #include "Scenes/SceneMainMenu.h"
+#include "GUI.h"
+
+
 
 //functin prototype
 void framebuffer_size_callback(GLFWwindow* window, int width, int height);
@@ -38,6 +41,10 @@ Window::Window(const char* newTitle) {
 void Game::UpdateInFrame() {
     counterTime();
     processInput();
+    //procress GUI Event
+    GUI& gui = GUI::GetInstance();
+    gui.updateEventInput();
+
     beforeUpdate();
     update();
     lastUpdate();

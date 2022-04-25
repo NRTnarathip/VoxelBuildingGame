@@ -7,9 +7,15 @@ class GUI {
 private:
 	static GUI m_instance;
 	std::map<std::string, Button*> m_buttons;
+
 public:
-	GUI();
+	static GUI& GetInstance() { return m_instance; }
 	static void Begin() {};
 	static void End() {};
-	static Button* NewButton(std::string keyName, std::string title);
+public:
+	GUI();
+	void render();
+	glm::vec2 getWindowSize();
+	void updateEventInput();
+	Button* newButton(std::string keyName);
 };

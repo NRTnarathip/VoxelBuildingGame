@@ -78,4 +78,11 @@ bool Input::onMouse(int keycode) {
 bool Input::onMouseUp(int keycode) {
     return m_mouseKeyState[keycode] == MOUSE_UP;
 }
+glm::vec2 Input::getMousePosition() {
+    double x, y;
+    glfwGetCursorPos(glfwWindow, &x, &y);
+    int winWidth, winHeight;
+    glfwGetWindowSize(glfwWindow, &winWidth, &winHeight);
+    return glm::vec2(x, winHeight - y);
+}
 

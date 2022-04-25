@@ -57,7 +57,7 @@ void ClientEngine::launch() {
     initialOpenGL();
 
     //init core engine
-    m_input = new Input();
+    m_input = new Input(window->glfwWindow);
     m_input->initKeyMapping();
 
     //init game
