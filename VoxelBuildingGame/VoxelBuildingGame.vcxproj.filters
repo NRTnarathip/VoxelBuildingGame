@@ -195,6 +195,15 @@
     <ClInclude Include="src\AABB.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\UIMenu.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Transform2D.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\RectTransform.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -306,6 +315,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\Button.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UIMenu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -5,7 +5,7 @@
 GUI GUI::m_instance;
 
 GUI::GUI() {
-
+	m_menu = new UIMenu();
 }
 Button* GUI::newButton(std::string keyName) {
 	auto res = ResourceManager::GetInstance();
@@ -41,13 +41,15 @@ void GUI::render() {
 		auto button = elem.second;
 		auto spriteRender = button->spriteRender;
 
-		auto pos = button->getpos();
-		auto size = button->getsize();
+		auto transform = button->transform;
+		auto pos = transform.position - (transform.size * transform.pivot);
+		auto size = transform.size * transform.scale;
 
 		auto model = glm::mat4(1.f);
 		model = glm::translate(model, glm::vec3(pos, 0.f));
 		model = glm::scale(model, glm::vec3(size, 1.f));
 		shaderSprite->SetMat4("model", model);
+		shaderSprite->SetVec4("color", button->color);
 		spriteRender->draw();
 	}
 }

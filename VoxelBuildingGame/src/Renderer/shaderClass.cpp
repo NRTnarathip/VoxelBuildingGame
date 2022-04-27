@@ -20,7 +20,12 @@ std::string get_file_contents(const char* filename)
 void Shader::SetVec3( const char* uniformName, glm::vec3 value)const {
 	auto vLoc = glGetUniformLocation(ID, uniformName);
 	glUniform3fv(vLoc, 1, glm::value_ptr(value));
-};
+}
+void Shader::SetVec4(const char* uniformName, glm::vec4 value) const
+{
+	auto vLoc = glGetUniformLocation(ID, uniformName);
+	glUniform4fv(vLoc, 1, glm::value_ptr(value));
+}
 void Shader::SetMat4(const char* name, glm::mat4 matrix) const {
 	auto vLoc = glGetUniformLocation(ID, name);
 	glUniformMatrix4fv(vLoc, 1, GL_FALSE, glm::value_ptr(matrix));

@@ -29,6 +29,7 @@ public:
 	void UnBind()const;
 	void SetVar(const char* name, int value) const;
 	void SetVec3(const char* uniformName, glm::vec3 value)const;
+	void SetVec4(const char* uniformName, glm::vec4 value)const;
 	void SetMat4(const char* name, glm::mat4 matrix)const;
 	void SetFloat(const char* name, float value) const {
 		Bind();

@@ -17,9 +17,11 @@ void SceneMainMenu::setupMainMenu() {
 	GUI& gui = GUI::GetInstance();
 	auto res = ResourceManager::GetInstance();
 	//setup button main menu
+	/*menu = UIMenu::GetInstance();
+	menu.CreateContainer();*/
+
 	auto btnPlay = gui.newButton("play");
-	auto winsize = gui.getWindowSize();
-	btnPlay->init( {80, 80}, { 80, 80 });
+	btnPlay->setup({ 40, 40 }, { 80, 80 }, {.5f, .5f});
 	btnPlay->title = "Play";
 	btnPlay->spriteRender->sprite = res->m_sprites["bgMainMenu"];
 	btnPlay->bindOnClick([]{

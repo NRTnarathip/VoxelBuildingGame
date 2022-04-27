@@ -2,12 +2,13 @@
 #include <string>
 #include <map>
 #include "Button.h"
+#include "UIMenu.h"
 
 class GUI {
 private:
 	static GUI m_instance;
 	std::map<std::string, Button*> m_buttons;
-
+	UIMenu* m_menu = nullptr;
 public:
 	static GUI& GetInstance() { return m_instance; }
 	static void Begin() {};

@@ -50,6 +50,7 @@
     <ClInclude Include="src\Physics\Transform.h" />
     <ClInclude Include="src\PlayerController.h" />
     <ClInclude Include="src\Raycast.h" />
+    <ClInclude Include="src\RectTransform.h" />
     <ClInclude Include="src\Renderer\MeshGameObject.h" />
     <ClInclude Include="src\Renderer\shaderClass.h" />
     <ClInclude Include="src\ResourceManager.h" />
@@ -64,6 +65,8 @@
     <ClInclude Include="src\SpriteRenderer.h" />
     <ClInclude Include="src\TerrainGen.h" />
     <ClInclude Include="src\Texture.h" />
+    <ClInclude Include="src\Transform2D.h" />
+    <ClInclude Include="src\UIMenu.h" />
     <ClInclude Include="src\Voxel.h" />
     <ClInclude Include="src\VoxelEngine.h" />
     <ClInclude Include="src\World.h" />
@@ -105,6 +108,7 @@
     <ClCompile Include="src\SpriteRenderer.cpp" />
     <ClCompile Include="src\TerrainGen.cpp" />
     <ClCompile Include="src\Texture.cpp" />
+    <ClCompile Include="src\UIMenu.cpp" />
     <ClCompile Include="src\World.cpp" />
   </ItemGroup>
   <ItemGroup>
