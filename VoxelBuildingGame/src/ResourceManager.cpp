@@ -16,7 +16,7 @@ Shader* ResourceManager::addShader(std::string pathVertexAndFragment, std::strin
 }
 
 Texture* ResourceManager::addTexture(const char* pathFile, bool isMipmapping) {
-    auto texture = new Texture(pathFile, false, isMipmapping, GL_CLAMP_TO_BORDER, GL_NEAREST);
+    auto texture = new Texture(pathFile, isMipmapping, GL_CLAMP_TO_BORDER, GL_NEAREST);
     m_textures.emplace(pathFile, texture);
     return texture;
 }
@@ -58,10 +58,10 @@ void ResourceManager::loadAllResouces() {
     defaultShader->SetFloat("fogMax", graphicSetting.fogMax);
     defaultShader->UnBind();*/
 
-    auto book = addTexture("assets/textures/gui/book.png", false);
-    auto bgMainMenu = addTexture("assets/textures/gui/presets/dirt_background.png", false);
     addTexture("src/Texture/mcatlas.png", true);
-    //add steam sprites;
+    auto bgMainMenu = addTexture("assets/textures/gui/lobby_background.png", false);
+
+    //add steam sprites;  
     addSprite(new Sprite(bgMainMenu), "bgMainMenu");
     //res->addSprite(new Sprite(book), "book");
 }

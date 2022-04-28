@@ -14,19 +14,34 @@ void SceneMainMenu::init() {
 	setupMainMenu();
 }
 void SceneMainMenu::setupMainMenu() {
-	GUI& gui = GUI::GetInstance();
 	auto res = ResourceManager::GetInstance();
 	//setup button main menu
-	/*menu = UIMenu::GetInstance();
-	menu.CreateContainer();*/
+	auto menu = UIMenu::GetInstance();
+	auto bgLobby = menu->createContainer("background_lobby", {960 ,540}, {1920, 1080});
+	auto cont = menu->createContainer("mainmenu", { 960 ,540 }, { 980, 750 });
 
-	auto btnPlay = gui.newButton("play");
-	btnPlay->setup({ 40, 40 }, { 80, 80 }, {.5f, .5f});
-	btnPlay->title = "Play";
+	auto btnPlay = new Button("play");
+	btnPlay->setup({ 0, 0 }, { 80, 80 });
 	btnPlay->spriteRender->sprite = res->m_sprites["bgMainMenu"];
+	btnPlay->title = "Play";
 	btnPlay->bindOnClick([]{
-		printf("Hey test bind on click\n");
+		printf("Click Play\n");
 	});
+	auto btnSetting = new Button("setting");
+	btnSetting->setup({ 90, 0}, { 80, 80 });
+	btnSetting->spriteRender->sprite = res->m_sprites["bgMainMenu"];
+	btnSetting->title = "Setting";
+	btnSetting->bindOnClick([] {
+		printf("Click Setting\n");
+	});
+	auto bgSprite = new SpriteRenderer(res->m_sprites["bgMainMenu"]);
+	bgSprite->rect.size = glm::vec2(1920, 1080);
+	bgSprite->rect.position = glm::vec2(0, 0);
+	bgSprite->rect.pivot = glm::vec2(0,0);
+	cont->addButton(btnPlay);
+	cont->addButton(btnSetting);
+
+	bgLobby->addSprite("lobby", bgSprite);
 }
 void SceneMainMenu::update() {
 	

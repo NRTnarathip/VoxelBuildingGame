@@ -204,6 +204,9 @@
     <ClInclude Include="src\RectTransform.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\UIContainer.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -318,6 +321,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\UIMenu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\UIContainer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

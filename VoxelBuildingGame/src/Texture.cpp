@@ -5,7 +5,7 @@
 #include <assert.h>
 #include <algorithm>
 
-Texture::Texture(const char* path, bool alphaChannel, bool mipmap, int wrapMode, int filter)
+Texture::Texture(const char* path, bool mipmap, int wrapMode, int filter)
 {
 	// Initialize gpu texture
 	glGenTextures(1, &id_);
@@ -18,11 +18,11 @@ Texture::Texture(const char* path, bool alphaChannel, bool mipmap, int wrapMode,
 	// Load image pixels
 	stbi_set_flip_vertically_on_load(true);
 	unsigned char* data = stbi_load(path, &width_, &height_, &channels_, 0);
-
+	printf("stbi_load %s channel: %d\n", path,channels_);
 	if (data)
 	{
 		// Send pixel data to texture
-		int glAlpha = alphaChannel ? GL_RGBA : GL_RGB;
+		int glAlpha = channels_ == 4 ? GL_RGBA : GL_RGB;
 		glTexImage2D(GL_TEXTURE_2D, 0, glAlpha, width_, height_, 0, glAlpha, GL_UNSIGNED_BYTE, data);
 
 		// Generate mipmaps

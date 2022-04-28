@@ -2,13 +2,11 @@
 #include "Input.h"
 #include "Physics/BoxCollision.h"
 
-void Button::setup(glm::vec2 pos, glm::vec2 size, glm::vec2 pivot)
+void Button::setup(glm::vec2 pos, glm::vec2 size)
 {
-	aabb = AABB(pos, size, pivot);
-
+	spriteRender = new SpriteRenderer();
 	transform.position = pos;
 	transform.size = size;
-	transform.pivot = pivot;
 }
 void Button::update()
 {
@@ -42,7 +40,7 @@ void Button::outHover() {
 	color = colors.colorNormal;
 }
 void Button::onHover() {
-	transform.scale = glm::vec2(1.2f);
+	transform.scale = glm::vec2(1.05f);
 	color = colors.colorHover;
 }
 void Button::bindOnClick(eventFunction refFunction)
