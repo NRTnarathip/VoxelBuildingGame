@@ -4,11 +4,13 @@
 #include "AABB.h"
 #include <glm/vec4.hpp>
 #include "RectTransform.h"
+#include "Image.h"
+#include "UIObject.h"
+
 class UIContainer;
 
-class Button {
+class Button : public UIComponent {
 private:
-		
 	typedef void(*eventFunction)();
 	eventFunction m_eventOnClick = nullptr;
 	void onHover();
@@ -24,15 +26,11 @@ public:
 	Button(std::string name) {
 		this->name = name;
 	}
-	UIContainer* parent = nullptr;
 	AABB aabb;
-	RectTransform transform;
 	std::string title = "Emty Title";
 	std::string name = "emty_button";
 	glm::vec4 color{ 1.f,1.f,1.f,1.f };
 	ColorTransition colors;
-	
-	SpriteRenderer* spriteRender;
 	void setup(glm::vec2 pos, glm::vec2 size);
 	void update();
 	void updateEventInput();

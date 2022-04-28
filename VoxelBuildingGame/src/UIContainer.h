@@ -2,16 +2,23 @@
 #include "RectTransform.h"
 #include <string>
 #include <map>
+#include <vector>
 #include "Button.h"
 #include "SpriteRenderer.h"
+#include "UIObject.h"
+#include "Image.h"
+#include "entt/entt.hpp"
 
 class UIContainer {
 public:
-	RectTransform transform;
+	entt::registry registry;
+	std::vector<UIObject*> m_uiObjects;
+	std::vector<Button*> m_buttons;
+	RectTransform rect;
 	int order = 0;
-	std::map <std::string, Button* > m_buttons;
-	std::map <std::string, SpriteRenderer* > m_spriteRenders;
-	void addButton(Button* btn);
+
 	void render(float zOrder);
-	void addSprite(std::string spriteName, SpriteRenderer* sprite);
+	UIObject* createUIObject();
+	UIObject* createButton(std::string name);
+	UIObject* createImage();
 };

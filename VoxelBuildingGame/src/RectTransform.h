@@ -1,6 +1,10 @@
 #pragma once
 #include <glm/vec2.hpp>
 #include <glm/vec3.hpp>
+#include <vector>
+
+//#include "UIObject.h"
+class UIObject;
 
 class RectTransform {
 private:
@@ -8,6 +12,10 @@ private:
 		return pivot * getsize();
 	}
 public:
+	UIObject* m_uiObject = nullptr;
+	RectTransform* parent = nullptr;
+	std::vector<RectTransform*> childs;
+
 	glm::vec2 position{ 0, 0 };
 	glm::vec2 pivot{ 0.5f, 0.5f };
 	glm::vec2 size{ 100, 100 };//width, height

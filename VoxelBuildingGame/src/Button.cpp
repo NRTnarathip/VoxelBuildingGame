@@ -4,9 +4,11 @@
 
 void Button::setup(glm::vec2 pos, glm::vec2 size)
 {
-	spriteRender = new SpriteRenderer();
-	transform.position = pos;
-	transform.size = size;
+	/*image = new Image();
+	rect.position = pos;
+	rect.size = size;
+	image->rect.parent = &rect;*/
+	
 }
 void Button::update()
 {
@@ -36,11 +38,11 @@ void Button::updateEventInput()
 	}
 }
 void Button::outHover() {
-	transform.scale = glm::vec2(1.f);
+	m_uiObject->rect.scale = glm::vec2(1.f);
 	color = colors.colorNormal;
 }
 void Button::onHover() {
-	transform.scale = glm::vec2(1.05f);
+	m_uiObject->rect.scale = glm::vec2(1.2f);
 	color = colors.colorHover;
 }
 void Button::bindOnClick(eventFunction refFunction)

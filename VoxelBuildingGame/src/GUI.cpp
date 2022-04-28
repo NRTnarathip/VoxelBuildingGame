@@ -18,9 +18,8 @@ void GUI::updateEventInput() {
 	//update polling event mouse button
 	for (auto elemContent : m_menu->m_containers) {
 		auto content = elemContent.second;
-		for (auto elemButton : content->m_buttons) {
-			auto btn = elemButton.second;
-			btn->updateEventInput();
+		for (auto button : content->m_buttons) {
+			button->updateEventInput();
 		}
 	}
 }
@@ -32,8 +31,7 @@ void GUI::render() {
 	shaderSprite->Bind();
 
 	projection = glm::mat4(1.f);
-	projection = glm::ortho(0.f, (float)winWidth, 0.f, (float)winHeight);
-	projection[2][2] = 1.f;
+	projection = glm::ortho(0.f, (float)winWidth, 0.f, (float)winHeight, -1.f, 1.f);
 	shaderSprite->SetMat4("projection", projection);
 
 	for (auto elemContain : m_menu->m_containers) {
@@ -41,7 +39,5 @@ void GUI::render() {
 		float zOrder = (float)container->order / m_menu->m_containers.size();
 		container->render(-zOrder);
 
-		printf("gui render: %s\n", elemContain.first.c_str());
 	}
-	printf("gui end render\n\n");
 }

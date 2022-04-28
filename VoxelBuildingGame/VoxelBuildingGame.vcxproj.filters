@@ -207,6 +207,15 @@
     <ClInclude Include="src\UIContainer.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\UIObject.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Image.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\UIComponent.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -324,6 +333,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\UIContainer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Image.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

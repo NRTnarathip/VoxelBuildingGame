@@ -41,6 +41,7 @@
     <ClInclude Include="src\GenerateMeshChunk.h" />
     <ClInclude Include="src\GraphicSetting.h" />
     <ClInclude Include="src\GUI.h" />
+    <ClInclude Include="src\Image.h" />
     <ClInclude Include="src\Input.h" />
     <ClInclude Include="src\Mesh.h" />
     <ClInclude Include="src\OpenGL Class\VBOAndEBO.h" />
@@ -66,8 +67,10 @@
     <ClInclude Include="src\TerrainGen.h" />
     <ClInclude Include="src\Texture.h" />
     <ClInclude Include="src\Transform2D.h" />
+    <ClInclude Include="src\UIComponent.h" />
     <ClInclude Include="src\UIContainer.h" />
     <ClInclude Include="src\UIMenu.h" />
+    <ClInclude Include="src\UIObject.h" />
     <ClInclude Include="src\Voxel.h" />
     <ClInclude Include="src\VoxelEngine.h" />
     <ClInclude Include="src\World.h" />
@@ -93,6 +96,7 @@
     <ClCompile Include="src\GenerateMeshChunk.cpp" />
     <ClCompile Include="src\glad.c" />
     <ClCompile Include="src\GUI.cpp" />
+    <ClCompile Include="src\Image.cpp" />
     <ClCompile Include="src\Input.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Mesh.cpp" />

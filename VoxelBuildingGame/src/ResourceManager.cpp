@@ -57,11 +57,23 @@ void ResourceManager::loadAllResouces() {
     defaultShader->SetFloat("fogMin", graphicSetting.fogMin);
     defaultShader->SetFloat("fogMax", graphicSetting.fogMax);
     defaultShader->UnBind();*/
+    std::string pathTextureGUI = "assets/textures/gui";
+    for (const auto& entry : fs::directory_iterator(pathTextureGUI)) {
+        std::string filename = entry.path().string();
+        std::string pathFile = entry.path().string();
 
-    addTexture("src/Texture/mcatlas.png", true);
-    auto bgMainMenu = addTexture("assets/textures/gui/lobby_background.png", false);
+        filename.replace(0, pathShaders.length() + 1, "");
+        filename = filename.substr(0, filename.length() - 4);
+
+        std::replace(pathFile.begin(), pathFile.end(), '\\', '/');
+        addTexture(pathFile.c_str(), false);
+    }
+
+    /*ddTexture("src/Texture/mcatlas.png", true);
+    auto bgMainMenu = addTexture("assets/textures/gui/lobby_background.png", false);*/
 
     //add steam sprites;  
-    addSprite(new Sprite(bgMainMenu), "bgMainMenu");
+    addSprite(new Sprite(m_textures[pathTextureGUI + "/lobby_background.png"]), "bgMainMenu");
+    addSprite(new Sprite(m_textures[pathTextureGUI + "/button_0.png"]), "button_0");
     //res->addSprite(new Sprite(book), "book");
 }
