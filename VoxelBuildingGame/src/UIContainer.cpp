@@ -32,6 +32,7 @@ void UIContainer::render(float zOrder) {
 		auto rectOjbect = &object->rect;
 
 		auto pos = rectOjbect->getPosition();
+		printf("pos x:%f y:%f\n",pos.x, pos.y);
 		auto size = rectOjbect->getsize();
 		auto model = glm::mat4(1.f);
 		float zOrderOfElem = ((float)elemIndex / m_uiObjects.size()) * zOrder;

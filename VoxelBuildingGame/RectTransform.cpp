@@ -1,12 +1,10 @@
 #include "RectTransform.h"
 #include "UIObject.h"
-
+//is useonly just UIContainer as parent and UICompoent as child
 glm::vec2 RectTransform::getPosition() {
-	auto pos = getLocalPositionViaPivot();
-	//if find UIObject Rect or found Rect UIContainer
+	auto pos = position;
 	if (parent) {
-		pos += parent->getPosition();
-		pos += getoffs();
+		pos += parent->getLocalPositionViaPivot();
 	}
 	return pos;
 }
