@@ -1,9 +1,9 @@
 #pragma once
 #include <string>
 #include <map>
-#include "Button.h"
 #include "UIMenu.h"
 #include <glm/glm.hpp>
+#include "TextRenderer.h"
 
 class GUI {
 private:
@@ -16,7 +16,6 @@ public:
 public:
 	GUI();
 	glm::mat4 projection;
-
 	void render();
 	glm::vec2 getWindowSize();
 	void updateEventInput();

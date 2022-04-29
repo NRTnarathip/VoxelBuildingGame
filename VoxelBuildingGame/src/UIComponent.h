@@ -1,4 +1,6 @@
 #pragma once
+#include <iostream>
+
 class UIObject;
 
 class UIComponent {
@@ -8,5 +10,5 @@ public:
 		printf("update event input base class\n");
 	};
 	virtual void update() {};
-	void render() {};
+	virtual void render() {};
 };

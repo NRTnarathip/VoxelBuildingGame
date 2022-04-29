@@ -34,8 +34,11 @@ int ClientEngine::initialOpenGL() {
         return -1;
     }
 
+    //gl options render
+    glEnable(GL_BLEND);
     glEnable(GL_DEPTH_TEST);
     glEnable(GL_CULL_FACE);
+    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glCullFace(GL_FRONT);
     glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
@@ -46,7 +49,7 @@ int ClientEngine::initialOpenGL() {
     images[0].width = w;
     images[0].height = h;
     images[0].pixels = data;
-    printf("Icon 128 data size %d\n", w * h * c);
+    //printf("Icon 128 data size %d\n", w * h * c);
 
     glfwSetWindowIcon(window->glfwWindow, 1, images);
     return 0;
@@ -59,6 +62,12 @@ void ClientEngine::launch() {
     //init core engine
     m_input = new Input(window->glfwWindow);
     m_input->initKeyMapping();
+
+    m_resouceManager = new ResourceManager();
+    m_resouceManager->loadAllResouces();
+
+    m_textRenderer = new TextRenderer(window->glfwWindow);
+    m_textRenderer->setupGL();
 
     //init game
 	game = new Game(window);

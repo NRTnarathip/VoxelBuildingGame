@@ -216,6 +216,12 @@
     <ClInclude Include="src\UIComponent.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\UIText.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TextRenderer.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -314,9 +320,6 @@
     <ClCompile Include="src\Scenes\SceneMainMenu.cpp">
       <Filter>Source Files\Scenes</Filter>
     </ClCompile>
-    <ClCompile Include="src\ResourceManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="src\SpriteRenderer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -338,7 +341,16 @@
     <ClCompile Include="src\Image.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="RectTransform.cpp">
+    <ClCompile Include="src\UIText.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\RectTransform.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\ResourceManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TextRenderer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -371,6 +383,12 @@
       <Filter>Resource Files\Shader</Filter>
     </None>
     <None Include="src\Shader\sprite.vert">
+      <Filter>Resource Files\Shader</Filter>
+    </None>
+    <None Include="src\Shader\text.frag">
+      <Filter>Resource Files\Shader</Filter>
+    </None>
+    <None Include="src\Shader\text.vert">
       <Filter>Resource Files\Shader</Filter>
     </None>
   </ItemGroup>

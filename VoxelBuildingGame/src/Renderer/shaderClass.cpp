@@ -18,8 +18,7 @@ std::string get_file_contents(const char* filename)
 	throw(errno);
 }
 void Shader::SetVec3( const char* uniformName, glm::vec3 value)const {
-	auto vLoc = glGetUniformLocation(ID, uniformName);
-	glUniform3fv(vLoc, 1, glm::value_ptr(value));
+	glUniform3fv(glGetUniformLocation(ID, uniformName), 1, glm::value_ptr(value));
 }
 void Shader::SetVec4(const char* uniformName, glm::vec4 value) const
 {

@@ -65,12 +65,14 @@
     <ClInclude Include="src\Sprite.h" />
     <ClInclude Include="src\SpriteRenderer.h" />
     <ClInclude Include="src\TerrainGen.h" />
+    <ClInclude Include="src\TextRenderer.h" />
     <ClInclude Include="src\Texture.h" />
     <ClInclude Include="src\Transform2D.h" />
     <ClInclude Include="src\UIComponent.h" />
     <ClInclude Include="src\UIContainer.h" />
     <ClInclude Include="src\UIMenu.h" />
     <ClInclude Include="src\UIObject.h" />
+    <ClInclude Include="src\UIText.h" />
     <ClInclude Include="src\Voxel.h" />
     <ClInclude Include="src\VoxelEngine.h" />
     <ClInclude Include="src\World.h" />
@@ -83,7 +85,6 @@
     <ClCompile Include="ImGui\imgui_impl_opengl3.cpp" />
     <ClCompile Include="ImGui\imgui_tables.cpp" />
     <ClCompile Include="ImGui\imgui_widgets.cpp" />
-    <ClCompile Include="RectTransform.cpp" />
     <ClCompile Include="src\Button.cpp" />
     <ClCompile Include="src\Camera.cpp" />
     <ClCompile Include="src\CameraManager.cpp" />
@@ -104,6 +105,7 @@
     <ClCompile Include="src\Physics\BoxCollision.cpp" />
     <ClCompile Include="src\PlayerController.cpp" />
     <ClCompile Include="src\Raycast.cpp" />
+    <ClCompile Include="src\RectTransform.cpp" />
     <ClCompile Include="src\Renderer\MeshGameObject.cpp" />
     <ClCompile Include="src\Renderer\shaderClass.cpp" />
     <ClCompile Include="src\ResourceManager.cpp" />
@@ -113,9 +115,11 @@
     <ClCompile Include="src\Sprite.cpp" />
     <ClCompile Include="src\SpriteRenderer.cpp" />
     <ClCompile Include="src\TerrainGen.cpp" />
+    <ClCompile Include="src\TextRenderer.cpp" />
     <ClCompile Include="src\Texture.cpp" />
     <ClCompile Include="src\UIContainer.cpp" />
     <ClCompile Include="src\UIMenu.cpp" />
+    <ClCompile Include="src\UIText.cpp" />
     <ClCompile Include="src\World.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -134,6 +138,8 @@
     <None Include="src\Shader\sprite.vert" />
     <None Include="src\Shader\sky.frag" />
     <None Include="src\Shader\sky.vert" />
+    <None Include="src\Shader\text.frag" />
+    <None Include="src\Shader\text.vert" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -245,7 +251,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(SolutionDir)Depends\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>GLFW\glfw3.lib;FastNoise\FastNoise.lib;Xinput9_1_0.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>GLFW\glfw3.lib;FastNoise\FastNoise.lib;Xinput9_1_0.lib;ws2_32.lib;freetype\freetype.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

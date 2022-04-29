@@ -52,10 +52,7 @@ void Game::UpdateInFrame() {
 }
 void Game::init() {
     //setup core base all
-    resourceManager = new ResourceManager();
     sceneManager = new SceneManager();
-    auto res = resourceManager;
-    res->loadAllResouces();
     //setup core addond
 
     //setup scene main menu, game

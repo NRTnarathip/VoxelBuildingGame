@@ -1,6 +1,8 @@
 #pragma once
 #include <Game.h>
 #include <GraphicSetting.h>
+#include "TextRenderer.h"
+
 class Input;
 
 class ClientEngine {
@@ -18,7 +20,8 @@ public:
 	Game* game = nullptr;
 	Window* window = nullptr;
 	Input* m_input = nullptr;
-
+	TextRenderer* m_textRenderer = nullptr;
+	ResourceManager* m_resouceManager = nullptr;
 	int initialOpenGL();
 	void launch();
 	void exit();

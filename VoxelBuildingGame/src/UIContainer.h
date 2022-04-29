@@ -8,6 +8,8 @@
 #include "UIObject.h"
 #include "Image.h"
 #include "entt/entt.hpp"
+#include "UIText.h"
+
 
 class UIContainer {
 public:

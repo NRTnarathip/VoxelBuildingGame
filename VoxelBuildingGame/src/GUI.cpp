@@ -22,17 +22,26 @@ void GUI::updateEventInput() {
 		}
 	}
 }
+//update value shader and renderer all UIContainer
 void GUI::render() {
 	int winWidth, winHeight;
 	glfwGetWindowSize(ClientEngine::GetInstance().window->glfwWindow, &winWidth, &winHeight);
-	auto res = ResourceManager::GetInstance();
-	auto shaderSprite = res->m_shaders["sprite"];
-	shaderSprite->Bind();
-
 	projection = glm::mat4(1.f);
-	projection = glm::ortho(0.f, (float)winWidth, 0.f, (float)winHeight, -1.f, 1.f);
+	projection = glm::ortho(0.f, (float)winWidth, 0.f, (float)winHeight);
 	projection[2][2] = 1.f;
+
+	auto res = ResourceManager::GetInstance();
+
+	auto shaderSprite = res->m_shaders["sprite"];
+	auto shText = res->m_shaders["text"];
+
+	shaderSprite->Bind();
 	shaderSprite->SetMat4("projection", projection);
+	shaderSprite->UnBind();
+
+	shText->Bind();
+	shText->SetMat4("projection", projection);
+	shText->UnBind();
 
 	for (auto elemContain : m_menu->m_containers) {
 		auto container = elemContain.second;

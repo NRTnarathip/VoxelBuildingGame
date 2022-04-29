@@ -4,6 +4,8 @@
 #include "CameraManager.h"
 #include "ClientEngine.h";
 #include "GUI.h"
+
+
 void onClickPlay() {
 	printf("click play\n");
 }
@@ -24,6 +26,8 @@ void SceneMainMenu::setupMainMenu() {
 		buttonPlay->rect.size = {200, 40};
 		auto imageBtnPlay = buttonPlay->getComponent<Image>();
 		imageBtnPlay->sprite = res->getSprite("gui/button_0");
+
+		auto uiText = buttonPlay->addComponent<UIText>(new UIText());
 	}
 	{
 		/*auto obj = contentBG->createImage();

@@ -32,7 +32,7 @@ void Button::outHover() {
 	color = colors.colorNormal;
 }
 void Button::onHover() {
-	m_uiObject->rect.scale = glm::vec2(1.2f);
+	m_uiObject->rect.scale = glm::vec2(1.05f);
 	color = colors.colorHover;
 }
 void Button::bindOnClick(eventFunction refFunction)
