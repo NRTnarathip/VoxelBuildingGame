@@ -23,8 +23,8 @@ public:
 		unsigned int Advance;    // Offset to advance to next glyph
 	};
 	std::map<char, Character> Characters;
-
-	unsigned int VAO, VBO;
+	VAO vao;
+	VBO vbo;
 	GLFWwindow* window = nullptr;
 	TextRenderer(GLFWwindow* window);
 	static TextRenderer* GetInstance() { return m_instance; }

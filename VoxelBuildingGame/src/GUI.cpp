@@ -37,11 +37,9 @@ void GUI::render() {
 
 	shaderSprite->Bind();
 	shaderSprite->SetMat4("projection", projection);
-	shaderSprite->UnBind();
 
 	shText->Bind();
 	shText->SetMat4("projection", projection);
-	shText->UnBind();
 
 	for (auto elemContain : m_menu->m_containers) {
 		auto container = elemContain.second;

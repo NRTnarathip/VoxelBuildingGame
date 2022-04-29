@@ -7,6 +7,9 @@ public:
 		deleteBuffer();
 	}
 	unsigned int m_ID;
+	unsigned int getID() {
+		return m_ID;
+	}
 	void deleteBuffer() {
 		glDeleteBuffers(1, &m_ID);
 	}
@@ -22,6 +25,9 @@ public:
 	HelperBufferObject m_VBO;
 	void setupGL() {
 		m_VBO.genBuffer();
+	}
+	void unbind() {
+		glBindBuffer(GL_ARRAY_BUFFER, 0);
 	}
 	void bind() {
 		glBindBuffer(GL_ARRAY_BUFFER, m_VBO.m_ID);
@@ -42,6 +48,9 @@ public:
 	}
 	void bind() {
 		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_EBO.m_ID);
+	}
+	void unbind() {
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 	}
 	void bufferData(GLsizeiptr size, const void* data, GLenum usage) {
 		glBufferData(GL_ELEMENT_ARRAY_BUFFER, size, data, usage);
