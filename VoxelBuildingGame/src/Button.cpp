@@ -5,7 +5,7 @@
 void Button::updateEventInput()
 {
 	auto rect = m_uiObject->rect;
-	auto aabb = AABB(rect.getPosition(), rect.getsize());
+	auto aabb = AABB(rect.getPosition() - rect.getoffs(), rect.getsize());
 
 	auto& input = Input::GetInstance();
 	auto mousePos = input.getMousePosition();

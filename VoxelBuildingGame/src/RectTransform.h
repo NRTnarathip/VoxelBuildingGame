@@ -20,7 +20,6 @@ public:
 	glm::vec2 scale{ 1.f, 1.f };
 	float rotation = 0.f;
 	glm::vec2 getPosition();
-	glm::vec2 getPositionViaPivot();
 	glm::vec2 getLocalPositionViaPivot();
 	//Get Size Width, Height : equation size * scale;
 	glm::vec2 getsize() {

@@ -31,13 +31,12 @@ void UIContainer::render(float zOrder) {
 		auto image = object->getComponent<Image>();
 		auto rectOjbect = &object->rect;
 
-		auto pos = rectOjbect->getPositionViaPivot() + rectOjbect->getoffs();
-		printf("pos x:%f y:%f\n", pos.x, pos.y);
+		auto pos = rectOjbect->getPosition();
 		auto size = rectOjbect->getsize();
 		auto model = glm::mat4(1.f);
 		float zOrderOfElem = ((float)elemIndex / m_uiObjects.size()) * zOrder;
 		zOrderOfElem += zOrder;
-		model = glm::translate(model, glm::vec3(pos, zOrderOfElem));
+		model = glm::translate(model, glm::vec3(pos - rectOjbect->getoffs(), zOrderOfElem));
 		model = glm::scale(model, glm::vec3(size, 1.f));
 		shaderSprite->SetMat4("model", model);
 		shaderSprite->SetVec4("color", image->color);
