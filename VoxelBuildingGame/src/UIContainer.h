@@ -11,10 +11,18 @@
 
 class UIContainer {
 public:
+	UIContainer() {
+		auto entity = registry.create();
+		m_uiObject = new UIObject();
+		m_uiObject->g_registry = &registry;
+		m_uiObject->m_entity = entity;
+		m_uiObject->name = "UI Container";
+	}
+	UIObject* m_uiObject = nullptr;
+
 	entt::registry registry;
 	std::vector<UIObject*> m_uiObjects;
 	std::vector<Button*> m_buttons;
-	RectTransform rect;
 	int order = 0;
 
 	void render(float zOrder);

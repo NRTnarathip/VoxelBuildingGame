@@ -12,7 +12,6 @@ public:
 		sprite = ref;
 	}
 	Sprite *sprite = nullptr;
-	RectTransform *rect = nullptr;//referance UIObject
 	glm::vec4 color = glm::vec4(1.f);
 	void draw();
 };

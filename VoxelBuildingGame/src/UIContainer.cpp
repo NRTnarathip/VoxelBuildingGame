@@ -3,18 +3,15 @@
 
 UIObject* UIContainer::createButton(std::string name) {
 	auto object = createUIObject();
+	object->name = name;
 	auto button = object->addComponent<Button>(new Button(name));
 	auto image = object->addComponent<Image>(new Image());
-	image->rect = &object->rect;
-
-	m_uiObjects.push_back(object);
 	m_buttons.push_back(button);
-
 	return object;
 }
 UIObject* UIContainer::createImage() {
 	auto object = createUIObject();
-	auto image = object->addComponent<Image>(new Image());
+	object->addComponent<Image>(new Image());
 	return object;
 }
 UIObject* UIContainer::createUIObject() {
@@ -22,6 +19,8 @@ UIObject* UIContainer::createUIObject() {
 	auto newObject = new UIObject();
 	newObject->g_registry = &registry;
 	newObject->m_entity = entity;
+	newObject->rect.parent = &m_uiObject->rect;
+	m_uiObjects.push_back(newObject);
 	return newObject;
 }
 void UIContainer::render(float zOrder) {
@@ -30,13 +29,14 @@ void UIContainer::render(float zOrder) {
 	int elemIndex = 0;
 	for (auto object : m_uiObjects) {
 		auto image = object->getComponent<Image>();
-		auto rectImage = image->rect;
+		auto rectOjbect = &object->rect;
 
-		auto pos = rect.getpos() + rectImage->getpos();
-		auto size = rectImage->getsize();
+		auto pos = rectOjbect->getPosition();
+		auto size = rectOjbect->getsize();
 		auto model = glm::mat4(1.f);
 		float zOrderOfElem = ((float)elemIndex / m_uiObjects.size()) * zOrder;
-		model = glm::translate(model, glm::vec3(pos, zOrder + zOrderOfElem));
+		zOrderOfElem += zOrder;
+		model = glm::translate(model, glm::vec3(pos, zOrderOfElem));
 		model = glm::scale(model, glm::vec3(size, 1.f));
 		shaderSprite->SetMat4("model", model);
 		shaderSprite->SetVec4("color", image->color);

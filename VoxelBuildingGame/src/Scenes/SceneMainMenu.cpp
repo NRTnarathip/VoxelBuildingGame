@@ -17,20 +17,21 @@ void SceneMainMenu::setupMainMenu() {
 	auto res = ResourceManager::GetInstance();
 	//setup button main menu
 	auto menu = UIMenu::GetInstance();
-	auto bgLobby = menu->createContainer("background_lobby", {960 ,540}, {1920, 1080});
-	auto contentMainMenu = menu->createContainer("mainmenu", { 960 ,540 }, { 980, 750 });
-
-	auto buttonPlay = contentMainMenu->createButton("play");
-	buttonPlay->rect.size = {200,40};
-	auto imageBtnPlay = buttonPlay->getComponent<Image>();
-	imageBtnPlay->sprite = res->m_sprites["button_0"];
-
-	/*btnPlay->setup({ 40, 40 }, { 80, 80 });
-	btnPlay->title = "Play";
-	btnPlay->bindOnClick([]{
-		printf("Click Play\n");
-	});*/
-
+	auto contentBG = menu->createContainer("lobby_background", {960 ,540}, {1920, 1080});
+	auto contentMainMenu = menu->createContainer("mainmenu", { 960 ,540 }, { 800, 600});
+	{
+		auto buttonPlay = contentMainMenu->createButton("play");
+		buttonPlay->rect.size = {200, 40};
+		auto imageBtnPlay = buttonPlay->getComponent<Image>();
+		imageBtnPlay->sprite = res->getSprite("gui/button_0");
+	}
+	{
+		auto obj = contentBG->createImage();
+		auto image = obj->getComponent<Image>();
+		image->sprite = res->getSprite("gui/lobby_background");
+		obj->rect.size = contentBG->m_uiObject->rect.size;
+		obj->rect.position = contentBG->m_uiObject->rect.size / 2.f;
+	}
 }
 void SceneMainMenu::update() {
 	

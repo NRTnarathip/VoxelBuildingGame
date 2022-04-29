@@ -21,10 +21,13 @@ public:
 	glm::vec2 size{ 100, 100 };//width, height
 	glm::vec2 scale{ 1.f, 1.f };
 	float rotation = 0.f;
-
-	//Get Position : equation position * getoffs();
-	glm::vec2 getpos() {
-		return position - getoffs();
+	glm::vec2 getPosition();
+	glm::vec2 getLocalPosition();
+	glm::vec2 getSize() {
+		return size * scale;
+	}
+	glm::vec2 getLocalSize() {
+		return size * scale;
 	}
 	//Get Size Width, Height : equation size * scale;
 	glm::vec2 getsize() {

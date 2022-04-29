@@ -14,7 +14,6 @@ glm::vec2 GUI::getWindowSize()
 	return glm::vec2(width, height);
 }
 void GUI::updateEventInput() {
-	Input& input = Input::GetInstance();
 	//update polling event mouse button
 	for (auto elemContent : m_menu->m_containers) {
 		auto content = elemContent.second;
@@ -32,12 +31,12 @@ void GUI::render() {
 
 	projection = glm::mat4(1.f);
 	projection = glm::ortho(0.f, (float)winWidth, 0.f, (float)winHeight, -1.f, 1.f);
+	projection[2][2] = 1.f;
 	shaderSprite->SetMat4("projection", projection);
 
 	for (auto elemContain : m_menu->m_containers) {
 		auto container = elemContain.second;
 		float zOrder = (float)container->order / m_menu->m_containers.size();
 		container->render(-zOrder);
-
 	}
 }

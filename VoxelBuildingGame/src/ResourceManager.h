@@ -15,9 +15,10 @@ public:
 	static ResourceManager* GetInstance() { return instance; }
     std::map<std::string, Shader*> m_shaders;
     std::map<std::string, Sprite*> m_sprites;
+
     std::map<std::string, Texture*> m_textures;
     Texture* addTexture(const char* pathFile, bool isMipmapping);
     Shader* addShader(std::string pathVertexAndFragment, std::string shaderName);
-    Sprite* addSprite(Sprite* sprite, std::string key);
+    Sprite* getSprite(std::string spriteID);
     void loadAllResouces();
 };

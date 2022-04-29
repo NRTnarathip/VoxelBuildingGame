@@ -2,21 +2,11 @@
 #include "Input.h"
 #include "Physics/BoxCollision.h"
 
-void Button::setup(glm::vec2 pos, glm::vec2 size)
-{
-	/*image = new Image();
-	rect.position = pos;
-	rect.size = size;
-	image->rect.parent = &rect;*/
-	
-}
-void Button::update()
-{
-
-}
-
 void Button::updateEventInput()
 {
+	auto rect = m_uiObject->rect;
+	auto aabb = AABB(rect.getPosition(), rect.getsize());
+
 	auto& input = Input::GetInstance();
 	auto mousePos = input.getMousePosition();
 	bool isMouseHover = aabb.isInSection(mousePos);

@@ -10,7 +10,7 @@ public:
 	UIObject() {
 		rect.m_uiObject = this;
 	}
-	std::string name = "Emty UI Object";
+	std::string name = "Empty UI Object";
 	entt::entity m_entity;
 	entt::registry* g_registry = nullptr;
 	RectTransform rect;

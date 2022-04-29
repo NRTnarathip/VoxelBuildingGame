@@ -26,13 +26,10 @@ public:
 	Button(std::string name) {
 		this->name = name;
 	}
-	AABB aabb;
 	std::string title = "Emty Title";
 	std::string name = "emty_button";
 	glm::vec4 color{ 1.f,1.f,1.f,1.f };
 	ColorTransition colors;
-	void setup(glm::vec2 pos, glm::vec2 size);
-	void update();
 	void updateEventInput();
 	void bindOnClick(eventFunction refFunction);
 };

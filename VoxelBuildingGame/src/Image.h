@@ -8,8 +8,6 @@
 class Image : public UIComponent, public SpriteRenderer {
 public:
 	Image() {}
-	Image(Sprite* ref) {
-		sprite = ref;
-	}
-	
+	Image(Sprite* ref) : SpriteRenderer(ref) { }
+
 };
