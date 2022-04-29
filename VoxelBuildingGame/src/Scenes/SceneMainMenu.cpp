@@ -26,11 +26,11 @@ void SceneMainMenu::setupMainMenu() {
 		imageBtnPlay->sprite = res->getSprite("gui/button_0");
 	}
 	{
-		auto obj = contentBG->createImage();
+		/*auto obj = contentBG->createImage();
 		auto image = obj->getComponent<Image>();
 		image->sprite = res->getSprite("gui/lobby_background");
-		obj->rect.size = contentBG->m_uiObject->rect.size;
-		obj->rect.position = contentBG->m_uiObject->rect.size / 2.f;
+		obj->rect.size = contentBG->rect.size;
+		obj->rect.position = contentBG->rect.size / 2.f;*/
 	}
 }
 void SceneMainMenu::update() {

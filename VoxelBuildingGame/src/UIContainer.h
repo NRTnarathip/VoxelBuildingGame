@@ -11,15 +11,12 @@
 
 class UIContainer {
 public:
-	UIContainer() {
-		auto entity = registry.create();
-		m_uiObject = new UIObject();
-		m_uiObject->g_registry = &registry;
-		m_uiObject->m_entity = entity;
-		m_uiObject->name = "UI Container";
+	UIContainer(std::string containerName,glm::vec2 pos, glm::vec2 size) : name(containerName){
+		rect.size = size;
+		rect.position = pos;
 	}
-	UIObject* m_uiObject = nullptr;
-
+	std::string name;
+	RectTransform rect;
 	entt::registry registry;
 	std::vector<UIObject*> m_uiObjects;
 	std::vector<Button*> m_buttons;

@@ -19,7 +19,7 @@ UIObject* UIContainer::createUIObject() {
 	auto newObject = new UIObject();
 	newObject->g_registry = &registry;
 	newObject->m_entity = entity;
-	newObject->rect.parent = &m_uiObject->rect;
+	newObject->rect.parent = &rect;
 	m_uiObjects.push_back(newObject);
 	return newObject;
 }
@@ -31,7 +31,8 @@ void UIContainer::render(float zOrder) {
 		auto image = object->getComponent<Image>();
 		auto rectOjbect = &object->rect;
 
-		auto pos = rectOjbect->getPosition();
+		auto pos = rectOjbect->getPositionViaPivot() + rectOjbect->getoffs();
+		printf("pos x:%f y:%f\n", pos.x, pos.y);
 		auto size = rectOjbect->getsize();
 		auto model = glm::mat4(1.f);
 		float zOrderOfElem = ((float)elemIndex / m_uiObjects.size()) * zOrder;
