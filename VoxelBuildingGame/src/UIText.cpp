@@ -16,6 +16,7 @@ void UIText::render() {
 	int maxFontHeight = 0;
 	// Calculate total width
 	auto fontScale = (fontSize / 48.f) * rect.scale;
+
 	std::string::const_iterator c;
 	for (c = text.begin(); c != text.end(); c++) {
 		const auto& charInfo = tr->Characters[*c];

@@ -20,7 +20,8 @@ void SceneMainMenu::setupMainMenu() {
 	//setup button main menu
 	auto menu = UIMenu::GetInstance();
 	auto contentBG = menu->createContainer("lobby_background", {960 ,540}, {1920, 1080});
-	auto contentMainMenu = menu->createContainer("mainmenu", { 960 ,540 }, { 800, 600});
+	auto contentMainMenu = menu->createContainer("mainmenu", { 0 ,0 }, { 800, 600});
+	contentMainMenu->rect.position.y = -140.f;
 	{
 		auto button = contentMainMenu->createButton("setting");
 		button->rect.size = { 220, 60 };
@@ -29,15 +30,13 @@ void SceneMainMenu::setupMainMenu() {
 		auto text = button->getComponent<UIText>();
 		text->text = "Setting";
 
-		auto buttonExit = contentMainMenu->createButton("exit");
-		button->attachObject(buttonExit);
+		/*auto buttonExit = contentMainMenu->createButton("exit");
 		buttonExit->rect.size = { 220, 60 };
-
 		img = buttonExit->getComponent<Image>();
 		img->sprite = res->getSprite("gui/button_0");
 		text = buttonExit->getComponent<UIText>();
 		text->text = "Exit";
-		auto comp = buttonExit->getComponent<Button>();
+		auto comp = buttonExit->getComponent<Button>();*/
 	}
 }
 void SceneMainMenu::exit() {

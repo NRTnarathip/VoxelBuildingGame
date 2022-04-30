@@ -54,8 +54,6 @@ void GUI::render() {
 float GUI::getRenderZOrder() {
 	auto zOrder = unitZOrderPerRender * renderZOrderIndexNow;
 	renderZOrderIndexNow++;
-
-	printf("unit %f\n", zOrder * -1.f);
 	return zOrder * -1.f;
 }
 void GUI::registryRenderZOrder() {

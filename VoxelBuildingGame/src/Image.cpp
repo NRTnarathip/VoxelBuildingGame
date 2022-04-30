@@ -11,7 +11,7 @@ void Image::render() {
 	auto rect = m_uiObject->rect;
 	auto model = glm::mat4(1.f);
 	model = glm::translate(model, glm::vec3(rect.getPosition() - rect.getoffs(), GUI::GetInstance().getRenderZOrder()));
-	model = glm::scale(model, glm::vec3(rect.getsize(), 1.f));
+	model = glm::scale(model, glm::vec3(rect.getsize() , 1.f));
 
 	shaderSprite->Bind();
 	shaderSprite->SetMat4("model", model);

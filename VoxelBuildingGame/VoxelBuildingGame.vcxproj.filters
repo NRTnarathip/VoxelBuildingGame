@@ -31,12 +31,6 @@
     <Filter Include="Source Files\World\Chunk">
       <UniqueIdentifier>{928fd87f-1472-4179-9363-01544ffd259a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Graphic">
-      <UniqueIdentifier>{71da6077-d2f9-4e10-bd1b-dac8a32de1eb}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Graphic\ImGui">
-      <UniqueIdentifier>{3af42be6-61aa-44fe-8349-3812a93d5dbf}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Physics">
       <UniqueIdentifier>{9a9cc80e-77ad-455f-80ad-1c713261511f}</UniqueIdentifier>
     </Filter>
@@ -48,6 +42,9 @@
     </Filter>
     <Filter Include="Source Files\Scenes">
       <UniqueIdentifier>{bb5a169f-1c3c-44b6-b14d-657ea74e2fd2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\ImGui">
+      <UniqueIdentifier>{3af42be6-61aa-44fe-8349-3812a93d5dbf}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -70,22 +67,22 @@
       <Filter>Source Files\World\Chunk</Filter>
     </ClInclude>
     <ClInclude Include="ImGui\imgui_internal.h">
-      <Filter>Source Files\Graphic\ImGui</Filter>
+      <Filter>Source Files\ImGui</Filter>
     </ClInclude>
     <ClInclude Include="ImGui\imgui_impl_opengl3.h">
-      <Filter>Source Files\Graphic\ImGui</Filter>
+      <Filter>Source Files\ImGui</Filter>
     </ClInclude>
     <ClInclude Include="ImGui\imgui_impl_glfw.h">
-      <Filter>Source Files\Graphic\ImGui</Filter>
+      <Filter>Source Files\ImGui</Filter>
     </ClInclude>
     <ClInclude Include="ImGui\imgui.h">
-      <Filter>Source Files\Graphic\ImGui</Filter>
+      <Filter>Source Files\ImGui</Filter>
     </ClInclude>
     <ClInclude Include="ImGui\imconfig.h">
-      <Filter>Source Files\Graphic\ImGui</Filter>
+      <Filter>Source Files\ImGui</Filter>
     </ClInclude>
     <ClInclude Include="ImGui\imgui_impl_opengl3_loader.h">
-      <Filter>Source Files\Graphic\ImGui</Filter>
+      <Filter>Source Files\ImGui</Filter>
     </ClInclude>
     <ClInclude Include="src\World.h">
       <Filter>Source Files\World</Filter>
@@ -95,9 +92,6 @@
     </ClInclude>
     <ClInclude Include="src\GenerateMeshChunk.h">
       <Filter>Source Files\World\Chunk</Filter>
-    </ClInclude>
-    <ClInclude Include="src\GraphicSetting.h">
-      <Filter>Source Files\Graphic</Filter>
     </ClInclude>
     <ClInclude Include="src\SmartQueue.h">
       <Filter>Source Files</Filter>
@@ -142,9 +136,6 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="src\CameraManager.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\VoxelEngine.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="src\ComponentManager.h">
@@ -222,6 +213,9 @@
     <ClInclude Include="src\TextRenderer.h">
       <Filter>Source Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\GraphicSetting.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\main.cpp">
@@ -243,25 +237,25 @@
       <Filter>Source Files\World\Chunk</Filter>
     </ClCompile>
     <ClCompile Include="ImGui\imgui_widgets.cpp">
-      <Filter>Source Files\Graphic\ImGui</Filter>
+      <Filter>Source Files\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="ImGui\imgui_tables.cpp">
-      <Filter>Source Files\Graphic\ImGui</Filter>
+      <Filter>Source Files\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="ImGui\imgui_impl_opengl3.cpp">
-      <Filter>Source Files\Graphic\ImGui</Filter>
+      <Filter>Source Files\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="ImGui\imgui_impl_glfw.cpp">
-      <Filter>Source Files\Graphic\ImGui</Filter>
+      <Filter>Source Files\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="ImGui\imgui_draw.cpp">
-      <Filter>Source Files\Graphic\ImGui</Filter>
+      <Filter>Source Files\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="ImGui\imgui_demo.cpp">
-      <Filter>Source Files\Graphic\ImGui</Filter>
+      <Filter>Source Files\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="ImGui\imgui.cpp">
-      <Filter>Source Files\Graphic\ImGui</Filter>
+      <Filter>Source Files\ImGui</Filter>
     </ClCompile>
     <ClCompile Include="src\World.cpp">
       <Filter>Source Files\World</Filter>

@@ -74,7 +74,6 @@
     <ClInclude Include="src\UIObject.h" />
     <ClInclude Include="src\UIText.h" />
     <ClInclude Include="src\Voxel.h" />
-    <ClInclude Include="src\VoxelEngine.h" />
     <ClInclude Include="src\World.h" />
   </ItemGroup>
   <ItemGroup>
