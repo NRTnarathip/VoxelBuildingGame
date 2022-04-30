@@ -139,7 +139,9 @@ void Game::update() { //update every frame
     //chManager->update();
     //genMeshChunk->update();
 }
+void Game::exit() {
 
+}
 void Game::processInput()
 {
     auto glWindow = window->glfwWindow;

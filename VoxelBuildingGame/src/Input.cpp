@@ -73,7 +73,8 @@ bool Input::onMouseDown(int keycode) {
     return m_mouseKeyState[keycode] == MOUSE_DOWN;
 }
 bool Input::onMouse(int keycode) {
-    return m_mouseKeyState[keycode] > 0;
+    auto state = m_mouseKeyState[keycode];
+    return state > 0 and state != MOUSE_UP;
 }
 bool Input::onMouseUp(int keycode) {
     return m_mouseKeyState[keycode] == MOUSE_UP;

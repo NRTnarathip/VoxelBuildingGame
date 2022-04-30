@@ -45,9 +45,14 @@ void GUI::render() {
 
 	//reset
 	renderZOrderIndexNow = 0;
+	//reoder UIObject Hierachy
+	unitZOrderPerRender = 0.9f / totalRegisterRender;
+
 	for (auto elemContain : m_menu->m_containers) {
 		auto container = elemContain.second;
-		container->render();
+		for (auto rectUIObject : container->rect.childs) {
+			rectUIObject->m_uiObject->render();
+		}
 	}
 }
 
@@ -56,7 +61,15 @@ float GUI::getRenderZOrder() {
 	renderZOrderIndexNow++;
 	return zOrder * -1.f;
 }
-void GUI::registryRenderZOrder() {
-	totalZOrderRegistry++;
-	unitZOrderPerRender = 0.9f / totalZOrderRegistry;
+void GUI::registerRender(UIComponent* component) {
+	m_UIRenderComponentHierachy.push_back(component);
+	totalRegisterRender++;
+}
+UIObject* GUI::createUIObject() {
+	auto entity = registry.create();
+	auto newObject = new UIObject();
+	newObject->g_registry = &registry;
+	newObject->m_entity = entity;
+	m_UIObjectHierarchy.push_back(newObject);
+	return newObject;
 }

@@ -1,11 +1,11 @@
 #include "UIContainer.h"
 #include "ResourceManager.h"
 #include "UIText.h"
+#include "GUI.h"
 
 UIObject* UIContainer::createButton(std::string name) {
 	auto object = createUIObject();
 	object->name = name;
-
 	auto button = object->addComponent<Button>(new Button(name));
 	auto image = object->addComponent<Image>(new Image());
 	auto uiText = object->addComponent<UIText>(new UIText());
@@ -20,16 +20,9 @@ UIObject* UIContainer::createImage() {
 	return object;
 }
 UIObject* UIContainer::createUIObject() {
-	auto entity = registry.create();
-	auto newObject = new UIObject();
-	newObject->g_registry = &registry;
-	newObject->m_entity = entity;
+	auto gui = &GUI::GetInstance();
+	auto newObject = gui->createUIObject();
 	newObject->rect.parent = &rect;
-	m_uiObjects.push_back(newObject);
+	rect.childs.push_back(&newObject->rect);
 	return newObject;
-}
-void UIContainer::render() {
-	for (auto object : m_uiObjects) {
-		object->render();
-	}
 }

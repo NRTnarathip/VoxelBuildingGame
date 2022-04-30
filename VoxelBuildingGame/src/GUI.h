@@ -4,6 +4,7 @@
 #include "UIMenu.h"
 #include <glm/glm.hpp>
 #include "TextRenderer.h"
+#include <map>
 
 class GUI {
 private:
@@ -12,7 +13,10 @@ private:
 
 	int renderZOrderIndexNow = 0;
 	float unitZOrderPerRender = 0.f;
-	int totalZOrderRegistry = 0;
+	int totalRegisterRender = 0;
+	std::vector<UIObject*> m_UIObjectHierarchy;
+	std::vector<UIComponent*> m_UIRenderComponentHierachy;
+	entt::registry registry;
 public:
 	static GUI& GetInstance() { return *m_instance; }
 	static void Begin() {};
@@ -26,6 +30,7 @@ public:
 	glm::vec2 getWindowSize();
 	void updateEventInput();
 	float getRenderZOrder();
-	void registryRenderZOrder();
-
+	UIObject* createUIObject();
+	//register UIRender
+	void registerRender(UIComponent* component);
 };

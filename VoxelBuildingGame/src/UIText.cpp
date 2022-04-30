@@ -4,11 +4,9 @@
 #include "GUI.h"
 
 UIText::UIText() {
-	GUI::GetInstance().registryRenderZOrder();
+	GUI::GetInstance().registerRender(this);
 }
 void UIText::render() {
-	//printf("render text index %d\n", GUI::GetInstance().renderZOrderIndex);
-
 	auto tr = TextRenderer::GetInstance();
 	auto rect = m_uiObject->rect;
 	auto pos = rect.getPosition();

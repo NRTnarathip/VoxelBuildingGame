@@ -14,7 +14,7 @@ public:
 	std::string name = "Empty UI Object";
 	entt::entity m_entity;
 	entt::registry* g_registry = nullptr;
-	std::vector<UIComponent* > m_components;
+	std::vector<UIComponent*> m_components;
 	RectTransform rect;
 
 	template<typename TypeComponent>
@@ -22,6 +22,8 @@ public:
 		auto& newComponent = g_registry->emplace<TypeComponent>(m_entity, *component);
 		newComponent.m_uiObject = this;
 		m_components.push_back(&newComponent);
+
+		newComponent.init();
 		return &newComponent;
 	};
 	template<typename TypeComponent>
@@ -29,15 +31,11 @@ public:
 		return &g_registry->get<TypeComponent>(m_entity);
 	};
 	void attachObject(UIObject* child);
-
+	void swapOrderComponent(UIComponent* from, UIComponent* to);
 	void update() {
 		for (auto comp : m_components) {
 			comp->update();
 		}
 	}
-	void render() {
-		for (auto comp : m_components) {
-			comp->render();
-		}
-	}
+	void render();
 };

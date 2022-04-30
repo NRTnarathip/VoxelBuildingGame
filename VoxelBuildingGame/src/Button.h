@@ -18,17 +18,20 @@ public:
 
 	class ColorTransition {
 	public:
-		glm::vec4 colorHover{ 0.75f,0.75f,0.75f, 1.f };
-		glm::vec4 colorNormal{ 1.f};
+		glm::vec4 colorHover;
+		glm::vec4 colorNormal;
+		glm::vec4 colorPress;
 	};
 	Button() {}
 	Button(std::string name) {
 		this->name = name;
 	}
+
 	std::string title = "Emty Title";
 	std::string name = "emty_button";
 	glm::vec4 color{ 1.f,1.f,1.f,1.f };
 	ColorTransition colors;
+	void init();
 	void updateEventInput();
 	void bindOnClick(functionPointer refFunction);
 };
