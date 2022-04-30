@@ -9,5 +9,5 @@ class Image : public UIComponent, public SpriteRenderer {
 public:
 	Image() {}
 	Image(Sprite* ref) : SpriteRenderer(ref) { }
-
+	void render();
 };
