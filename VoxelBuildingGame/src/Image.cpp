@@ -4,17 +4,13 @@
 Image::Image() {
 }
 void Image::init() {
-	GUI::GetInstance().registerRender(this);
 }
 void Image::render() {
-	//printf("render image index %d\n", GUI::GetInstance().renderZOrderIndex);
 	auto res = ResourceManager::GetInstance();
 	auto shaderSprite = res->m_shaders["sprite"];
 	auto rect = m_uiObject->rect;
 	auto model = glm::mat4(1.f);
-	auto zOrder = GUI::GetInstance().getRenderZOrder();
-	printf("z order %f\n", zOrder);
-	model = glm::translate(model, glm::vec3(rect.getPosition() - rect.getoffs(), zOrder));
+	model = glm::translate(model, glm::vec3(rect.getPosition() - rect.getoffs(), 0.f));
 	model = glm::scale(model, glm::vec3(rect.getsize() , 1.f));
 
 	shaderSprite->Bind();

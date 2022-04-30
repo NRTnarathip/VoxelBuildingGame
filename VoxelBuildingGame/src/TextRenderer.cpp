@@ -94,7 +94,7 @@ void TextRenderer::renderText(std::string text, float x, float y, glm::vec2 scal
     s->Bind();
     s->SetVec3("textColor", color);
     auto model = glm::mat4(1.f);
-    model = glm::translate(model, glm::vec3(0, 0, GUI::GetInstance().getRenderZOrder()));
+    //model = glm::translate(model, glm::vec3(0, 0, GUI::GetInstance().getRenderZOrder()));
     s->SetMat4("model", model);
     // activate corresponding render state	
     glActiveTexture(GL_TEXTURE0);

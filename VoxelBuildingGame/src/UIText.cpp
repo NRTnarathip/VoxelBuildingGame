@@ -4,7 +4,6 @@
 #include "GUI.h"
 
 UIText::UIText() {
-	GUI::GetInstance().registerRender(this);
 }
 void UIText::render() {
 	auto tr = TextRenderer::GetInstance();

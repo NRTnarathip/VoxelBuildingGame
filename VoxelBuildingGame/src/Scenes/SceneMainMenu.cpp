@@ -30,8 +30,6 @@ void SceneMainMenu::setupMainMenu() {
 		img->sprite = res->getSprite("gui/button_0");
 		auto text = button->getComponent<UIText>();
 		text->text = "Play";
-		button->swapOrderComponent(img, text);
-		button->swapOrderComponent(img, text);
 
 		button = contentMainMenu->createButton("setting");
 		button->rect.size = { 220, 60 };
