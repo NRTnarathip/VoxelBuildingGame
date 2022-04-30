@@ -4,10 +4,10 @@
 #include "RectTransform.h"
 #include <glm/vec4.hpp>
 #include "UIComponent.h"
+class GUI;
 
 class Image : public UIComponent, public SpriteRenderer {
 public:
-	Image() {}
-	Image(Sprite* ref) : SpriteRenderer(ref) { }
+	Image();
 	void render();
 };

@@ -58,6 +58,7 @@ void ClientEngine::launch() {
     //---init opengl
     window = new Window("Voxel Game");
     initialOpenGL();
+    m_gui = new GUI(window->glfwWindow);
 
     //init core engine
     m_input = new Input(window->glfwWindow);

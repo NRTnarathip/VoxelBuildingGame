@@ -2,9 +2,9 @@
 #include "UIComponent.h"
 #include <string>
 #include "UIObject.h"
-
 class UIText : public UIComponent {
 public:
+	UIText();
 	class Alignment {
 	public:
 		enum LineAdjustment {

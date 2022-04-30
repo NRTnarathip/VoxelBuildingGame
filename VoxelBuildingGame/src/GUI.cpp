@@ -2,15 +2,18 @@
 #include "ClientEngine.h"
 #include "Input.h"
 
-GUI GUI::m_instance;
+GUI* GUI::m_instance = nullptr;
 
-GUI::GUI() {
+GUI::GUI(GLFWwindow* window) {
+	m_instance = this;
+
 	m_menu = new UIMenu();
+	this->window = window;
 }
 glm::vec2 GUI::getWindowSize()
 {
 	int width, height;
-	glfwGetWindowSize(ClientEngine::GetInstance().window->glfwWindow, &width, &height);
+	glfwGetWindowSize(window, &width, &height);
 	return glm::vec2(width, height);
 }
 void GUI::updateEventInput() {
@@ -24,10 +27,9 @@ void GUI::updateEventInput() {
 }
 //update value shader and renderer all UIContainer
 void GUI::render() {
-	int winWidth, winHeight;
-	glfwGetWindowSize(ClientEngine::GetInstance().window->glfwWindow, &winWidth, &winHeight);
+	auto winSize = getWindowSize();
 	projection = glm::mat4(1.f);
-	projection = glm::ortho(0.f, (float)winWidth, 0.f, (float)winHeight);
+	projection = glm::ortho(0.f, winSize.x, 0.f, winSize.y);
 	projection[2][2] = 1.f;
 
 	auto res = ResourceManager::GetInstance();
@@ -41,9 +43,22 @@ void GUI::render() {
 	shText->Bind();
 	shText->SetMat4("projection", projection);
 
+	//reset
+	renderZOrderIndexNow = 0;
 	for (auto elemContain : m_menu->m_containers) {
 		auto container = elemContain.second;
-		float zOrder = (float)container->order / m_menu->m_containers.size();
-		container->render(-zOrder);
+		container->render();
 	}
+}
+
+float GUI::getRenderZOrder() {
+	auto zOrder = unitZOrderPerRender * renderZOrderIndexNow;
+	renderZOrderIndexNow++;
+
+	printf("unit %f\n", zOrder * -1.f);
+	return zOrder * -1.f;
+}
+void GUI::registryRenderZOrder() {
+	totalZOrderRegistry++;
+	unitZOrderPerRender = 0.9f / totalZOrderRegistry;
 }

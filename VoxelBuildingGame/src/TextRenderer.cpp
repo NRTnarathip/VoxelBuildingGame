@@ -5,6 +5,7 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
 #include "ResourceManager.h"
+#include "GUI.h"
 
 TextRenderer* TextRenderer::m_instance = nullptr;
 
@@ -92,6 +93,9 @@ void TextRenderer::renderText(std::string text, float x, float y, glm::vec2 scal
     auto s = ResourceManager::GetInstance()->m_shaders["text"];
     s->Bind();
     s->SetVec3("textColor", color);
+    auto model = glm::mat4(1.f);
+    model = glm::translate(model, glm::vec3(0, 0, GUI::GetInstance().getRenderZOrder()));
+    s->SetMat4("model", model);
     // activate corresponding render state	
     glActiveTexture(GL_TEXTURE0);
     vao.bind();

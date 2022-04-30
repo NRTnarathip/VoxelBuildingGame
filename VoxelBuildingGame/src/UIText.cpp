@@ -1,8 +1,14 @@
 #include "UIText.h"
 #include "ResourceManager.h"
 #include "TextRenderer.h"
+#include "GUI.h"
 
+UIText::UIText() {
+	GUI::GetInstance().registryRenderZOrder();
+}
 void UIText::render() {
+	//printf("render text index %d\n", GUI::GetInstance().renderZOrderIndex);
+
 	auto tr = TextRenderer::GetInstance();
 	auto rect = m_uiObject->rect;
 	auto pos = rect.getPosition();

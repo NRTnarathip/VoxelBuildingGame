@@ -2,6 +2,7 @@
 #include <Game.h>
 #include <GraphicSetting.h>
 #include "TextRenderer.h"
+#include "GUI.h"
 
 class Input;
 
@@ -22,6 +23,8 @@ public:
 	Input* m_input = nullptr;
 	TextRenderer* m_textRenderer = nullptr;
 	ResourceManager* m_resouceManager = nullptr;
+	GUI* m_gui = nullptr;
+
 	int initialOpenGL();
 	void launch();
 	void exit();

@@ -28,7 +28,7 @@ UIObject* UIContainer::createUIObject() {
 	m_uiObjects.push_back(newObject);
 	return newObject;
 }
-void UIContainer::render(float zOrder) {
+void UIContainer::render() {
 	for (auto object : m_uiObjects) {
 		object->render();
 	}
