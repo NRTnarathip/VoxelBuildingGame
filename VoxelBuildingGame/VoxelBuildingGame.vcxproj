@@ -119,6 +119,7 @@
     <ClCompile Include="src\Texture.cpp" />
     <ClCompile Include="src\UIContainer.cpp" />
     <ClCompile Include="src\UIMenu.cpp" />
+    <ClCompile Include="src\UIObject.cpp" />
     <ClCompile Include="src\UIText.cpp" />
     <ClCompile Include="src\World.cpp" />
   </ItemGroup>

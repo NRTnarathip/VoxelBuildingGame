@@ -6,8 +6,6 @@ void UIText::render() {
 	auto tr = TextRenderer::GetInstance();
 	auto rect = m_uiObject->rect;
 	auto pos = rect.getPosition();
-	printf("pos button %f, %f\n",pos.x, pos.y);
-
 	int totalWidth = 0;
 	int maxFontHeight = 0;
 	// Calculate total width

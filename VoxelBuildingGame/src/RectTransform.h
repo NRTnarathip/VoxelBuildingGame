@@ -27,4 +27,5 @@ public:
 	glm::vec2 getsize() {
 		return size * scale;
 	}
+	glm::vec2 getLocalPosition();
 };

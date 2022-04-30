@@ -3,6 +3,7 @@
 #include "UIComponent.h"
 #include "entt/entt.hpp"
 #include <string>
+#include <vector>
 
 
 class UIObject {
@@ -27,6 +28,8 @@ public:
 	TypeComponent* getComponent() const {
 		return &g_registry->get<TypeComponent>(m_entity);
 	};
+	void attachObject(UIObject* child);
+
 	void update() {
 		for (auto comp : m_components) {
 			comp->update();

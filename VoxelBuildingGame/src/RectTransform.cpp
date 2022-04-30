@@ -14,3 +14,7 @@ glm::vec2 RectTransform::getPosition() {
 glm::vec2 RectTransform::getLocalPositionViaPivot() {
 	return position - getoffs();
 }
+glm::vec2 RectTransform::getLocalPosition()
+{
+	return position;
+}
