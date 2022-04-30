@@ -27,7 +27,7 @@ void PlayerController::update() { //update every frame on ECS
 
 void PlayerController::UpdateInputs()
 {
-	auto window = Game::GetInstance()->window->glfwWindow;
+	auto window = Game::GetInstance()->window->window;
 	//auto &transform = getComponent<Transform>();
 	auto me = getGameObject();
 	glm::vec3 &posEntity = me->transform.position;

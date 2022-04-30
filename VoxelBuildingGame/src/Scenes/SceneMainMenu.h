@@ -4,8 +4,6 @@
 class Camera;
 
 class SceneMainMenu : public SceneGame {
-private:
-	Camera* cameraCanvas = nullptr;
 public:
 	SceneMainMenu(std::string name) : SceneGame(name) {}
 	void setupMainMenu();

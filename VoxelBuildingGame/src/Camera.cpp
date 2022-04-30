@@ -33,12 +33,6 @@ void Camera::setupCamera(GLFWwindow* window, float FOVdeg, float nearPlane, floa
 	projection = glm::perspective(glm::radians(FOVdeg), (float)width / (float)height, nearPlane, farPlane);
 	projection[0][0] *= -1;//invert project axis X
 };
-void Camera::setupCameraOrtho() {
-	this->window = ClientEngine::GetInstance().window->glfwWindow;
-	int width, height;
-	glfwGetWindowSize(window, &width, &height);
-	projection = glm::ortho(0.0f, (float)width, 0.0f, (float)height,-1.0f, 1.0f);
-}
 void Camera::switchMode(bool isPerspective) {
 	if (isPerspective) {
 		

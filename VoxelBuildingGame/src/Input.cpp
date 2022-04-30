@@ -31,7 +31,7 @@ void Input::update() {
     // Take care of all GLFW events
     glfwPollEvents();
 
-    auto* window = ClientEngine::GetInstance().window->glfwWindow;
+    auto* window = ClientEngine::GetInstance().window->window;
     double xpos, ypos;
     glfwGetCursorPos(window, &xpos, &ypos);
     lastCursor = nowCursor;
@@ -54,14 +54,14 @@ void Input::update() {
 }
 void Input::setMouseMode(int mode) {
     if (mode == 0) {
-        glfwSetInputMode(ClientEngine::GetInstance().window->glfwWindow, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+        glfwSetInputMode(ClientEngine::GetInstance().window->window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
     }
     else if (mode == 1) {
-        glfwSetInputMode(ClientEngine::GetInstance().window->glfwWindow, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+        glfwSetInputMode(ClientEngine::GetInstance().window->window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
     }
 }
 glm::vec2 Input::mouseAxis() {
-    auto* win = ClientEngine::GetInstance().window->glfwWindow;
+    auto* win = ClientEngine::GetInstance().window->window;
     int width, height;
     glfwGetWindowSize(win, &width,&height);
     auto offs = nowCursor - lastCursor;

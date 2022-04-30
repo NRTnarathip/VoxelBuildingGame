@@ -25,7 +25,7 @@ public:
 	ResourceManager* m_resouceManager = nullptr;
 	GUI* m_gui = nullptr;
 
-	int initialOpenGL();
+	int setupWindow();
 	void launch();
 	void exit();
 };

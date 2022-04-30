@@ -12,8 +12,7 @@
 #include <ChunkManager.h>
 #include "ResourceManager.h"
 #include "SceneManager.h"
-
-class Window;
+#include "Window.h"
 class Time;
 
 class Game {
@@ -44,19 +43,6 @@ public:
     void exit();
 };
 
-class Window {
-public:
-    Window(const char* newTitle);
-    GLFWwindow* glfwWindow = nullptr;
-    static unsigned int width;
-    static unsigned int height;
-    const unsigned int initWidth = 1280;
-    const unsigned int initHeight = 720;
-    const char* titleName = "Marhcing Cube";
-    float FOVdeg = 60.f;
-    float nearPlane = 0.03f;
-    float farPlane = 500.f;
-};
 class Time {
 public:
     static double deltaTime;

@@ -10,9 +10,6 @@ void onClickPlay() {
 	printf("click play\n");
 }
 void SceneMainMenu::init() {
-	cameraCanvas = CameraManager::GetInstance().newCamera();
-	cameraCanvas->setupCameraOrtho();
-
 	setupMainMenu();
 }
 void SceneMainMenu::setupMainMenu() {

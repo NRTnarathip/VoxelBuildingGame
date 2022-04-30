@@ -20,9 +20,6 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height);
 
 //static variable
 Game* Game::instance = nullptr;
-//cass Window
-unsigned int Window::width = 0;
-unsigned int Window::height = 0;
 
 //class Time
 double Time::deltaTime = 0.0;
@@ -34,9 +31,6 @@ float Time::framesPerSecond = 0.f;
 Game::Game(Window * win) {
     instance = this;
     window = win;
-}
-Window::Window(const char* newTitle) {
-    titleName = newTitle;
 }
 void Game::UpdateInFrame() {
     counterTime();
@@ -75,17 +69,11 @@ void Game::init() {
 
 }
 void Game::render() {
-    glClearColor(0.f, 0.0f, 0.0f, 1.f);
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
     sceneManager->render();
     //auto shaders = resourceManager->m_shaders;
     //CameraManager::GetInstance().uploadCameraMatrixToShader(shaders[0]);
     //chManager->render();
     //world->render();
-
-     // Swap the back buffer with the front buffer
-    glfwSwapBuffers(window->glfwWindow);
 }
 void Game::printCounter() {
     printf("FPS %d\n", Time::fps);
@@ -114,7 +102,7 @@ void Game::beforeUpdate() {
 }
 void Game::inputDebug() {
     int scancode = glfwGetKeyScancode(GLFW_KEY_X);
-    int stateReloadTexture = glfwGetKey(window->glfwWindow, GLFW_KEY_F3);
+    int stateReloadTexture = glfwGetKey(window->window, GLFW_KEY_F3);
     if (stateReloadTexture == GLFW_PRESS)
     {
         printf("f3 keydown\n");
@@ -144,7 +132,7 @@ void Game::exit() {
 }
 void Game::processInput()
 {
-    auto glWindow = window->glfwWindow;
+    auto glWindow = window->window;
     if (glfwGetKey(glWindow, GLFW_KEY_ESCAPE) == GLFW_PRESS)
         glfwSetWindowShouldClose(glWindow, true);
 }

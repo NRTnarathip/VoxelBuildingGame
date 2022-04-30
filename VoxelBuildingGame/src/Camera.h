@@ -31,8 +31,6 @@ public:
 
 	// Camera constructor to set up initial values
 	void setupCamera(GLFWwindow* window, float FOVdeg, float nearPlane, float farPlane);
-	void setupCameraOrtho();
-
 	// Updates and exports the camera matrix to the Vertex Shader
 	//test feature not avaliable now!!!
 	void switchMode(bool isPerspective);

@@ -4,11 +4,12 @@
 
 ClientEngine* ClientEngine::instance = nullptr;
 
-void framebuffer_size_callback(GLFWwindow* window, int width, int height)
+void framebuffer_size_callback(GLFWwindow* glWindow, int width, int height)
 {
     glViewport(0, 0, width, height);
+    Window::GetInstance()->onWindowResize(width, height);
 }
-int ClientEngine::initialOpenGL() {
+int ClientEngine::setupWindow() {
     //Init opengl
     glfwInit();
 
@@ -17,17 +18,19 @@ int ClientEngine::initialOpenGL() {
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-    window->glfwWindow = glfwCreateWindow(window->initWidth, window->initHeight, window->titleName, NULL, NULL);
+    window = new Window("Guycraft");
+    auto glWindow = glfwCreateWindow(window->width, window->height, window->title, NULL, NULL);
+    window->window = glWindow;
 
-    if (window->glfwWindow == NULL)
+    if (glWindow == NULL)
     {
         std::cout << "Failed to create GLFW window" << std::endl;
         glfwTerminate();
         return -1;
     }
-    glfwMakeContextCurrent(window->glfwWindow);
+    glfwMakeContextCurrent(glWindow);
     glfwSwapInterval(1); // Enable vsync
-    glfwSetFramebufferSizeCallback(window->glfwWindow, framebuffer_size_callback);
+    glfwSetFramebufferSizeCallback(glWindow, framebuffer_size_callback);
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
     {
         std::cout << "Failed to initialize GLAD" << std::endl;
@@ -51,37 +54,44 @@ int ClientEngine::initialOpenGL() {
     images[0].pixels = data;
     //printf("Icon 128 data size %d\n", w * h * c);
 
-    glfwSetWindowIcon(window->glfwWindow, 1, images);
+    glfwSetWindowIcon(glWindow, 1, images);
     return 0;
 }
 void ClientEngine::launch() {
-    //---init opengl
-    window = new Window("Voxel Game");
-    initialOpenGL();
-    m_gui = new GUI(window->glfwWindow);
+    //---init window
+    setupWindow();
+    auto glfwWindow = window->window;
+
+    m_gui = new GUI(glfwWindow);
 
     //init core engine
-    m_input = new Input(window->glfwWindow);
+    m_input = new Input(glfwWindow);
     m_input->initKeyMapping();
 
     m_resouceManager = new ResourceManager();
     m_resouceManager->loadAllResouces();
 
-    m_textRenderer = new TextRenderer(window->glfwWindow);
+    m_textRenderer = new TextRenderer(glfwWindow);
     m_textRenderer->setupGL();
 
     //init game
 	game = new Game(window);
     game->init();
-    while (!glfwWindowShouldClose(window->glfwWindow))
+    while (!glfwWindowShouldClose(glfwWindow))
     { 
+        glClearColor(0.f, 0.0f, 0.0f, 1.f);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
         m_input->update();
         game->UpdateInFrame();
+
+        // Swap the back buffer with the front buffer
+        glfwSwapBuffers(glfwWindow);
     }
     exit();
 }
 void ClientEngine::exit() {
-    glfwDestroyWindow(window->glfwWindow);
+    glfwDestroyWindow(window->window);
     glfwTerminate();
 }
 
