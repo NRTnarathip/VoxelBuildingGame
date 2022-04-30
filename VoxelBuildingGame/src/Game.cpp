@@ -32,18 +32,6 @@ Game::Game(Window * win) {
     instance = this;
     window = win;
 }
-void Game::UpdateInFrame() {
-    counterTime();
-    processInput();
-    //procress GUI Event
-    GUI& gui = GUI::GetInstance();
-    gui.updateEventInput();
-
-    beforeUpdate();
-    update();
-    lastUpdate();
-    render();
-}
 void Game::init() {
     //setup core base all
     sceneManager = new SceneManager();
@@ -116,7 +104,10 @@ void Game::update() { //update every frame
     //world update
     //
     //test event input 
-   
+    auto glWindow = window->window;
+    if (glfwGetKey(glWindow, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
+        glfwSetWindowShouldClose(glWindow, true);
+    }
     
 
     sceneManager->update();
@@ -129,10 +120,4 @@ void Game::update() { //update every frame
 }
 void Game::exit() {
 
-}
-void Game::processInput()
-{
-    auto glWindow = window->window;
-    if (glfwGetKey(glWindow, GLFW_KEY_ESCAPE) == GLFW_PRESS)
-        glfwSetWindowShouldClose(glWindow, true);
 }

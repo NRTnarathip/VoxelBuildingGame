@@ -26,7 +26,6 @@ public:
     Window* window = nullptr;
     ResourceManager* resourceManager = nullptr;
 
-    void UpdateInFrame();
    /* ChunkManager* chManager = nullptr;
     GenMeshChunk* genMeshChunk = nullptr;*/
     void counterTime();
@@ -37,7 +36,6 @@ public:
     void lastUpdate();
     //end
     void render();
-    void processInput();
     void printCounter();
     //exit at lobby scene
     void exit();

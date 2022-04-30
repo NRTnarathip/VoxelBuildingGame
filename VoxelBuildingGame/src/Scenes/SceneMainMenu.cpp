@@ -54,7 +54,5 @@ void SceneMainMenu::update() {
 	
 }
 void SceneMainMenu::render() {
-	//render gui
-	GUI& gui = GUI::GetInstance();
-	gui.render();
+	
 }

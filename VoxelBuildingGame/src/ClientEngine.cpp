@@ -29,7 +29,7 @@ int ClientEngine::setupWindow() {
         return -1;
     }
     glfwMakeContextCurrent(glWindow);
-    glfwSwapInterval(1); // Enable vsync
+    window->setActiveVsync(true);
     glfwSetFramebufferSizeCallback(glWindow, framebuffer_size_callback);
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
     {
@@ -38,23 +38,16 @@ int ClientEngine::setupWindow() {
     }
 
     //gl options render
-    glEnable(GL_BLEND);
-    glEnable(GL_DEPTH_TEST);
-    glEnable(GL_CULL_FACE);
-    glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-    glCullFace(GL_FRONT);
-    glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+    window->setupRender3D();
 
     //init icon app
-    GLFWimage images[1];
+    GLFWimage imageIcon;
     int w, h, c;
     unsigned char* data = stbi_load("src/icon/icon_128.png", &w, &h, &c, 4);
-    images[0].width = w;
-    images[0].height = h;
-    images[0].pixels = data;
-    //printf("Icon 128 data size %d\n", w * h * c);
-
-    glfwSetWindowIcon(glWindow, 1, images);
+    imageIcon.width = w;
+    imageIcon.height = h;
+    imageIcon.pixels = data;
+    window->setIcon(imageIcon);
     return 0;
 }
 void ClientEngine::launch() {
@@ -77,14 +70,22 @@ void ClientEngine::launch() {
     //init game
 	game = new Game(window);
     game->init();
+
     while (!glfwWindowShouldClose(glfwWindow))
     { 
-        glClearColor(0.f, 0.0f, 0.0f, 1.f);
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
+        //part render clear
+        window->clearBuffer();
+        //part Input
         m_input->update();
-        game->UpdateInFrame();
-
+        m_gui->updateEventInput();
+        //part Client Logic Update
+        game->counterTime();
+        game->beforeUpdate();
+        game->update();
+        game->lastUpdate();
+        //part Renderer 3D, 2D
+        game->render();
+        m_gui->render();
         // Swap the back buffer with the front buffer
         glfwSwapBuffers(glfwWindow);
     }
