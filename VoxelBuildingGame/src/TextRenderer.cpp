@@ -35,7 +35,7 @@ int TextRenderer::setupGL() {
     FT_Set_Pixel_Sizes(face, 0, 48);
     glPixelStorei(GL_UNPACK_ALIGNMENT, 1); // disable byte-alignment restriction
 
-    for (unsigned char c = 0; c < 220; c++)
+    for (unsigned char c = 0; c < 128; c++)
     {
         // load character glyph 
         if (FT_Load_Char(face, c, FT_LOAD_RENDER))
@@ -68,7 +68,8 @@ int TextRenderer::setupGL() {
             texture,
             glm::ivec2(face->glyph->bitmap.width, face->glyph->bitmap.rows),
             glm::ivec2(face->glyph->bitmap_left, face->glyph->bitmap_top),
-            face->glyph->advance.x
+            // bitshift by 6 to get value in pixels (2^6 = 64)
+            face->glyph->advance.x >> 6
         };
         Characters.insert(std::pair<char, Character>(c, character));
     }
@@ -86,10 +87,11 @@ int TextRenderer::setupGL() {
     vao.unbind();
     vbo.unbind();
 }
-void TextRenderer::renderText(std::string text, float x, float y, float scale, glm::vec3 color) {
+void TextRenderer::renderText(std::string text, float x, float y, glm::vec2 scale, glm::vec3 color) {
     // activate corresponding render state
     auto s = ResourceManager::GetInstance()->m_shaders["text"];
     s->Bind();
+    s->SetVec3("textColor", color);
     // activate corresponding render state	
     glActiveTexture(GL_TEXTURE0);
     vao.bind();
@@ -100,11 +102,11 @@ void TextRenderer::renderText(std::string text, float x, float y, float scale, g
     {
         Character ch = Characters[*c];
 
-        float xpos = x + ch.Bearing.x * scale;
-        float ypos = y - (ch.Size.y - ch.Bearing.y) * scale;
+        float xpos = x + ch.Bearing.x * scale.x;
+        float ypos = y - (ch.Size.y - ch.Bearing.y) * scale.x;
 
-        float w = ch.Size.x * scale;
-        float h = ch.Size.y * scale;
+        float w = ch.Size.x * scale.x;
+        float h = ch.Size.y * scale.y;
         // update VBO for each character
         float vertices[6][4] = {
             { xpos,     ypos,       0.0f, 1.0f },
@@ -124,7 +126,7 @@ void TextRenderer::renderText(std::string text, float x, float y, float scale, g
         // render quad
         glDrawArrays(GL_TRIANGLES, 0, 6);
         // now advance cursors for next glyph (note that advance is number of 1/64 pixels)
-        x += (ch.Advance >> 6) * scale; // bitshift by 6 to get value in pixels (2^6 = 64)
+        x += ch.Advance * scale.x; 
     }
     vao.unbind();
     glBindTexture(GL_TEXTURE_2D, 0);

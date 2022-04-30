@@ -7,6 +7,8 @@
 class UIObject;
 
 class RectTransform {
+private:
+	glm::vec2 inceptGetPosition();
 public:
 	UIObject* m_uiObject = nullptr;
 	RectTransform* parent = nullptr;

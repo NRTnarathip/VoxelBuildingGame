@@ -20,7 +20,7 @@ public:
 	TypeComponent* addComponent(TypeComponent* component) {
 		auto& newComponent = g_registry->emplace<TypeComponent>(m_entity, *component);
 		newComponent.m_uiObject = this;
-		m_components.push_back(component);
+		m_components.push_back(&newComponent);
 		return &newComponent;
 	};
 	template<typename TypeComponent>

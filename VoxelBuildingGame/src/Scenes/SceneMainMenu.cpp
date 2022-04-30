@@ -20,22 +20,40 @@ void SceneMainMenu::setupMainMenu() {
 	//setup button main menu
 	auto menu = UIMenu::GetInstance();
 	auto contentBG = menu->createContainer("lobby_background", {960 ,540}, {1920, 1080});
-	auto contentMainMenu = menu->createContainer("mainmenu", { 960 ,540 }, { 800, 600});
+	auto contentMainMenu = menu->createContainer("mainmenu", { 960 ,540 }, { 440, 440});
 	{
-		auto buttonPlay = contentMainMenu->createButton("play");
-		buttonPlay->rect.size = {200, 40};
-		auto imageBtnPlay = buttonPlay->getComponent<Image>();
-		imageBtnPlay->sprite = res->getSprite("gui/button_0");
+		auto button = contentMainMenu->createButton("play");
+		button->rect.position = {220, 220};
+		button->rect.size = {200, 40};
+		printf("y%f \n", button->rect.position.y);
+		auto img = button->getComponent<Image>();
+		img->sprite = res->getSprite("gui/button_0");
+		auto text = button->getComponent<UIText>();
+		text->text = "Play";
 
-		auto uiText = buttonPlay->addComponent<UIText>(new UIText());
+		button = contentMainMenu->createButton("setting");
+		button->rect.size = { 200, 40 };
+		button->rect.position = { 220, 220 };
+		button->rect.position.y -= 40 + 20;
+		img = button->getComponent<Image>();
+		img->sprite = res->getSprite("gui/button_0");
+		text = button->getComponent<UIText>();
+		text->text = "Setting";
+
+		button = contentMainMenu->createButton("exit");
+		button->rect.size = { 200, 40 };
+		button->rect.position = { 220, 220 };
+		button->rect.position.y -= (40 * 2) + 20*2;
+		img = button->getComponent<Image>();
+		img->sprite = res->getSprite("gui/button_0");
+		text = button->getComponent<UIText>();
+		text->text = "Exit";
+		auto comp = button->getComponent<Button>();
+		//comp->bindOnClick(exit);
 	}
-	{
-		/*auto obj = contentBG->createImage();
-		auto image = obj->getComponent<Image>();
-		image->sprite = res->getSprite("gui/lobby_background");
-		obj->rect.size = contentBG->rect.size;
-		obj->rect.position = contentBG->rect.size / 2.f;*/
-	}
+}
+void SceneMainMenu::exit() {
+
 }
 void SceneMainMenu::update() {
 	

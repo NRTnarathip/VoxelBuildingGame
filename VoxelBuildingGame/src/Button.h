@@ -5,18 +5,17 @@
 #include <glm/vec4.hpp>
 #include "RectTransform.h"
 #include "Image.h"
-#include "UIObject.h"
-
-class UIContainer;
+#include "UIComponent.h"
 
 class Button : public UIComponent {
 private:
-	typedef void(*eventFunction)();
-	eventFunction m_eventOnClick = nullptr;
 	void onHover();
 	void outHover();
 	bool isOnHover = false;
 public:
+	typedef void(*functionPointer)();
+	functionPointer m_eventOnClick = nullptr;
+
 	class ColorTransition {
 	public:
 		glm::vec4 colorHover{ 0.75f,0.75f,0.75f, 1.f };
@@ -31,5 +30,5 @@ public:
 	glm::vec4 color{ 1.f,1.f,1.f,1.f };
 	ColorTransition colors;
 	void updateEventInput();
-	void bindOnClick(eventFunction refFunction);
+	void bindOnClick(functionPointer refFunction);
 };

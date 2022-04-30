@@ -30,5 +30,5 @@ public:
 	static TextRenderer* GetInstance() { return m_instance; }
 	//load front
 	int setupGL();
-	void renderText(std::string text, float x, float y, float scale, glm::vec3 color);
+	void renderText(std::string text, float x, float y, glm::vec2 scale, glm::vec3 color);
 };

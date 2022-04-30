@@ -40,6 +40,8 @@ public:
     void render();
     void processInput();
     void printCounter();
+    //exit at lobby scene
+    void exit();
 };
 
 class Window {
