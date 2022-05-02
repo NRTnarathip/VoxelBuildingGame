@@ -1,6 +1,8 @@
 #pragma once
 #include <string>
 #include "entt/entt.hpp"
+#include <iostream>
+
 
 class SceneGame {
 private:
@@ -9,6 +11,7 @@ public:
 	SceneGame();
 	SceneGame(std::string sceneNam);
 	std::string name = "Unknow Scene";
+	unsigned int index = 0;
 	void setActive(bool state) {
 		m_active = state;
 	};

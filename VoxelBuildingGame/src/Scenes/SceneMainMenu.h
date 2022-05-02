@@ -1,5 +1,6 @@
 #pragma once
 #include "SceneGame.h"
+
 //forward
 class Camera;
 

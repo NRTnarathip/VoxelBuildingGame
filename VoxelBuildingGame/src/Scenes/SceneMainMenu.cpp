@@ -5,10 +5,6 @@
 #include "ClientEngine.h";
 #include "GUI.h"
 
-
-void onClickPlay() {
-	printf("click play\n");
-}
 void SceneMainMenu::init() {
 	setupMainMenu();
 }
@@ -44,11 +40,10 @@ void SceneMainMenu::setupMainMenu() {
 		text = buttonExit->getComponent<UIText>();
 		text->text = "Exit";
 		auto cButton = buttonExit->getComponent<Button>();
-		//cButton->bindOnClick(exit);
+		cButton->m_fnOnClick = []{
+			Game::GetInstance()->exit();
+		};
 	}
-}
-void SceneMainMenu::exit() {
-
 }
 void SceneMainMenu::update() {
 	

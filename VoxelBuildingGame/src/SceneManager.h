@@ -1,6 +1,7 @@
 #pragma once
 #include "SceneGame.h"
 #include <vector>
+#include <iostream>
 
 class SceneManager {
 private:
@@ -16,6 +17,9 @@ public:
 	void update();
 	void lastUpdate();
 	void render();
-	SceneGame* getScene(int index);
+	template<typename T>
+	T* getScene(int index) {
+		return dynamic_cast<T*>(m_scenes[index]);
+	};
 	void addExistScene(SceneGame* scene);
 };

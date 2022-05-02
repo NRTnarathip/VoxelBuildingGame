@@ -18,16 +18,15 @@ void Button::updateEventInput()
 
 	if (isMouseHover) {
 		if (input.onMouseDown(0)) {
-			if(m_eventOnClick) m_eventOnClick();
+			if (m_fnOnClick) 
+				m_fnOnClick();
 		}
 
 		if (input.onMouse(0)) {
-			printf("mouse press \n");
 			//on mouse press hold
 			color = colors.colorPress;
 		}
 		else if (input.onMouseUp(0)) {
-			printf("on mouse up\n");
 			color = colors.colorNormal;
 		}  
 
@@ -56,8 +55,4 @@ void Button::outHover() {
 }
 void Button::onHover() {
 	m_uiObject->rect.scale = glm::vec2(1.2f);
-}
-void Button::bindOnClick(functionPointer refFunction)
-{
-	m_eventOnClick = refFunction;
 }

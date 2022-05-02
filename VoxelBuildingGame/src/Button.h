@@ -6,6 +6,7 @@
 #include "RectTransform.h"
 #include "Image.h"
 #include "UIComponent.h"
+#include <vector>
 
 class Button : public UIComponent {
 private:
@@ -13,8 +14,8 @@ private:
 	void outHover();
 	bool isOnHover = false;
 public:
-	typedef void(*functionPointer)();
-	functionPointer m_eventOnClick = nullptr;
+	typedef void(*fnPtr)();
+	fnPtr m_fnOnClick;
 
 	class ColorTransition {
 	public:
@@ -33,5 +34,4 @@ public:
 	ColorTransition colors;
 	void init();
 	void updateEventInput();
-	void bindOnClick(functionPointer refFunction);
 };

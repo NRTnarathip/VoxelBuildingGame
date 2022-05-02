@@ -1,4 +1,6 @@
 #include "SceneManager.h"
+#include <iostream>
+
 SceneManager* SceneManager::instance = nullptr;
 
 void SceneManager::init() {
@@ -10,13 +12,13 @@ void SceneManager::init() {
 	}
 }
 void SceneManager::addExistScene(SceneGame* scene) {
+	scene->index = m_scenes.size();
+
+
 	if (m_scenes.empty()) {
 		scene->setActive(true);
 	}
 	m_scenes.push_back(scene);
-}
-SceneGame* SceneManager::getScene(int index) {
-	return m_scenes[index];
 }
 void SceneManager::beforeUpdate() {
 	for (auto scene : m_scenes) {

@@ -106,7 +106,8 @@ void Game::update() { //update every frame
     //test event input 
     auto glWindow = window->window;
     if (glfwGetKey(glWindow, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
-        glfwSetWindowShouldClose(glWindow, true);
+        exit();
+        return;
     }
     
 
@@ -119,5 +120,5 @@ void Game::update() { //update every frame
     //genMeshChunk->update();
 }
 void Game::exit() {
-
+    glfwSetWindowShouldClose(window->window, true);
 }
