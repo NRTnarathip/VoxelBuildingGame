@@ -6,14 +6,14 @@
 #include "GUI.h"
 
 void SceneMainMenu::init() {
-	setupMainMenu();
+	//setupMainMenu();
 }
 void SceneMainMenu::setupMainMenu() {
 	auto res = ResourceManager::GetInstance();
 	//setup button main menu
-	auto menu = UIMenu::GetInstance();
-	auto contentBG = menu->createContainer("lobby_background", {960 ,540}, {1920, 1080});
-	auto contentMainMenu = menu->createContainer("mainmenu", { 0 ,0 }, { 800, 600});
+	m_UIMenu.setupEntt(&registry);
+	auto contentBG = m_UIMenu.createContainer("lobby_background", {960 ,540}, {1920, 1080});
+	auto contentMainMenu = m_UIMenu.createContainer("mainmenu", { 0 ,0 }, { 800, 600});
 	contentMainMenu->rect.position.y = -140.f;
 	{
 		auto button = contentMainMenu->createButton("play");
@@ -23,6 +23,10 @@ void SceneMainMenu::setupMainMenu() {
 		img->sprite = res->getSprite("gui/button_0");
 		auto text = button->getComponent<UIText>();
 		text->text = "Play";
+		auto cButtonPlay = button->getComponent<Button>();
+		cButtonPlay->m_fnOnClick = []{
+			Game::GetInstance()->play();
+		};
 
 		button = contentMainMenu->createButton("setting");
 		button->rect.size = { 220, 60 };

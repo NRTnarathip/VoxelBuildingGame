@@ -11,6 +11,10 @@ void UIObject::render() {
 		child->m_uiObject->render();
 	}
 }
+void UIObject::update() {
+	for (auto c : m_components)
+		c->update();
+}
 void UIObject::swapOrderComponent(UIComponent* from, UIComponent* to) {
 	auto indexFrom = 0;
 	auto indexTo = 1;

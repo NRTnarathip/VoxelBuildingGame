@@ -1,17 +1,14 @@
 #pragma once
-#include "SceneGame.h"
+#include "Scene.h"
 
 //forward
 class Camera;
 
-class SceneMainMenu : public SceneGame {
+class SceneMainMenu : public Scene {
 public:
-	SceneMainMenu(std::string name) : SceneGame(name) {}
+	SceneMainMenu(std::string name) : Scene(name) {}
 	void setupMainMenu();
-
 	void init();
 	void update();
 	void render();
-
-	void exit();
 };

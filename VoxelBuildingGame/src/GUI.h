@@ -9,9 +9,6 @@
 class GUI {
 private:
 	static GUI* m_instance;
-	UIMenu* m_menu = nullptr;
-	std::vector<UIObject*> m_UIObjectHierarchy;
-	entt::registry registry;
 public:
 	static GUI& GetInstance() { return *m_instance; }
 	static void Begin() {};
@@ -20,8 +17,6 @@ public:
 	GLFWwindow* window = nullptr;
 	GUI(GLFWwindow* window);
 	glm::mat4 projection;
-	void render();
+	void update();
 	glm::vec2 getWindowSize();
-	void updateEventInput();
-	UIObject* createUIObject();
 };

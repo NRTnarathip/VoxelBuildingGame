@@ -39,6 +39,10 @@ public:
     void printCounter();
     //exit at lobby scene
     void exit();
+
+
+    //addon
+    void play();
 };
 
 class Time {

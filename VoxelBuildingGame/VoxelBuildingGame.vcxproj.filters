@@ -153,7 +153,7 @@
     <ClInclude Include="src\OpenGL Class\VAO.h">
       <Filter>Source Files\OpenGL Class</Filter>
     </ClInclude>
-    <ClInclude Include="src\SceneGame.h">
+    <ClInclude Include="src\Scene.h">
       <Filter>Source Files\Scene System</Filter>
     </ClInclude>
     <ClInclude Include="src\SceneManager.h">
@@ -305,7 +305,7 @@
     <ClCompile Include="src\Renderer\MeshGameObject.cpp">
       <Filter>Source Files\Renderer</Filter>
     </ClCompile>
-    <ClCompile Include="src\SceneGame.cpp">
+    <ClCompile Include="src\Scene.cpp">
       <Filter>Source Files\Scene System</Filter>
     </ClCompile>
     <ClCompile Include="src\SceneManager.cpp">
@@ -352,6 +352,9 @@
     </ClCompile>
     <ClCompile Include="src\Window.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\SceneMainGame.cpp">
+      <Filter>Source Files\Scenes</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

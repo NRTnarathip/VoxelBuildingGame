@@ -55,7 +55,7 @@
     <ClInclude Include="src\Renderer\MeshGameObject.h" />
     <ClInclude Include="src\Renderer\shaderClass.h" />
     <ClInclude Include="src\ResourceManager.h" />
-    <ClInclude Include="src\SceneGame.h" />
+    <ClInclude Include="src\Scene.h" />
     <ClInclude Include="src\SceneManager.h" />
     <ClInclude Include="src\Scenes\SceneMainGame.h" />
     <ClInclude Include="src\Scenes\SceneMainMenu.h" />
@@ -109,7 +109,8 @@
     <ClCompile Include="src\Renderer\MeshGameObject.cpp" />
     <ClCompile Include="src\Renderer\shaderClass.cpp" />
     <ClCompile Include="src\ResourceManager.cpp" />
-    <ClCompile Include="src\SceneGame.cpp" />
+    <ClCompile Include="src\Scene.cpp" />
+    <ClCompile Include="src\SceneMainGame.cpp" />
     <ClCompile Include="src\SceneManager.cpp" />
     <ClCompile Include="src\Scenes\SceneMainMenu.cpp" />
     <ClCompile Include="src\Sprite.cpp" />

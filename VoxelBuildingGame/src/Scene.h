@@ -2,14 +2,15 @@
 #include <string>
 #include "entt/entt.hpp"
 #include <iostream>
+#include "GameObject.h"
+#include "UIMenu.h"
 
-
-class SceneGame {
+class Scene {
 private:
 	bool m_active = false;
 public:
-	SceneGame();
-	SceneGame(std::string sceneNam);
+	Scene();
+	Scene(std::string sceneNam);
 	std::string name = "Unknow Scene";
 	unsigned int index = 0;
 	void setActive(bool state) {
@@ -22,5 +23,6 @@ public:
 	virtual void lastUpdate() {};
 	virtual void render() {};
 public:
+	UIMenu m_UIMenu;
 	entt::registry registry;
 };

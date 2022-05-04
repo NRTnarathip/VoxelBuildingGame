@@ -5,16 +5,16 @@
 #include <vector>
 #include "Button.h"
 #include "UIContainer.h"
+#include "entt/entt.hpp"
 
 class UIMenu {
-private:
-	static UIMenu* m_instance;
 public:
-	UIMenu() {
-		m_instance = this;
-	}
+	UIMenu() {}
+	entt::registry* m_registry = nullptr;
 	std::map<std::string, UIContainer*> m_containers;
-
-	static auto GetInstance() { return m_instance; }
 	UIContainer* createContainer(std::string containerName, glm::vec2 pos, glm::vec2 size);
+	void setupEntt(entt::registry* refRegistry);
+
+	void updateEventInput();
+	void render();
 };

@@ -77,7 +77,7 @@ void ClientEngine::launch() {
         window->clearBuffer();
         //part Input
         m_input->update();
-        m_gui->updateEventInput();
+        m_gui->update();
         //part Client Logic Update
         game->counterTime();
         game->beforeUpdate();
@@ -85,7 +85,6 @@ void ClientEngine::launch() {
         game->lastUpdate();
         //part Renderer 3D, 2D
         game->render();
-        m_gui->render();
         // Swap the back buffer with the front buffer
         glfwSwapBuffers(glfwWindow);
     }

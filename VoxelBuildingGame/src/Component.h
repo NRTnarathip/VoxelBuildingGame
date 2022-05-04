@@ -1,6 +1,5 @@
-#ifndef COMPONENT_H
-#define COMPONENT_H
-#include <GameObject.h>
+#pragma once
+class GameObject;
 
 class Component {
 private:
@@ -14,5 +13,3 @@ public:
 	virtual void lastUpdate() {};
 	virtual void draw() {};
 };
-
-#endif

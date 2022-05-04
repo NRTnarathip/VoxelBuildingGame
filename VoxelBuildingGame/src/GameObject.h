@@ -1,29 +1,26 @@
-#ifndef GAMEOBJECT_H
-#define GAMEOBJECT_H
-
+#pragma once
 #include "Physics/Transform.h"
 #include <string>
 #include <vector>
 #include <entt/entt.hpp>
-#include "ComponentManager.h"
 #include "Renderer/MeshGameObject.h"
 #include "Renderer/shaderClass.h"
-
-class ComponentManager;
+#include "Component.h"
 
 class GameObject {
-private:
-	std::vector<Transform*> childs;
-	Transform* parent;
-	entt::entity m_entity;
-	entt::registry* g_registry = nullptr;
-	std::vector<Component*> m_components;
 public:
 	GameObject();
+	Transform* parent;
+	std::vector<Transform*> childs;
 	std::string name;
 	Transform transform;
+	//component base
+	std::vector<Component*> m_components;
+	entt::entity m_entity;
+	entt::registry* g_registry = nullptr;
 	MeshGameObject* mesh = nullptr;
 	Shader* shader = nullptr;
+
 public:
 	template<typename TypeComponent>
 	TypeComponent* addComponent() {
@@ -45,5 +42,3 @@ public:
 	void setEntityID(entt::entity id) { m_entity = id; };
 	entt::entity getEntity() const { return m_entity; }
 };
-
-#endif

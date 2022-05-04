@@ -35,16 +35,14 @@ Game::Game(Window * win) {
 void Game::init() {
     //setup core base all
     sceneManager = new SceneManager();
+    sceneManager->init();
     //setup core addond
 
     //setup scene main menu, game
     auto mainMenu = new SceneMainMenu("Main Menu");
-    auto mainGame = new SceneMainGame("Main Game");
     sceneManager->addExistScene(mainMenu);
-    sceneManager->addExistScene(mainGame);
-
+    mainMenu->setupMainMenu();
     //implement engine core base
-    sceneManager->init();
 
     ////create world
        //world = new World();
@@ -109,8 +107,6 @@ void Game::update() { //update every frame
         exit();
         return;
     }
-    
-
     sceneManager->update();
     //world->update(Time::lastTime);
 
@@ -121,4 +117,11 @@ void Game::update() { //update every frame
 }
 void Game::exit() {
     glfwSetWindowShouldClose(window->window, true);
+}
+//play singleplayer
+void Game::play() {
+    auto scMainGame = new SceneMainGame("Main Game");
+    sceneManager->addExistScene(scMainGame);
+    sceneManager->changeScene(1);
+    scMainGame->playGame();
 }

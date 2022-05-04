@@ -17,9 +17,11 @@ public:
 		rect.size = size;
 		rect.position = pos;
 	}
+	entt::registry* m_registry = nullptr;
 	std::string name;
 	RectTransform rect;
 	std::vector<Button*> m_buttons;
+	
 	UIObject* createUIObject();
 	UIObject* createButton(std::string name);
 	UIObject* createImage();

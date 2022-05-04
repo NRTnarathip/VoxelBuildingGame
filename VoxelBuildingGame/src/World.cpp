@@ -23,7 +23,6 @@ void World::init() {
 	auto* boxCollision = player->addComponent<BoxCollision>();
 
 	auto* zombie = spawnGameObject();
-	zombie->shader = ResourceManager::GetInstance()->m_shaders[0];
 	zombie->mesh = new MeshGameObject();
 	zombie->mesh->setupGL();
 
@@ -55,13 +54,13 @@ void World::init() {
 	zombie->mesh->uploadDataMeshToGPU();
 
 
-	//init general component
-	for (auto gameObject : m_gameObjects) {
-		auto comps = gameObject->getAllComponents();
-		for (auto c : comps) {
-			c->init();
-		}
-	}
+	////init general component
+	//for (auto gameObject : m_gameObjects) {
+	//	auto comps = gameObject->getAllComponents();
+	//	for (auto c : comps) {
+	//		c->init();
+	//	}
+	//}
 }
 void World::tick() {
 	////update general component
@@ -72,12 +71,13 @@ void World::tick() {
 	//	}
 	//}
 }
-void World::update(float timeNow) {
+void World::update() {
 	//update sun direction before render chunk
 	/*Shader* def = Game::ref->shaders.defaultShader;
 	def->Bind();
 	def->SetVec3("sunDirect", lighting.sunDirect);
 	def->SetFloat("sunIntensity", lighting.sunIntensity);*/
+	float timeNow = Time::lastTime;
 	if (timeNow - tickLastTime > tickUseTime) {
 		tickLastTime = timeNow;
 		tickCountter++;
@@ -113,10 +113,10 @@ void World::render() {
 }
 GameObject* World::spawnGameObject() {
 	entt::entity newEntity = m_registry.create();
-	auto* newGameobject = &m_registry.emplace<GameObject>(newEntity);
+	auto* newGameobject = new GameObject();
 	newGameobject->setEntityID(newEntity);
 	newGameobject->name ="New GameObject(" + std::to_string((uint32_t)newEntity) + ")";
-
+	newGameobject->shader = ResourceManager::GetInstance()->m_shaders["gameobject"];
 	m_gameObjects.push_back(newGameobject);
 	return newGameobject;
 }

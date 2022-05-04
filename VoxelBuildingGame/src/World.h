@@ -18,7 +18,8 @@ private:
 	const float tickUseTime = 1.f / tickRate;
 	unsigned int tickCountter = 0;
 	
-	float tickLastTime =0.f;
+	float tickLastTime = 0.f;
+	float totaltime = 0.f;
 
 	//entity system component
 	entt::registry m_registry;
@@ -27,11 +28,10 @@ public:
 	World() { instance = this; }
 	static World* GetInstance() { return instance; }
 	static entt::registry& GetRegistry() { return instance->m_registry; }
-
 	//base func
 	void init();
 	void tick();
-	void update(float timeNow);//update every frame
+	void update();//update every frame
 	void render(); //render all game object;
 
 	//entity system
